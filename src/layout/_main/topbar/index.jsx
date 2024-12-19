@@ -1,10 +1,10 @@
 "use client";
 import { Box, Link, Stack, Toolbar, TextField, useTheme } from "@mui/material";
 import { useSelector } from "react-redux";
-// import FacebookIcon from "src/components/Icons/FacebookIcon";
-// import InstagramIcon from "src/components/Icons/InstagramIcon";
-// import LinkedinIcon from "src/components/Icons/LinkedinIcon";
-// import TwitterIcon from "src/components/Icons/TwitterIcon";
+import FacebookIcon from "src/components/Icons/FacebookIcon";
+import InstagramIcon from "src/components/Icons/InstagramIcon";
+import LinkedinIcon from "src/components/Icons/LinkedinIcon";
+import TwitterIcon from "src/components/Icons/TwitterIcon";
 import NextLink from "next/link";
 
 export default function UserTopbar() {
@@ -74,7 +74,7 @@ export default function UserTopbar() {
         />
 
         {/* Right Section */}
-        {/* <Stack
+        <Stack
           direction="row"
           alignItems="center"
           spacing={1}
@@ -92,7 +92,7 @@ export default function UserTopbar() {
           <Link component={NextLink} href={appSetting?.linkedinLink || "#"}>
             <LinkedinIcon />
           </Link>
-        </Stack> */}
+        </Stack>
       </Toolbar>
     </Box>
   );
