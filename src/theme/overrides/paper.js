@@ -7,11 +7,11 @@ export default function Paper(theme) {
 
       styleOverrides: {
         root: {
-          backgroundImage: 'none',
+          backgroundImage: "none",
           backgroundColor: theme.palette.background.default,
-          borderRadius: theme.spacing(1)
-        }
-      }
-    }
+          borderRadius: theme.spacing(1),
+        },
+      },
+    },
   };
 }

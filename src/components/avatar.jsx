@@ -1,25 +1,31 @@
-import PropTypes from 'prop-types';
-import Image from 'next/image';
+import PropTypes from "prop-types";
+import Image from "next/image";
 // mui
-import { Box } from '@mui/material';
+import { Box } from "@mui/material";
 
 export default function BlurImageAvatar({ ...props }) {
   return (
     <Box
       sx={{
-        position: 'relative',
+        position: "relative",
         height: 40,
         width: 40,
-        borderRadius: '50%',
-        overflow: 'hidden',
-        ...props
+        borderRadius: "50%",
+        overflow: "hidden",
+        ...props,
       }}
     >
-      <Image src={props.src} alt="user avatar" layout="fill" objectFit="cover" {...props} />
+      <Image
+        src={props.src}
+        alt="user avatar"
+        layout="fill"
+        objectFit="cover"
+        {...props}
+      />
     </Box>
   );
 }
 
 BlurImageAvatar.propTypes = {
-  src: PropTypes.string.isRequired
+  src: PropTypes.string.isRequired,
 };

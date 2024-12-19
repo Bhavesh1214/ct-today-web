@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react";
 // mui
-import { Card, Container, Skeleton, Stack, Typography } from '@mui/material';
+import { Card, Container, Skeleton, Stack, Typography } from "@mui/material";
 // component
-import ResetPassword from './reset-password';
+import ResetPassword from "./reset-password";
 
 export default function Index() {
   return (
@@ -10,11 +10,11 @@ export default function Index() {
       <Card
         sx={{
           maxWidth: 560,
-          m: 'auto',
-          my: '80px',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          p: 3
+          m: "auto",
+          my: "80px",
+          flexDirection: "column",
+          justifyContent: "center",
+          p: 3,
         }}
       >
         <Stack mb={5}>

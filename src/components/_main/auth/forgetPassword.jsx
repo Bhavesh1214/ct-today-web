@@ -1,34 +1,34 @@
-'use client';
-import React, { useState } from 'react';
-import { useRouter } from 'next-nprogress-bar';
-import { toast } from 'react-hot-toast';
+"use client";
+import React, { useState } from "react";
+import { useRouter } from "next-nprogress-bar";
+import { toast } from "react-hot-toast";
 
 // mui
-import { Box, Button, Container, Typography, Card } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+import { Box, Button, Container, Typography, Card } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
 // api
-import * as api from 'src/services';
-import { useMutation } from 'react-query';
+import * as api from "src/services";
+import { useMutation } from "react-query";
 // icons
-import { CiCircleCheck } from 'react-icons/ci';
+import { CiCircleCheck } from "react-icons/ci";
 // components
-import ForgetPasswordForm from 'src/components/forms/forgetPassword';
+import ForgetPasswordForm from "src/components/forms/forgetPassword";
 
 export default function ForgetPasswordMain() {
   const router = useRouter();
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState("");
   const [sent, setSent] = useState(false);
   const [loading, setloading] = useState(false);
   const { mutate } = useMutation(api.forgetPassword, {
     onSuccess: () => {
       setloading(false);
-      toast.success('Email sent');
+      toast.success("Email sent");
     },
     onError: (err) => {
       const message = JSON.stringify(err.response.data.message);
       setloading(false);
-      toast.error(message ? JSON.parse(message) : 'Something went wrong!');
-    }
+      toast.error(message ? JSON.parse(message) : "Something went wrong!");
+    },
   });
 
   return (
@@ -36,16 +36,16 @@ export default function ForgetPasswordMain() {
       <Card
         sx={{
           maxWidth: 560,
-          m: 'auto',
-          my: '80px',
-          borderRadius: '8px',
-          boxShadow: 'unset',
-          flexDirection: 'column',
-          justifyContent: 'center',
+          m: "auto",
+          my: "80px",
+          borderRadius: "8px",
+          boxShadow: "unset",
+          flexDirection: "column",
+          justifyContent: "center",
           p: 3,
-          '& .full-width-btn': {
-            mt: 1
-          }
+          "& .full-width-btn": {
+            mt: 1,
+          },
         }}
       >
         {!sent ? (
@@ -54,13 +54,21 @@ export default function ForgetPasswordMain() {
               Forget Password
             </Typography>
             <Typography color="text.secondary" mb={5} textAlign="center">
-              Please enter the email address associated with your account and We will email you a link to reset your
-              password.
+              Please enter the email address associated with your account and We
+              will email you a link to reset your password.
             </Typography>
 
-            <ForgetPasswordForm onSent={() => setSent(true)} onGetEmail={(value) => setEmail(value)} />
+            <ForgetPasswordForm
+              onSent={() => setSent(true)}
+              onGetEmail={(value) => setEmail(value)}
+            />
 
-            <Button fullWidth size="large" onClick={() => router.push('/auth/login')} className="full-width-btn">
+            <Button
+              fullWidth
+              size="large"
+              onClick={() => router.push("/auth/login")}
+              className="full-width-btn"
+            >
               back
             </Button>
           </>
@@ -69,8 +77,8 @@ export default function ForgetPasswordMain() {
             <Box
               sx={{
                 mb: 5,
-                mx: 'auto',
-                display: 'inline-block'
+                mx: "auto",
+                display: "inline-block",
               }}
             >
               <CiCircleCheck fontSize={160} />
@@ -93,7 +101,12 @@ export default function ForgetPasswordMain() {
             >
               resend
             </LoadingButton>
-            <Button size="large" fullWidth onClick={() => router.push('/auth/login')} className="full-width-btn">
+            <Button
+              size="large"
+              fullWidth
+              onClick={() => router.push("/auth/login")}
+              className="full-width-btn"
+            >
               back
             </Button>
           </Box>

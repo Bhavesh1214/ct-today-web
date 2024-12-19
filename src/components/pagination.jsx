@@ -1,15 +1,15 @@
-import React, { useCallback } from 'react';
-import { useSearchParams, usePathname } from 'next/navigation';
-import { useRouter } from 'next-nprogress-bar';
-import PropTypes from 'prop-types';
+import React, { useCallback } from "react";
+import { useSearchParams, usePathname } from "next/navigation";
+import { useRouter } from "next-nprogress-bar";
+import PropTypes from "prop-types";
 
 // mui
-import Pagination from '@mui/material/Pagination';
+import Pagination from "@mui/material/Pagination";
 
 PaginationRounded.propTypes = {
   data: PropTypes.shape({
-    count: PropTypes.number
-  })
+    count: PropTypes.number,
+  }),
 };
 
 export default function PaginationRounded({ ...props }) {
@@ -17,7 +17,7 @@ export default function PaginationRounded({ ...props }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const page = searchParams.get('page');
+  const page = searchParams.get("page");
   const [state, setstate] = React.useState(1);
 
   const createQueryString = useCallback(
@@ -27,12 +27,12 @@ export default function PaginationRounded({ ...props }) {
 
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
 
   const handleChange = (event, value) => {
     setstate(value);
-    router.push(`${pathname}?${createQueryString('page', value)}`);
+    router.push(`${pathname}?${createQueryString("page", value)}`);
   };
   React.useEffect(() => {
     if (page) {
@@ -49,11 +49,11 @@ export default function PaginationRounded({ ...props }) {
       shape="rounded"
       color="primary"
       sx={{
-        ml: 'auto',
+        ml: "auto",
         mb: 2,
-        '.MuiPagination-ul': {
-          justifyContent: 'center'
-        }
+        ".MuiPagination-ul": {
+          justifyContent: "center",
+        },
       }}
     />
   );

@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // mui
-import { Card, Container, Skeleton, Stack, Typography } from '@mui/material';
+import { Card, Container, Skeleton, Stack, Typography } from "@mui/material";
 
 export default function index() {
   return (
@@ -8,13 +8,13 @@ export default function index() {
       <Card
         sx={{
           maxWidth: 560,
-          m: 'auto',
-          my: '80px',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          borderRadius: '8px',
-          boxShadow: 'unset',
-          p: 3
+          m: "auto",
+          my: "80px",
+          flexDirection: "column",
+          justifyContent: "center",
+          borderRadius: "8px",
+          boxShadow: "unset",
+          p: 3,
         }}
       >
         <Stack mb={5}>

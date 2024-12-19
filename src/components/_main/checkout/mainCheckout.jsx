@@ -1,49 +1,58 @@
-'use client';
-import React, { useState } from 'react';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next-nprogress-bar';
-import { useDispatch, useSelector } from 'react-redux';
-import { useMutation } from 'react-query';
-import { toast } from 'react-hot-toast';
-import { sum } from 'lodash';
+"use client";
+import React, { useState } from "react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next-nprogress-bar";
+import { useDispatch, useSelector } from "react-redux";
+import { useMutation } from "react-query";
+import { toast } from "react-hot-toast";
+import { sum } from "lodash";
 // mui
-import { Box, Collapse, Grid } from '@mui/material';
-import LoadingButton from '@mui/lab/LoadingButton';
+import { Box, Collapse, Grid } from "@mui/material";
+import LoadingButton from "@mui/lab/LoadingButton";
 // yup
-import * as Yup from 'yup';
+import * as Yup from "yup";
 // formik
-import { useFormik, Form, FormikProvider } from 'formik';
+import { useFormik, Form, FormikProvider } from "formik";
 // api
-import * as api from 'src/services';
+import * as api from "src/services";
 // stripe
-import { useStripe, useElements } from '@stripe/react-stripe-js';
+import { useStripe, useElements } from "@stripe/react-stripe-js";
 
 // Componensts
-import { resetCart, getCart } from 'src/redux/slices/product';
-import countries from './countries.json';
-import CheckoutGuestFormSkeleton from '../skeletons/checkout/checkoutForm';
-import PaymentInfoSkeleton from '../skeletons/checkout/paymentInfo';
-import PaymentMethodCardSkeleton from '../skeletons/checkout/paymentMethod';
-import CardItemSekelton from '../skeletons/checkout/cartItems';
+import { resetCart, getCart } from "src/redux/slices/product";
+import countries from "./countries.json";
+import CheckoutGuestFormSkeleton from "../skeletons/checkout/checkoutForm";
+import PaymentInfoSkeleton from "../skeletons/checkout/paymentInfo";
+import PaymentMethodCardSkeleton from "../skeletons/checkout/paymentMethod";
+import CardItemSekelton from "../skeletons/checkout/cartItems";
 // hooks
-import { useCurrencyConvert } from 'src/hooks/convertCurrency';
+import { useCurrencyConvert } from "src/hooks/convertCurrency";
 // paypal
 // dynamic components
-const CheckoutForm = dynamic(() => import('src/components/forms/checkout'), {
-  loading: () => <CheckoutGuestFormSkeleton />
+const CheckoutForm = dynamic(() => import("src/components/forms/checkout"), {
+  loading: () => <CheckoutGuestFormSkeleton />,
 });
-const ShipmentCheckoutForm = dynamic(() => import('src/components/forms/shipmentAddress'), {
-  loading: () => <CheckoutGuestFormSkeleton />
-});
-const PaymentInfo = dynamic(() => import('src/components/_main/checkout/paymentInfo'), {
-  loading: () => <PaymentInfoSkeleton />
-});
-const PaymentMethodCard = dynamic(() => import('src/components/_main/checkout/paymentMethod'), {
-  loading: () => <PaymentMethodCardSkeleton />
-});
+const ShipmentCheckoutForm = dynamic(
+  () => import("src/components/forms/shipmentAddress"),
+  {
+    loading: () => <CheckoutGuestFormSkeleton />,
+  },
+);
+const PaymentInfo = dynamic(
+  () => import("src/components/_main/checkout/paymentInfo"),
+  {
+    loading: () => <PaymentInfoSkeleton />,
+  },
+);
+const PaymentMethodCard = dynamic(
+  () => import("src/components/_main/checkout/paymentMethod"),
+  {
+    loading: () => <PaymentMethodCardSkeleton />,
+  },
+);
 
-const CartItemsCard = dynamic(() => import('src/components/cards/cartItems'), {
-  loading: () => <CardItemSekelton />
+const CartItemsCard = dynamic(() => import("src/components/cards/cartItems"), {
+  loading: () => <CardItemSekelton />,
 });
 
 // const initialOptions = {
@@ -61,7 +70,7 @@ const CheckoutMain = () => {
   const { checkout } = useSelector(({ product }) => product);
   const { user: userData } = useSelector(({ user }) => user);
   const { cart } = checkout;
-  const [paymentMethod, setPaymentMethod] = useState('COD');
+  const [paymentMethod, setPaymentMethod] = useState("COD");
   const [checked, setChecked] = React.useState(false);
 
   const handleChangeShipping = (event) => {
@@ -75,19 +84,19 @@ const CheckoutMain = () => {
   const [totalWithDiscount, setTotalWithDiscount] = useState(null);
   const elements = useElements();
   const stripe = useStripe();
-  const { mutate, isLoading } = useMutation('order', api.placeOrder, {
+  const { mutate, isLoading } = useMutation("order", api.placeOrder, {
     onSuccess: (data) => {
       debugger;
-      toast.success('Order placed!');
+      toast.success("Order placed!");
       setProcessingTo(false);
 
       router.push(`/order/${data.orderId}`);
       dispatch(resetCart());
     },
     onError: (err) => {
-      toast.error(err.response.data.message || 'Something went wrong');
+      toast.error(err.response.data.message || "Something went wrong");
       setProcessingTo(false);
-    }
+    },
   });
 
   const [loading, setLoading] = React.useState(true);
@@ -99,13 +108,13 @@ const CheckoutMain = () => {
     onError: (err) => {
       const message = JSON.stringify(err.response.data.message);
       setLoading(false);
-      toast.error(message ? JSON.parse(message) : 'Something went wrong!');
-    }
+      toast.error(message ? JSON.parse(message) : "Something went wrong!");
+    },
   });
   React.useEffect(() => {
     formik.validateForm();
     if (cart.length < 1) {
-      router.push('/');
+      router.push("/");
     } else {
       setLoading(true);
       getCartMutate(cart);
@@ -113,55 +122,59 @@ const CheckoutMain = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const NewAddressSchema = Yup.object().shape({
-    firstName: Yup.string().required('First name is required'),
-    lastName: Yup.string().required('Last name is required'),
-    phone: Yup.string().required('Phone is required'),
-    email: Yup.string().email('Enter email Valid').required('Email is required'),
-    address: Yup.string().required('Address is required'),
-    city: Yup.string().required('City is required'),
-    state: Yup.string().required('State is required'),
-    country: Yup.string().required('Country is required'),
-    zip: Yup.string().required('Postal is required'),
+    firstName: Yup.string().required("First name is required"),
+    lastName: Yup.string().required("Last name is required"),
+    phone: Yup.string().required("Phone is required"),
+    email: Yup.string()
+      .email("Enter email Valid")
+      .required("Email is required"),
+    address: Yup.string().required("Address is required"),
+    city: Yup.string().required("City is required"),
+    state: Yup.string().required("State is required"),
+    country: Yup.string().required("Country is required"),
+    zip: Yup.string().required("Postal is required"),
     // shipping: Yup.boolean().required('Postal is required'),
     shippingAddress: checked
       ? Yup.object().shape({
-          firstName: Yup.string().required('First name is required'),
-          lastName: Yup.string().required('Last name is required'),
-          phone: Yup.string().required('Phone is required'),
-          email: Yup.string().email('Enter email Valid').required('Email is required'),
-          address: Yup.string().required('Address is required'),
-          city: Yup.string().required('City is required'),
-          state: Yup.string().required('State is required'),
-          country: Yup.string().required('Country is required'),
-          zip: Yup.string().required('Postal is required')
+          firstName: Yup.string().required("First name is required"),
+          lastName: Yup.string().required("Last name is required"),
+          phone: Yup.string().required("Phone is required"),
+          email: Yup.string()
+            .email("Enter email Valid")
+            .required("Email is required"),
+          address: Yup.string().required("Address is required"),
+          city: Yup.string().required("City is required"),
+          state: Yup.string().required("State is required"),
+          country: Yup.string().required("Country is required"),
+          zip: Yup.string().required("Postal is required"),
         })
-      : Yup.string().nullable().notRequired()
+      : Yup.string().nullable().notRequired(),
   });
 
   // Define initial values
   const formik = useFormik({
     initialValues: {
-      firstName: userData?.firstName || '',
-      lastName: userData?.lastName || '',
-      phone: userData?.phone || '',
-      email: userData?.email || '',
-      address: userData?.address || '',
-      city: userData?.city || '',
-      state: userData?.state || '',
-      country: userData?.country || 'India',
-      zip: userData?.zip || '',
-      note: '',
+      firstName: userData?.firstName || "",
+      lastName: userData?.lastName || "",
+      phone: userData?.phone || "",
+      email: userData?.email || "",
+      address: userData?.address || "",
+      city: userData?.city || "",
+      state: userData?.state || "",
+      country: userData?.country || "India",
+      zip: userData?.zip || "",
+      note: "",
       ...(checked && {
         shippingAddress: {
-          firstName: '',
-          lastName: '',
-          address: '',
-          city: '',
-          state: '',
-          country: 'India',
-          zip: ''
-        }
-      })
+          firstName: "",
+          lastName: "",
+          address: "",
+          city: "",
+          state: "",
+          country: "India",
+          zip: "",
+        },
+      }),
     },
     enableReinitialize: true,
     validationSchema: NewAddressSchema,
@@ -177,45 +190,47 @@ const CheckoutMain = () => {
         couponCode,
         currency,
         conversionRate: rate,
-        shipping: process.env.SHIPPING_FEE || 0
+        shipping: process.env.SHIPPING_FEE || 0,
       };
-      if (data.paymentMethod === 'stripe') {
+      if (data.paymentMethod === "stripe") {
         onSubmit(data);
       } else {
         mutate(data);
       }
-    }
+    },
   });
   const { errors, values, touched, handleSubmit, getFieldProps } = formik;
 
   const onSubmit = async ({ ...data }) => {
     setProcessingTo(true);
     setCheckoutError(null);
-    const selected = countries.find((v) => v.label.toLowerCase() === values.country.toLowerCase());
+    const selected = countries.find(
+      (v) => v.label.toLowerCase() === values.country.toLowerCase(),
+    );
     const billingDetails = {
-      name: values.firstName + ' ' + values.lastName,
+      name: values.firstName + " " + values.lastName,
       email: values.email,
       address: {
         city: values.city,
         line1: values.address,
         state: values.state,
         postal_code: values.zip,
-        country: selected?.code.toLocaleLowerCase() || 'us'
-      }
+        country: selected?.code.toLocaleLowerCase() || "us",
+      },
     };
 
-    const cardElement = elements.getElement('card');
+    const cardElement = elements.getElement("card");
     try {
       const { client_secret: clientSecret } = await api.paymentIntents(
         cCurrency(totalWithDiscount || checkout.total),
         currency,
-        values.note
+        values.note,
       );
 
       const paymentMethodReq = await stripe.createPaymentMethod({
-        type: 'card',
+        type: "card",
         card: cardElement,
-        billing_details: billingDetails
+        billing_details: billingDetails,
       });
 
       if (paymentMethodReq?.error) {
@@ -225,7 +240,7 @@ const CheckoutMain = () => {
       }
 
       const { error } = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: paymentMethodReq?.paymentMethod.id
+        payment_method: paymentMethodReq?.paymentMethod.id,
       });
       if (error) {
         setCheckoutError(error.message);
@@ -237,9 +252,9 @@ const CheckoutMain = () => {
 
       mutate({
         ...data,
-        paymentMethod: 'Stripe',
+        paymentMethod: "Stripe",
         couponCode,
-        paymentId: paymentMethodReq?.paymentMethod.id
+        paymentId: paymentMethodReq?.paymentMethod.id,
       });
       return;
     } catch (err) {
@@ -282,12 +297,20 @@ const CheckoutMain = () => {
                 checked={checked}
               />
               <Collapse in={checked}>
-                <ShipmentCheckoutForm getFieldProps={getFieldProps} touched={touched} errors={errors} />
+                <ShipmentCheckoutForm
+                  getFieldProps={getFieldProps}
+                  touched={touched}
+                  errors={errors}
+                />
               </Collapse>
             </Grid>
             <Grid item xs={12} md={4}>
               <CartItemsCard cart={cart} loading={loading} />
-              <PaymentInfo loading={loading} setCouponCode={setCouponCode} setTotal={(v) => setTotalWithDiscount(v)} />
+              <PaymentInfo
+                loading={loading}
+                setCouponCode={setCouponCode}
+                setTotal={(v) => setTotalWithDiscount(v)}
+              />
               <PaymentMethodCard
                 loading={loading}
                 value={paymentMethod}
@@ -310,7 +333,7 @@ const CheckoutMain = () => {
                 </PayPalScriptProvider>
               </Collapse> */}
 
-              <Collapse in={paymentMethod !== 'paypal'}>
+              <Collapse in={paymentMethod !== "paypal"}>
                 <LoadingButton
                   variant="contained"
                   fullWidth

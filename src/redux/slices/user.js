@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 // ----------------------------------------------------------------------
 
@@ -8,12 +8,12 @@ const initialState = {
   user: null,
   count: 0,
   isInitialized: false,
-  followingShops: []
+  followingShops: [],
 };
 
 // slice
 const slice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
 
   reducers: {
@@ -39,18 +39,20 @@ const slice = createSlice({
       state.user.isVerified = true;
     },
     updateUserRole(state) {
-      state.user.role = 'vendor';
+      state.user.role = "vendor";
     },
     updateFollowShop(state, action) {
       const filtered = state.followingShops.filter((v) => v === action.payload);
       if (filtered.length) {
-        const removedShop = state.followingShops.filter((v) => v !== action.payload);
+        const removedShop = state.followingShops.filter(
+          (v) => v !== action.payload,
+        );
         state.followingShops = removedShop;
       } else {
         state.followingShops = [...state.followingShops, action.payload];
       }
-    }
-  }
+    },
+  },
 });
 
 // Reducer
@@ -65,7 +67,7 @@ export const {
   updateStatus,
   verifyUser,
   updateUserRole,
-  updateFollowShop
+  updateFollowShop,
 } = slice.actions;
 
 // ----------------------------------------------------------------------

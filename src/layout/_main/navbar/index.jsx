@@ -1,32 +1,49 @@
-'use client';
-import React, { useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import { useDispatch, useSelector } from 'react-redux';
+"use client";
+import React, { useEffect } from "react";
+import dynamic from "next/dynamic";
+import { useDispatch, useSelector } from "react-redux";
 
 // mui
-import { alpha } from '@mui/material/styles';
-import { Toolbar, Skeleton, Stack, AppBar, useMediaQuery, Container, IconButton, InputBase } from '@mui/material';
-import * as api from 'src/services';
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import { Box, TextField, Button, Grid, Typography, Card, CardMedia, CardContent } from '@mui/material';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import MenuIcon from '@mui/icons-material/Menu';
-import SearchIcon from '@mui/icons-material/Search';
+import { alpha } from "@mui/material/styles";
+import {
+  Toolbar,
+  Skeleton,
+  Stack,
+  AppBar,
+  useMediaQuery,
+  Container,
+  IconButton,
+  InputBase,
+} from "@mui/material";
+import * as api from "src/services";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+// import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import {
+  Box,
+  TextField,
+  Button,
+  Grid,
+  Typography,
+  Card,
+  CardMedia,
+  CardContent,
+} from "@mui/material";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import MenuIcon from "@mui/icons-material/Menu";
+import SearchIcon from "@mui/icons-material/Search";
 
 // components
-import Logo from 'src/components/logo';
-import { setSettings } from 'src/redux/slices/settings';
-import MenuDesktop from '../actionbar/menuDesktop';
-import config from 'src/layout/_main/config.json';
-import Image from 'next/image';
-import MobileBar from '../mobileBar';
+import Logo from "src/components/logo";
+import { setSettings } from "src/redux/slices/settings";
+import MenuDesktop from "../actionbar/menuDesktop";
+import config from "src/layout/_main/config.json";
+import Image from "next/image";
+import MobileBar from "../mobileBar";
 // dynamic import components
-
 
 // new //
 
@@ -48,7 +65,7 @@ export default function Navbar() {
         dispatch(setSettings(response.data[0]));
       }
     } catch (error) {
-      console.error('Error fetching advertise images:', error);
+      console.error("Error fetching advertise images:", error);
     }
   };
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -65,64 +82,82 @@ export default function Navbar() {
     // 'Home',
     // 'About Us',
     // 'Contact',
-    'News',
-    'Equipment & Machinery',
-    'Product & Technology',
-    'Article & Report',
-    'Interview',
-    'Event',
-    'Subscribe',
-    'E-Magazine',
+    "News",
+    "Equipment & Machinery",
+    "Product & Technology",
+    "Article & Report",
+    "Interview",
+    "Event",
+    "Subscribe",
+    "E-Magazine",
   ];
 
   return (
     <>
       <AppBar
         sx={{
-          boxShadow: 'none',
-          position: 'relative !important',
+          boxShadow: "none",
+          position: "relative !important",
           borderRadius: 0,
           // paddingTop: '20px !important',
           // bgcolor: (theme) => alpha(theme.palette.background.paper, 1),
           borderTop: (theme) => `1px solid ${theme.palette.divider}`,
           // display: { md: 'block', xs: 'none' },
-          '& .toolbar': {
-            justifyContent: 'space-between',
-            backdropFilter: 'blur(6px)',
+          "& .toolbar": {
+            justifyContent: "space-between",
+            backdropFilter: "blur(6px)",
             borderRadius: 0,
-             // Fix on Mobile
+            // Fix on Mobile
             bgcolor: (theme) => alpha(theme.palette.background.paper, 1),
             // backgroundColor: '#301935',
-            py: 1.5
-          }
+            py: 1.5,
+          },
         }}
       >
         <Box sx={{ padding: 2 }}>
-
           <Box sx={{ py: { xs: 2, sm: 4 } }}>
-            <Box display="flex" alignItems="center" justifyContent="space-between" py={1}>
+            <Box
+              display="flex"
+              alignItems="center"
+              justifyContent="space-between"
+              py={1}
+            >
               {/* Section: Construction */}
-              <Image src={'/images/Consruction-logo.png'} width={100} height={100} alt='Logo' style={{ width: 'auto', height: 'auto', objectFit: 'cover' }} />
+              <Image
+                src={"/images/Consruction-logo.png"}
+                width={100}
+                height={100}
+                alt="Logo"
+                style={{ width: "auto", height: "auto", objectFit: "cover" }}
+              />
 
               {/* Section: Input Fields */}
               <Box>
-                <Typography variant='body2' color={'#665394'} textAlign={'center'} fontSize={20} mb={1}>SUBSCRIBE NEWSLETTER</Typography>
-                <Box display="flex" justifyContent={'space-between'} gap="10px">
+                <Typography
+                  variant="body2"
+                  color={"#665394"}
+                  textAlign={"center"}
+                  fontSize={20}
+                  mb={1}
+                >
+                  SUBSCRIBE NEWSLETTER
+                </Typography>
+                <Box display="flex" justifyContent={"space-between"} gap="10px">
                   <TextField
                     placeholder="Your Name"
                     variant="outlined"
                     size="small"
                     sx={{
-                      background: '#fff',
-                      '& .MuiOutlinedInput-root': {
-                        '& fieldset': {
-                          borderColor: 'black',
+                      background: "#fff",
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": {
+                          borderColor: "black",
                         },
-                        '&:hover fieldset': {
-                          borderColor: 'black',
+                        "&:hover fieldset": {
+                          borderColor: "black",
                         },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'black',
+                        "&.Mui-focused fieldset": {
+                          borderColor: "black",
                         },
                       },
                     }}
@@ -132,16 +167,16 @@ export default function Navbar() {
                     variant="outlined"
                     size="small"
                     sx={{
-                      background: '#fff',
-                      '& .MuiOutlinedInput-root': {
-                        '& fieldset': {
-                          borderColor: 'black',
+                      background: "#fff",
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": {
+                          borderColor: "black",
                         },
-                        '&:hover fieldset': {
-                          borderColor: 'black',
+                        "&:hover fieldset": {
+                          borderColor: "black",
                         },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'black',
+                        "&.Mui-focused fieldset": {
+                          borderColor: "black",
                         },
                       },
                     }}
@@ -151,16 +186,16 @@ export default function Navbar() {
                     variant="outlined"
                     size="small"
                     sx={{
-                      background: '#fff',
-                      '& .MuiOutlinedInput-root': {
-                        '& fieldset': {
-                          borderColor: 'black',
+                      background: "#fff",
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": {
+                          borderColor: "black",
                         },
-                        '&:hover fieldset': {
-                          borderColor: 'black',
+                        "&:hover fieldset": {
+                          borderColor: "black",
                         },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'black',
+                        "&.Mui-focused fieldset": {
+                          borderColor: "black",
                         },
                       },
                     }}
@@ -170,16 +205,16 @@ export default function Navbar() {
                     variant="outlined"
                     size="small"
                     sx={{
-                      background: '#fff',
-                      '& .MuiOutlinedInput-root': {
-                        '& fieldset': {
-                          borderColor: 'black', // Ensure the outline is black
+                      background: "#fff",
+                      "& .MuiOutlinedInput-root": {
+                        "& fieldset": {
+                          borderColor: "black", // Ensure the outline is black
                         },
-                        '&:hover fieldset': {
-                          borderColor: 'black', // Black border on hover
+                        "&:hover fieldset": {
+                          borderColor: "black", // Black border on hover
                         },
-                        '&.Mui-focused fieldset': {
-                          borderColor: 'black', // Black border when focused
+                        "&.Mui-focused fieldset": {
+                          borderColor: "black", // Black border when focused
                         },
                       },
                     }}
@@ -199,7 +234,7 @@ export default function Navbar() {
               </Grid>
             </Grid> */}
             <Grid container spacing={4}>
-              <Grid item xs={12} sm={6} >
+              <Grid item xs={12} sm={6}>
                 <Box
                   sx={{
                     width: "100%",
@@ -214,7 +249,7 @@ export default function Navbar() {
                   Banner 1 (700x150 px)
                 </Box>
               </Grid>
-              <Grid item xs={12} sm={6} >
+              <Grid item xs={12} sm={6}>
                 <Box
                   sx={{
                     width: "100%",
@@ -231,23 +266,41 @@ export default function Navbar() {
             </Grid>
           </Box>
           <Box sx={{ flexGrow: 1 }}>
-            <AppBar  sx={{
-              backgroundColor: '#665394'
-            }}>
-              <Toolbar sx={{minHeight: '46px !important'}}>
-                <Typography variant="h6" sx={{ flexGrow: 1, display: { color: '#FF6F00' } }}>
+            <AppBar
+              sx={{
+                backgroundColor: "#665394",
+              }}
+            >
+              <Toolbar sx={{ minHeight: "46px !important" }}>
+                <Typography
+                  variant="h6"
+                  sx={{ flexGrow: 1, display: { color: "#FF6F00" } }}
+                >
                   Home
                 </Typography>
-                <Typography variant="h6" sx={{ flexGrow: 1, display: { color: '#FF6F00' } }}>
+                <Typography
+                  variant="h6"
+                  sx={{ flexGrow: 1, display: { color: "#FF6F00" } }}
+                >
                   About Us
                 </Typography>
-                <Typography variant="h6" sx={{ flexGrow: 1, display: { color: '#FF6F00' } }}>
+                <Typography
+                  variant="h6"
+                  sx={{ flexGrow: 1, display: { color: "#FF6F00" } }}
+                >
                   Contact
                 </Typography>
 
-                <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+                <Box sx={{ display: { xs: "none", md: "flex" } }}>
                   {menuItems.map((item, index) => (
-                    <Button key={index} sx={{ color: '#fff', textTransform: 'none', fontWeight: 'bold' }}>
+                    <Button
+                      key={index}
+                      sx={{
+                        color: "#fff",
+                        textTransform: "none",
+                        fontWeight: "bold",
+                      }}
+                    >
                       {item}
                     </Button>
                   ))}
@@ -256,7 +309,7 @@ export default function Navbar() {
                   color="inherit"
                   aria-label="menu"
                   onClick={handleMenuOpen}
-                  sx={{ display: { xs: 'block', md: 'none' } }}
+                  sx={{ display: { xs: "block", md: "none" } }}
                 >
                   <MenuIcon />
                 </IconButton>
@@ -265,7 +318,7 @@ export default function Navbar() {
                 anchorEl={anchorEl}
                 open={Boolean(anchorEl)}
                 onClose={handleMenuClose}
-                sx={{ display: { xs: 'block', md: 'none' } }}
+                sx={{ display: { xs: "block", md: "none" } }}
               >
                 {menuItems.map((item, index) => (
                   <MenuItem key={index} onClick={handleMenuClose}>

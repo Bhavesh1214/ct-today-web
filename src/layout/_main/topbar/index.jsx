@@ -1,11 +1,11 @@
-'use client';
-import { Box, Link, Stack, Toolbar, TextField, useTheme } from '@mui/material';
-import { useSelector } from 'react-redux';
-import FacebookIcon from 'src/components/Icons/FacebookIcon';
-import InstagramIcon from 'src/components/Icons/InstagramIcon';
-import LinkedinIcon from 'src/components/Icons/LinkedinIcon';
-import TwitterIcon from 'src/components/Icons/TwitterIcon';
-import NextLink from 'next/link';
+"use client";
+import { Box, Link, Stack, Toolbar, TextField, useTheme } from "@mui/material";
+import { useSelector } from "react-redux";
+// import FacebookIcon from "src/components/Icons/FacebookIcon";
+// import InstagramIcon from "src/components/Icons/InstagramIcon";
+// import LinkedinIcon from "src/components/Icons/LinkedinIcon";
+// import TwitterIcon from "src/components/Icons/TwitterIcon";
+import NextLink from "next/link";
 
 export default function UserTopbar() {
   const theme = useTheme();
@@ -14,20 +14,20 @@ export default function UserTopbar() {
   return (
     <Box
       sx={{
-        position: 'fixed',
+        position: "fixed",
         top: 0,
         zIndex: 999999999999,
-        background: '#665394',
-        padding: '0px 0px',
-        width: '100%',
+        background: "#665394",
+        padding: "0px 0px",
+        width: "100%",
       }}
     >
       <Toolbar
         sx={{
           minHeight: 36,
-          justifyContent: 'space-between',
-          display: { xs: 'none', md: 'flex' },
-          width: '100%',
+          justifyContent: "space-between",
+          display: { xs: "none", md: "flex" },
+          width: "100%",
           px: 0,
         }}
       >
@@ -36,14 +36,13 @@ export default function UserTopbar() {
           <Link
             className="nav-items"
             component={NextLink}
-            href={'/blogs'}
+            href={"/blogs"}
             sx={{
-              color: '#fff',
+              color: "#fff",
               fontSize: 14,
-              display: 'flex',
-              alignItems: 'center',
+              display: "flex",
+              alignItems: "center",
               gap: 1,
-              
             }}
           >
             Saturday, 30th November 2024
@@ -56,18 +55,18 @@ export default function UserTopbar() {
           variant="outlined"
           size="small"
           sx={{
-            background: '#fff',
-            borderRadius: '4px',
-            width: '23%',
-            margin: '5px',
-            '& .MuiOutlinedInput-root': {
-              '& fieldset': {
-                borderColor: '#ccc',
+            background: "#fff",
+            borderRadius: "4px",
+            width: "23%",
+            margin: "5px",
+            "& .MuiOutlinedInput-root": {
+              "& fieldset": {
+                borderColor: "#ccc",
               },
-              '&:hover fieldset': {
+              "&:hover fieldset": {
                 borderColor: theme.palette.primary.main,
               },
-              '&.Mui-focused fieldset': {
+              "&.Mui-focused fieldset": {
                 borderColor: theme.palette.primary.main,
               },
             },
@@ -75,20 +74,25 @@ export default function UserTopbar() {
         />
 
         {/* Right Section */}
-        <Stack direction="row" alignItems="center" spacing={1} sx={{ backgroundColor: '#fff' }}>
-          <Link component={NextLink} href={appSetting?.facebookLink || '#'}>
+        {/* <Stack
+          direction="row"
+          alignItems="center"
+          spacing={1}
+          sx={{ backgroundColor: "#fff" }}
+        >
+          <Link component={NextLink} href={appSetting?.facebookLink || "#"}>
             <FacebookIcon />
           </Link>
-          <Link component={NextLink} href={appSetting?.instaLink || '#'}>
+          <Link component={NextLink} href={appSetting?.instaLink || "#"}>
             <InstagramIcon />
           </Link>
-          <Link component={NextLink} href={appSetting?.twitterLink || '#'}>
+          <Link component={NextLink} href={appSetting?.twitterLink || "#"}>
             <TwitterIcon />
           </Link>
-          <Link component={NextLink} href={appSetting?.linkedinLink || '#'}>
+          <Link component={NextLink} href={appSetting?.linkedinLink || "#"}>
             <LinkedinIcon />
           </Link>
-        </Stack>
+        </Stack> */}
       </Toolbar>
     </Box>
   );

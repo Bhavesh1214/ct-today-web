@@ -2,18 +2,18 @@ export default function Link(theme) {
   return {
     MuiLink: {
       defaultProps: {
-        underline: 'hover'
+        underline: "hover",
       },
 
       styleOverrides: {
-        root: {}
+        root: {},
       },
       variants: [
         {
-          props: { color: 'primary' },
-          style: { color: theme.palette.primary.main }
-        }
-      ]
-    }
+          props: { color: "primary" },
+          style: { color: theme.palette.primary.main },
+        },
+      ],
+    },
   };
 }

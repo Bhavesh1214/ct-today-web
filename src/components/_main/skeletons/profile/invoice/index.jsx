@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 // mui
-import { Box, Card, Skeleton, TableContainer, Table } from '@mui/material';
+import { Box, Card, Skeleton, TableContainer, Table } from "@mui/material";
 // components
-import TableBodyMain from './tableBody';
-import TableHeadMain from './tableHead';
+import TableBodyMain from "./tableBody";
+import TableHeadMain from "./tableHead";
 
 export default function index() {
   return (
     <Box mt={3}>
-      <Card sx={{ padding: '8px 16px' }}>
+      <Card sx={{ padding: "8px 16px" }}>
         <TableContainer>
           <Table size="small">
             <TableHeadMain />
@@ -21,7 +21,12 @@ export default function index() {
         </TableContainer>
       </Card>
       <Box mt={3}>
-        <Skeleton variant="rounded" width={114} height={32} sx={{ margin: 'auto' }} />
+        <Skeleton
+          variant="rounded"
+          width={114}
+          height={32}
+          sx={{ margin: "auto" }}
+        />
       </Box>
     </Box>
   );

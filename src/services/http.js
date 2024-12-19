@@ -1,29 +1,29 @@
-import axios from 'axios';
+import axios from "axios";
 
 function getToken() {
-  const cname = 'token';
-  if (typeof window !== 'undefined') {
-    let name = cname + '=';
+  const cname = "token";
+  if (typeof window !== "undefined") {
+    let name = cname + "=";
     let decodedCookie = decodeURIComponent(document.cookie);
-    let ca = decodedCookie.split(';');
+    let ca = decodedCookie.split(";");
     for (let i = 0; i < ca.length; i++) {
       let c = ca[i];
-      while (c.charAt(0) == ' ') {
+      while (c.charAt(0) == " ") {
         c = c.substring(1);
       }
       if (c.indexOf(name) == 0) {
         return c.substring(name.length, c.length);
       }
     }
-    return '';
+    return "";
   }
-  return '';
+  return "";
 }
 
 const baseURL = process.env.BASE_URL;
 const http = axios.create({
   baseURL: baseURL + `/api`,
-  timeout: 30000
+  timeout: 30000,
 });
 
 http.interceptors.request.use(
@@ -36,7 +36,7 @@ http.interceptors.request.use(
   },
   (error) => {
     return Promise.reject(error);
-  }
+  },
 );
 
 export default http;

@@ -1,30 +1,44 @@
-'use client';
-import React from 'react';
-import NextLink from 'next/link';
+"use client";
+import React from "react";
+import NextLink from "next/link";
 
 // mui
-import { useTheme } from '@mui/material/styles';
-import { Typography, Container, Stack, Box, Grid, Link, Fab, Divider } from '@mui/material';
+import { useTheme } from "@mui/material/styles";
+import {
+  Typography,
+  Container,
+  Stack,
+  Box,
+  Grid,
+  Link,
+  Fab,
+  Divider,
+} from "@mui/material";
 
 // icons
-import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
-import { useSelector } from 'react-redux';
-import { useQuery } from 'react-query';
-import * as api from 'src/services';
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { useQuery } from "react-query";
+import * as api from "src/services";
 
 export default function Footer() {
   const { appSetting } = useSelector(({ settings }) => settings);
-  const { data, isLoading } = useQuery(['cms-all'], () => api.getAllCms());
+  const { data, isLoading } = useQuery(["cms-all"], () => api.getAllCms());
   const theme = useTheme();
 
   return (
     <Box
       sx={{
-        backgroundColor: 'background.default',
+        backgroundColor: "background.default",
         py: 4,
         mt: 7,
-        overflow: 'hidden',
-        width: '100%',
+        overflow: "hidden",
+        width: "100%",
       }}
     >
       <Container maxWidth="xl">
@@ -36,7 +50,8 @@ export default function Footer() {
                 Location
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                ONSTRUCTION MAGAZINE INDIA 704, First Floor, Vatva GIDC, Ahmedabad-382445, Gujarat, INDIA.
+                ONSTRUCTION MAGAZINE INDIA 704, First Floor, Vatva GIDC,
+                Ahmedabad-382445, Gujarat, INDIA.
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Mobile: +91 0000000000
@@ -88,7 +103,7 @@ export default function Footer() {
                   size="small"
                   color="primary"
                   component={NextLink}
-                  href={appSetting?.facebookLink || '#'}
+                  href={appSetting?.facebookLink || "#"}
                 >
                   <FaFacebookF size={18} />
                 </Fab>
@@ -96,7 +111,7 @@ export default function Footer() {
                   size="small"
                   color="primary"
                   component={NextLink}
-                  href={appSetting?.instaLink || '#'}
+                  href={appSetting?.instaLink || "#"}
                 >
                   <FaInstagram size={18} />
                 </Fab>
@@ -104,7 +119,7 @@ export default function Footer() {
                   size="small"
                   color="primary"
                   component={NextLink}
-                  href={appSetting?.twitterLink || '#'}
+                  href={appSetting?.twitterLink || "#"}
                 >
                   <FaTwitter size={18} />
                 </Fab>
@@ -112,7 +127,7 @@ export default function Footer() {
                   size="small"
                   color="primary"
                   component={NextLink}
-                  href={appSetting?.linkedinLink || '#'}
+                  href={appSetting?.linkedinLink || "#"}
                 >
                   <FaLinkedinIn size={18} />
                 </Fab>

@@ -3,11 +3,11 @@ export default function Popover() {
     MuiPopover: {
       styleOverrides: {
         root: {
-          '& .MuiBackdrop-root': {
-            opacity: '0!important'
-          }
-        }
-      }
-    }
+          "& .MuiBackdrop-root": {
+            opacity: "0!important",
+          },
+        },
+      },
+    },
   };
 }

@@ -1,4 +1,4 @@
-import ExpandMoreRoundedIcon from '@mui/icons-material/ExpandMoreRounded';
+import ExpandMoreRoundedIcon from "@mui/icons-material/ExpandMoreRounded";
 
 // ----------------------------------------------------------------------
 
@@ -6,14 +6,14 @@ export default function Select(theme) {
   return {
     MuiSelect: {
       defaultProps: {
-        IconComponent: ExpandMoreRoundedIcon
+        IconComponent: ExpandMoreRoundedIcon,
       },
 
       styleOverrides: {
         root: {
-          background: theme.palette.background.paper
-        }
-      }
-    }
+          background: theme.palette.background.paper,
+        },
+      },
+    },
   };
 }

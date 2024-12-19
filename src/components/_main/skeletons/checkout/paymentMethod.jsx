@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // mui
-import { Card, CardContent, Typography, Stack, Skeleton } from '@mui/material';
+import { Card, CardContent, Typography, Stack, Skeleton } from "@mui/material";
 
 export default function PaymentMethodCardSkeleton() {
   return (

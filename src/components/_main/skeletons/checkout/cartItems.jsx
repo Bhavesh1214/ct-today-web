@@ -1,5 +1,12 @@
 // mui
-import { Card, CardContent, Stack, Box, Typography, Skeleton } from '@mui/material';
+import {
+  Card,
+  CardContent,
+  Stack,
+  Box,
+  Typography,
+  Skeleton,
+} from "@mui/material";
 
 export default function CardItemSekelton() {
   return (
@@ -9,7 +16,13 @@ export default function CardItemSekelton() {
           <Skeleton variant="text" />
         </Typography>
 
-        <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={2} py={1}>
+        <Stack
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
+          spacing={2}
+          py={1}
+        >
           <Stack direction="row" alignItems="center" spacing={2}>
             <Skeleton variant="rounded" width={64} height={64} />
 
@@ -22,9 +35,9 @@ export default function CardItemSekelton() {
                   variant="body2"
                   sx={{
                     span: {
-                      color: 'text.secondary',
-                      textTransform: 'capitalize'
-                    }
+                      color: "text.secondary",
+                      textTransform: "capitalize",
+                    },
                   }}
                 >
                   <Skeleton variant="text" width={80} />
@@ -33,8 +46,8 @@ export default function CardItemSekelton() {
                   variant="body2"
                   sx={{
                     span: {
-                      color: 'text.secondary'
-                    }
+                      color: "text.secondary",
+                    },
                   }}
                 >
                   <Skeleton variant="text" width={80} />

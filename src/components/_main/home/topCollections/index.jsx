@@ -1,20 +1,22 @@
-'use client';
-import React from 'react';
-import NextLink from 'next/link';
+"use client";
+import React from "react";
+import NextLink from "next/link";
 // mui
-import { Grid, Button, Typography, Box, Stack } from '@mui/material';
+import { Grid, Button, Typography, Box, Stack } from "@mui/material";
 // icons
-import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowForward } from "react-icons/io";
 // api
-import * as api from 'src/services';
-import { useQuery } from 'react-query';
+import * as api from "src/services";
+import { useQuery } from "react-query";
 
 // components
-import ProductCard from 'src/components/cards/product';
-import TodayCountDown from '../todayCountDown';
+import ProductCard from "src/components/cards/product";
+import TodayCountDown from "../todayCountDown";
 
 export default function TopCollections() {
-  const { data, isLoading } = useQuery(['get-best-products'], () => api.getTopRatedProducts());
+  const { data, isLoading } = useQuery(["get-best-products"], () =>
+    api.getTopRatedProducts(),
+  );
 
   return (
     <Box>
@@ -32,7 +34,7 @@ export default function TopCollections() {
           color="primary"
           size="large"
           sx={{
-            borderRadius: 6
+            borderRadius: 6,
           }}
           endIcon={<IoIosArrowForward />}
           component={NextLink}

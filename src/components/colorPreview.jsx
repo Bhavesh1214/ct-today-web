@@ -1,12 +1,15 @@
-import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import PropTypes from "prop-types";
+import React, { useState } from "react";
 
 // mui
-import { Box, Stack, IconButton, Skeleton } from '@mui/material';
+import { Box, Stack, IconButton, Skeleton } from "@mui/material";
 
 // icons
-import { FaCheck } from 'react-icons/fa6';
-import { MdKeyboardDoubleArrowRight, MdKeyboardDoubleArrowLeft } from 'react-icons/md';
+import { FaCheck } from "react-icons/fa6";
+import {
+  MdKeyboardDoubleArrowRight,
+  MdKeyboardDoubleArrowLeft,
+} from "react-icons/md";
 
 export default function ColorPreview({ ...props }) {
   const { colors, color, setColor, isDetail, loading } = props;
@@ -28,8 +31,8 @@ export default function ColorPreview({ ...props }) {
             height: 24,
             p: 0.1,
             svg: {
-              color: colorCount === 0 ? 'text.disabled' : 'text.primary'
-            }
+              color: colorCount === 0 ? "text.disabled" : "text.primary",
+            },
           }}
           disabled={colorCount === 0}
         >
@@ -49,18 +52,18 @@ export default function ColorPreview({ ...props }) {
                     width: 24,
                     borderRadius: 5,
                     bgcolor: v.color,
-                    position: 'relative',
-                    cursor: 'pointer',
-                    boxShadow: 'inset 0 0 2px #C4CDD5',
+                    position: "relative",
+                    cursor: "pointer",
+                    boxShadow: "inset 0 0 2px #C4CDD5",
                     ...(color === colorCount * 6 + i && {
                       svg: {
-                        position: 'absolute',
-                        color: v === 'white' ? 'common.black' : 'common.white',
-                        top: '50%',
-                        left: '50%',
-                        transform: 'translate(-50%,-50%)'
-                      }
-                    })
+                        position: "absolute",
+                        color: v === "white" ? "common.black" : "common.white",
+                        top: "50%",
+                        left: "50%",
+                        transform: "translate(-50%,-50%)",
+                      },
+                    }),
                   }}
                   onClick={() => setColor(colorCount * 6 + i)}
                 >
@@ -77,8 +80,11 @@ export default function ColorPreview({ ...props }) {
             height: 24,
             p: 0.1,
             svg: {
-              color: 6 * (colorCount + 1) > colors?.length ? 'text.disabled' : 'text.primary'
-            }
+              color:
+                6 * (colorCount + 1) > colors?.length
+                  ? "text.disabled"
+                  : "text.primary",
+            },
           }}
           size="small"
           onClick={() => {
@@ -98,5 +104,5 @@ ColorPreview.propTypes = {
   color: PropTypes.number.isRequired,
   setColor: PropTypes.func.isRequired,
   isDetail: PropTypes.bool.isRequired,
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
 };

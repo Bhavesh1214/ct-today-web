@@ -1,19 +1,28 @@
-'use client';
-import React from 'react';
-import PropTypes from 'prop-types';
+"use client";
+import React from "react";
+import PropTypes from "prop-types";
 
 // mui
-import { Card, CardContent, FormControlLabel, Radio, Typography, Stack, RadioGroup, Collapse } from '@mui/material';
+import {
+  Card,
+  CardContent,
+  FormControlLabel,
+  Radio,
+  Typography,
+  Stack,
+  RadioGroup,
+  Collapse,
+} from "@mui/material";
 // icons
-import { BsStripe } from 'react-icons/bs';
-import { IoCash } from 'react-icons/io5';
+import { BsStripe } from "react-icons/bs";
+import { IoCash } from "react-icons/io5";
 // componenets
-import StripeCheckoutForm from 'src/components/stripe/Form';
+import StripeCheckoutForm from "src/components/stripe/Form";
 
 PaymentMethodCard.propTypes = {
   value: PropTypes.string.isRequired,
   setValue: PropTypes.func.isRequired,
-  error: PropTypes.string
+  error: PropTypes.string,
 };
 
 export default function PaymentMethodCard({ value, setValue, error }) {
@@ -23,8 +32,8 @@ export default function PaymentMethodCard({ value, setValue, error }) {
   return (
     <Card
       sx={{
-        borderRadius: '8px',
-        boxShadow: 'unset'
+        borderRadius: "8px",
+        boxShadow: "unset",
       }}
     >
       <CardContent>
@@ -55,8 +64,9 @@ export default function PaymentMethodCard({ value, setValue, error }) {
                   ml={1}
                   sx={{
                     svg: {
-                      color: value === 'stripe' ? 'primary.main' : 'text.primary'
-                    }
+                      color:
+                        value === "stripe" ? "primary.main" : "text.primary",
+                    },
                   }}
                 >
                   <BsStripe size={20} />
@@ -86,7 +96,7 @@ export default function PaymentMethodCard({ value, setValue, error }) {
             /> */}
           </RadioGroup>
         </Stack>
-        <Collapse in={value === 'stripe'}>
+        <Collapse in={value === "stripe"}>
           <Typography variant="subtitle1" color="text.secondary" mt={1} mb={1}>
             Creadit Card
           </Typography>

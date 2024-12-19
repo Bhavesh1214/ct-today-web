@@ -1,15 +1,22 @@
-import React from 'react';
+import React from "react";
 
 // mui
-import { Skeleton, Stack, TableCell, TableRow, Typography, TableBody } from '@mui/material';
+import {
+  Skeleton,
+  Stack,
+  TableCell,
+  TableRow,
+  Typography,
+  TableBody,
+} from "@mui/material";
 
 export default function TableBodyMain() {
   return (
     <TableBody
       sx={{
         tr: {
-          padding: '8px 0px !important'
-        }
+          padding: "8px 0px !important",
+        },
       }}
     >
       <TableRow sx={{}}>
@@ -31,7 +38,7 @@ export default function TableBodyMain() {
           <Skeleton variant="text" width={40} />
         </TableCell>
         <TableCell align="right">
-          <Skeleton variant="text" width={70} sx={{ ml: 'auto' }} />
+          <Skeleton variant="text" width={70} sx={{ ml: "auto" }} />
         </TableCell>
       </TableRow>
     </TableBody>

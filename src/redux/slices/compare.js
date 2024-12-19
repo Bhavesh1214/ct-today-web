@@ -1,13 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 // ----------------------------------------------------------------------
 
 const initialState = {
-  products: []
+  products: [],
 };
 
 const slice = createSlice({
-  name: 'compare',
+  name: "compare",
   initialState,
   reducers: {
     addCompareProduct(state, action) {
@@ -19,14 +19,15 @@ const slice = createSlice({
     },
     resetCompareProducts(state) {
       state.products = [];
-    }
-  }
+    },
+  },
 });
 
 // Reducer
 export default slice.reducer;
 
 // Actions
-export const { addCompareProduct, removeCompareProduct, resetCompareProducts } = slice.actions;
+export const { addCompareProduct, removeCompareProduct, resetCompareProducts } =
+  slice.actions;
 
 // ----------------------------------------------------------------------

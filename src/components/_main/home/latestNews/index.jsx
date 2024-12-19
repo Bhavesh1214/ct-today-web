@@ -1,26 +1,34 @@
-import React, { useEffect, useState } from 'react';
-import { CardContent } from '@mui/material';
+import React, { useEffect, useState } from "react";
+import { CardContent } from "@mui/material";
 
 // components
 // slides data
 // mui
-import { Stack, Grid, Card, Dialog, IconButton, Container, Box } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import { useQuery } from 'react-query';
-import * as api from 'src/services';
-import BlurImage from 'src/components/blurImage';
-import { CardMedia, Typography } from '@mui/material';
+import {
+  Stack,
+  Grid,
+  Card,
+  Dialog,
+  IconButton,
+  Container,
+  Box,
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import { useQuery } from "react-query";
+import * as api from "src/services";
+import BlurImage from "src/components/blurImage";
+import { CardMedia, Typography } from "@mui/material";
 
-export default function LatestNews({ }) {
-  const { data } = useQuery(['get-home-compaign-all'], () => api.getAdvertiseImages());
+export default function LatestNews({}) {
+  const { data } = useQuery(["get-home-compaign-all"], () =>
+    api.getAdvertiseImages(),
+  );
   const [dannerData, setBannerData] = useState();
   useEffect(() => {
     if (data?.data?.length > 0) {
       setBannerData(data.data[0]);
     }
   }, [data]);
-
-
 
   // const newsData = [
   //   {
@@ -61,7 +69,7 @@ export default function LatestNews({ }) {
   //       alignItems: 'center',
   //       justifyContent: 'flex-start', // Align text to the left
   //       overflow: 'hidden',
-  //       marginY: '20px', 
+  //       marginY: '20px',
 
   //     }}
   //   >
@@ -116,15 +124,20 @@ export default function LatestNews({ }) {
   // );
 
   return (
-    <Box sx={{ padding: 2, backgroundColor: '#ffff' }}>
+    <Box sx={{ padding: 2, backgroundColor: "#ffff" }}>
       {/* Latest News Header */}
 
       <Typography
-            variant="h5"
-            sx={{ fontWeight: "bold", marginBottom: 2, color: "purple",backgroundColor:'#F1E0D9' }}
-          >
-            Breaking News:
-          </Typography>
+        variant="h5"
+        sx={{
+          fontWeight: "bold",
+          marginBottom: 2,
+          color: "purple",
+          backgroundColor: "#F1E0D9",
+        }}
+      >
+        Breaking News:
+      </Typography>
       <Grid container spacing={2}>
         {/* Left Section: Two Large Blocks */}
         <Grid item xs={12} md={3}>
@@ -170,7 +183,7 @@ export default function LatestNews({ }) {
           >
             Latest News
           </Typography>
-          <Grid container spacing={4} top={'10px'}>
+          <Grid container spacing={4} top={"10px"}>
             {[
               {
                 category: "Real Estate",
@@ -213,6 +226,7 @@ export default function LatestNews({ }) {
                 <Box
                   sx={{
                     display: "flex",
+                    display: { xs: "block", sm: "flex" },
                     alignItems: "start",
                     gap: 2,
                     borderBottom: "1px solid #ddd",
@@ -227,6 +241,8 @@ export default function LatestNews({ }) {
                     sx={{
                       width: 200,
                       height: 150,
+                      width: { xs: "100%", sm: 200 },
+                      height: { xs: "100%", sm: 150 },
                       objectFit: "cover",
                       // borderRadius: 1,
                     }}
@@ -268,7 +284,6 @@ export default function LatestNews({ }) {
             ))}
           </Grid>
         </Grid>
-
       </Grid>
 
       {/* Bottom Banner */}
@@ -288,6 +303,5 @@ export default function LatestNews({ }) {
         Banner 1 - 1430x150 px
       </Box>
     </Box>
-
   );
 }

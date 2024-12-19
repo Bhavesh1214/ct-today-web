@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // component
-import LoginForm from 'src/components/forms/login';
+import LoginForm from "src/components/forms/login";
 
 export default function LoginMain() {
   return (

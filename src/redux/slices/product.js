@@ -1,5 +1,5 @@
-import { sum, map, filter, uniqBy } from 'lodash';
-import { createSlice } from '@reduxjs/toolkit';
+import { sum, map, filter, uniqBy } from "lodash";
+import { createSlice } from "@reduxjs/toolkit";
 
 // ----------------------------------------------------------------------
 
@@ -12,19 +12,23 @@ const initialState = {
     total: 0,
     discount: 0,
     shipping: shippingFee,
-    billing: null
-  }
+    billing: null,
+  },
 };
 
 const slice = createSlice({
-  name: 'product',
+  name: "product",
   initialState,
   reducers: {
     // CHECKOUT
     getCart(state, action) {
       const cart = action.payload;
 
-      const subtotal = sum(cart.map((product) => (product.priceSale || product.price) * product.quantity));
+      const subtotal = sum(
+        cart.map(
+          (product) => (product.priceSale || product.price) * product.quantity,
+        ),
+      );
       const discount = cart.length === 0 ? 0 : state.checkout.discount;
       const shipping = cart.length === 0 ? 0 : shippingFee;
       const billing = cart.length === 0 ? null : state.checkout.billing;
@@ -41,7 +45,7 @@ const slice = createSlice({
       const product = action.payload;
       const updatedProduct = {
         ...product,
-        sku: `${product.sku}-${product.size}-${product.color}`
+        sku: `${product.sku}-${product.size}-${product.color}`,
       };
       const isEmptyCart = state.checkout.cart.length === 0;
       if (isEmptyCart) {
@@ -52,22 +56,31 @@ const slice = createSlice({
           if (isExisted) {
             return {
               ..._product,
-              quantity: _product.quantity + product.quantity
+              quantity: _product.quantity + product.quantity,
             };
           }
           return _product;
         });
       }
-      state.checkout.cart = uniqBy([...state.checkout.cart, updatedProduct], 'sku');
+      state.checkout.cart = uniqBy(
+        [...state.checkout.cart, updatedProduct],
+        "sku",
+      );
     },
 
     clearCart(state, action) {
-      const updateCart = filter(state.checkout.cart, (item) => item.sku !== action.payload);
+      const updateCart = filter(
+        state.checkout.cart,
+        (item) => item.sku !== action.payload,
+      );
 
       state.checkout.cart = updateCart;
     },
     deleteCart(state, action) {
-      const updateCart = filter(state.checkout.cart, (item) => item.sku !== action.payload);
+      const updateCart = filter(
+        state.checkout.cart,
+        (item) => item.sku !== action.payload,
+      );
 
       state.checkout.cart = updateCart;
     },
@@ -87,7 +100,7 @@ const slice = createSlice({
         if (product.sku === productSku) {
           return {
             ...product,
-            quantity: product.quantity + 1
+            quantity: product.quantity + 1,
           };
         }
         return product;
@@ -102,7 +115,7 @@ const slice = createSlice({
         if (product.sku === productSku) {
           return {
             ...product,
-            quantity: product.quantity - 1
+            quantity: product.quantity - 1,
           };
         }
         return product;
@@ -119,8 +132,8 @@ const slice = createSlice({
       const discount = action.payload;
       state.checkout.discount = discount;
       state.checkout.total = state.checkout.subtotal - discount;
-    }
-  }
+    },
+  },
 });
 
 // Reducer
@@ -139,5 +152,5 @@ export const {
   createBilling,
   applyDiscount,
   increaseQuantity,
-  decreaseQuantity
+  decreaseQuantity,
 } = slice.actions;

@@ -184,22 +184,30 @@
 //   );
 // }
 
-'use client';
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
+"use client";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 // mui
-import { Box, Card, Grid, Stack, Typography, Button, Container } from '@mui/material';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
+import {
+  Box,
+  Card,
+  Grid,
+  Stack,
+  Typography,
+  Button,
+  Container,
+} from "@mui/material";
+import useMediaQuery from "@mui/material/useMediaQuery";
+import { useTheme } from "@mui/material/styles";
 // images
-import * as api from 'src/services';
+import * as api from "src/services";
 
 export default function Index() {
   const theme = useTheme();
-  const isDeskTop = useMediaQuery(theme.breakpoints.up('xl'));
-  const isDeskTopBtn = useMediaQuery(theme.breakpoints.up('lg'));
+  const isDeskTop = useMediaQuery(theme.breakpoints.up("xl"));
+  const isDeskTopBtn = useMediaQuery(theme.breakpoints.up("lg"));
 
   const [adsData, setAdsData] = useState([]);
 
@@ -222,47 +230,54 @@ export default function Index() {
             <Grid item lg={6} md={6} xs={12} sm={6} key={item._id}>
               <Card
                 sx={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  borderRadius: '8px',
-                  height: '100%',
-                  boxShadow: 'unset',
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  borderRadius: "8px",
+                  height: "100%",
+                  boxShadow: "unset",
                   px: { lg: 3, md: 1 },
-                  position: 'relative',
-                  backgroundColor: item.background
+                  position: "relative",
+                  backgroundColor: item.background,
                 }}
               >
                 <Stack
                   spacing={isDeskTop ? 2 : 1.5}
-                  sx={{ p: { sm: '24px', xs: '12px', zIndex: 99, position: 'relative' } }}
+                  sx={{
+                    p: {
+                      sm: "24px",
+                      xs: "12px",
+                      zIndex: 99,
+                      position: "relative",
+                    },
+                  }}
                 >
                   <Typography
-                    variant={'h4'}
+                    variant={"h4"}
                     lineHeight={1.3}
                     sx={{
                       width: {
-                        xl: '320px !important',
-                        lg: '300px !important',
-                        md: '220px !important',
-                        xs: '170px !important'
+                        xl: "320px !important",
+                        lg: "300px !important",
+                        md: "220px !important",
+                        xs: "170px !important",
                       },
                       fontSize: {
                         xl: 38,
                         lg: 38,
                         md: 28,
                         sm: 20,
-                        xs: 20
-                      }
+                        xs: 20,
+                      },
                     }}
                   >
                     {item.name}
                   </Typography>
 
                   <Typography
-                    variant={isDeskTop ? 'body1' : 'body2'}
+                    variant={isDeskTop ? "body1" : "body2"}
                     mb={2}
-                    display={{ md: 'block', xs: 'none' }}
+                    display={{ md: "block", xs: "none" }}
                     width={{ xl: 270 }}
                   >
                     {item.description}
@@ -273,10 +288,10 @@ export default function Index() {
                       // href={`/products/${item.buttonLink}`}
                       href="/products"
                       variant="contained"
-                      color={index % 2 === 0 ? 'primary' : 'secondary'}
-                      size={isDeskTopBtn ? 'large' : 'small'}
+                      color={index % 2 === 0 ? "primary" : "secondary"}
+                      size={isDeskTopBtn ? "large" : "small"}
                       sx={{
-                        borderRadius: 6
+                        borderRadius: 6,
                       }}
                     >
                       {item.buttonTitle}
@@ -284,10 +299,10 @@ export default function Index() {
                   </Box>
                 </Stack>
                 <Image
-                  style={{ position: 'static' }}
+                  style={{ position: "static" }}
                   draggable="false"
                   src={
-                    process.env.IMAGE_BASE === 'LOCAL'
+                    process.env.IMAGE_BASE === "LOCAL"
                       ? `${process.env.IMAGE_URL}${item.addsense_img.url}`
                       : item.addsense_img.url
                   }

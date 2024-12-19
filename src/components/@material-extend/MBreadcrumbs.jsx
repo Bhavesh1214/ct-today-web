@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import NextLink from 'next/link';
-import { last } from 'lodash';
+import React from "react";
+import PropTypes from "prop-types";
+import NextLink from "next/link";
+import { last } from "lodash";
 // mui
-import { Typography, Box, Link, Breadcrumbs, useTheme } from '@mui/material';
+import { Typography, Box, Link, Breadcrumbs, useTheme } from "@mui/material";
 
 function LinkItem({ link, admin }) {
   const { href, name, icon } = link;
@@ -14,24 +14,30 @@ function LinkItem({ link, admin }) {
       key={name}
       href={href}
       passHref
-      variant={admin ? 'body1' : 'body2'}
+      variant={admin ? "body1" : "body2"}
       sx={{
         lineHeight: 2,
-        display: 'flex',
-        alignItems: 'center',
-        color: theme.palette.mode === 'light' ? theme.palette.primary.dark : theme.palette.primary.main,
-        '& > div': { display: 'inherit' }
+        display: "flex",
+        alignItems: "center",
+        color:
+          theme.palette.mode === "light"
+            ? theme.palette.primary.dark
+            : theme.palette.primary.main,
+        "& > div": { display: "inherit" },
       }}
     >
       {icon && (
         <Box
           sx={{
             mr: 1,
-            '& svg': {
+            "& svg": {
               width: admin ? 30 : 20,
               height: admin ? 30 : 20,
-              color: theme.palette.mode === 'light' ? theme.palette.primary.dark : theme.palette.primary.main
-            }
+              color:
+                theme.palette.mode === "light"
+                  ? theme.palette.primary.dark
+                  : theme.palette.primary.main,
+            },
           }}
         >
           {icon}
@@ -46,28 +52,33 @@ LinkItem.propTypes = {
   link: PropTypes.shape({
     href: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
-    icon: PropTypes.node
+    icon: PropTypes.node,
   }).isRequired,
-  admin: PropTypes.bool.isRequired
+  admin: PropTypes.bool.isRequired,
 };
 
 function MBreadcrumbs({ links, admin, activeLast = false, ...other }) {
   const currentLink = last(links)?.name;
   const theme = useTheme();
-  const listDefault = links.map((link) => <LinkItem key={link.name} link={link} admin={admin} />);
+  const listDefault = links.map((link) => (
+    <LinkItem key={link.name} link={link} admin={admin} />
+  ));
   const listActiveLast = links.map((link) => (
     <div key={link.name}>
       {link.name !== currentLink ? (
         <LinkItem link={link} admin={admin} />
       ) : (
         <Typography
-          variant={admin ? 'body1' : 'body2'}
+          variant={admin ? "body1" : "body2"}
           sx={{
             maxWidth: 260,
-            overflow: 'hidden',
-            whiteSpace: 'nowrap',
-            color: theme.palette.mode === 'light' ? theme.palette.primary.dark : theme.palette.primary.main,
-            textOverflow: 'ellipsis'
+            overflow: "hidden",
+            whiteSpace: "nowrap",
+            color:
+              theme.palette.mode === "light"
+                ? theme.palette.primary.dark
+                : theme.palette.primary.main,
+            textOverflow: "ellipsis",
           }}
         >
           {currentLink}
@@ -88,12 +99,12 @@ MBreadcrumbs.propTypes = {
     PropTypes.shape({
       href: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      icon: PropTypes.node
-    })
+      icon: PropTypes.node,
+    }),
   ).isRequired,
   admin: PropTypes.bool.isRequired,
   icon: PropTypes.node,
-  activeLast: PropTypes.bool
+  activeLast: PropTypes.bool,
 };
 
 export default MBreadcrumbs;

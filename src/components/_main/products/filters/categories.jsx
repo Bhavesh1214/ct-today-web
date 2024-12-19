@@ -1,24 +1,24 @@
-'use client';
-import React from 'react';
-import { useEffect, useState, useCallback } from 'react';
-import { useRouter } from 'next-nprogress-bar';
-import { useSearchParams } from 'next/navigation';
+"use client";
+import React from "react";
+import { useEffect, useState, useCallback } from "react";
+import { useRouter } from "next-nprogress-bar";
+import { useSearchParams } from "next/navigation";
 // mui
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Popover from '@mui/material/Popover';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import Divider from '@mui/material/Divider';
-import ListItemText from '@mui/material/ListItemText';
+import Box from "@mui/material/Box";
+import Button from "@mui/material/Button";
+import Popover from "@mui/material/Popover";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import Divider from "@mui/material/Divider";
+import ListItemText from "@mui/material/ListItemText";
 // icons
-import { IoIosArrowDown } from 'react-icons/io';
-import { RxDashboard } from 'react-icons/rx';
+import { IoIosArrowDown } from "react-icons/io";
+import { RxDashboard } from "react-icons/rx";
 
 export default function Filters() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const path = '/products';
+  const path = "/products";
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -28,16 +28,16 @@ export default function Filters() {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  const id = open ? "simple-popover" : undefined;
 
   const { push } = useRouter();
   const searchParams = useSearchParams();
 
-  const categories = searchParams.get('categories');
+  const categories = searchParams.get("categories");
 
   const [state, setstate] = useState({
     categories: [],
-    isLoaded: false
+    isLoaded: false,
   });
 
   const createQueryString = useCallback(
@@ -47,7 +47,7 @@ export default function Filters() {
 
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
 
   const handleChange = (props, val) => () => {
@@ -57,16 +57,24 @@ export default function Filters() {
       data = [...data, props];
 
       setstate({ ...state, categories: [...data] });
-      push(`${path}?` + createQueryString('categories', [...state.categories, props].join('_')));
+      push(
+        `${path}?` +
+          createQueryString(
+            "categories",
+            [...state.categories, props].join("_"),
+          ),
+      );
     } else {
       const index = data.indexOf(props);
       data.splice(index, 1);
       if (data.length > 0) {
-        const filtered = state.categories.filter((categories) => categories !== props);
+        const filtered = state.categories.filter(
+          (categories) => categories !== props,
+        );
         setstate({ ...state, categories: filtered });
-        push(`${path}?` + createQueryString('categories', filtered.join('_')));
+        push(`${path}?` + createQueryString("categories", filtered.join("_")));
       } else {
-        push(`${path}?` + createQueryString('categories', ''));
+        push(`${path}?` + createQueryString("categories", ""));
       }
     }
   };
@@ -75,13 +83,13 @@ export default function Filters() {
     if (Boolean(categories)) {
       setstate({
         ...state,
-        categories: [...categories.split('_')]
+        categories: [...categories.split("_")],
       });
     } else {
       setstate({
         ...state,
         categories: [],
-        isLoaded: true
+        isLoaded: true,
       });
     }
 
@@ -98,7 +106,7 @@ export default function Filters() {
         startIcon={<RxDashboard />}
         endIcon={<IoIosArrowDown />}
         sx={{
-          borderRadius: '27px'
+          borderRadius: "27px",
         }}
       >
         Categories
@@ -109,8 +117,8 @@ export default function Filters() {
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left'
+          vertical: "bottom",
+          horizontal: "left",
         }}
       >
         <Box sx={{ width: 200 }}>
@@ -118,21 +126,24 @@ export default function Filters() {
             <List>
               {[
                 {
-                  _id: 'abc',
-                  name: 'Shoes',
-                  slug: 'shoes'
+                  _id: "abc",
+                  name: "Shoes",
+                  slug: "shoes",
                 },
                 {
-                  _id: 'def',
-                  name: 'shirts',
-                  slug: 'shirts'
-                }
+                  _id: "def",
+                  name: "shirts",
+                  slug: "shirts",
+                },
               ].map((item) => (
                 <React.Fragment key={item._id}>
                   <ListItem disablePadding>
                     <ListItemButton
                       selected={state.categories.includes(item.slug)}
-                      onClick={handleChange(item.slug, !state.categories.includes(item.slug))}
+                      onClick={handleChange(
+                        item.slug,
+                        !state.categories.includes(item.slug),
+                      )}
                     >
                       <ListItemText primary={item.name} />
                     </ListItemButton>

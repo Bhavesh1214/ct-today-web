@@ -1,57 +1,63 @@
-'use client';
-import React from 'react';
-import PropTypes from 'prop-types';
+"use client";
+import React from "react";
+import PropTypes from "prop-types";
 
 // mui
-import { Card, Box, Typography, Divider, IconButton } from '@mui/material';
+import { Card, Box, Typography, Divider, IconButton } from "@mui/material";
 // icons
 
 // components
-import BrandsFilter from './brands';
-import GenderFilter from './gender';
-import ColorsFilter from './colors';
-import SizesFilter from './sizes';
-import PriceRange from './price';
-import Brands from 'src/components/_main/skeletons/products/filters/brands';
-import Gender from 'src/components/_main/skeletons/products/filters/gander';
-import Color from 'src/components/_main/skeletons/products/filters/colors';
-import Sizes from 'src/components/_main/skeletons/products/filters/sizes';
+import BrandsFilter from "./brands";
+import GenderFilter from "./gender";
+import ColorsFilter from "./colors";
+import SizesFilter from "./sizes";
+import PriceRange from "./price";
+import Brands from "src/components/_main/skeletons/products/filters/brands";
+import Gender from "src/components/_main/skeletons/products/filters/gander";
+import Color from "src/components/_main/skeletons/products/filters/colors";
+import Sizes from "src/components/_main/skeletons/products/filters/sizes";
 // api
-import * as api from 'src/services';
-import { useQuery } from 'react-query';
-import { MdClear } from 'react-icons/md';
+import * as api from "src/services";
+import { useQuery } from "react-query";
+import { MdClear } from "react-icons/md";
 
 Filter.propTypes = {
   onClose: PropTypes.func.isRequired,
   pathname: PropTypes.string.isRequired,
   shop: PropTypes.object,
   category: PropTypes.object,
-  subCategory: PropTypes.object
+  subCategory: PropTypes.object,
 };
 
 export default function Filter({ ...props }) {
   const { pathname, category, shop, subCategory } = props;
-  const { data, isLoading } = useQuery(['get-filters' + shop || '' + category || '' + 'subCategory'], () =>
-    api.getAllFilters(shop?.slug || '', category?.slug || '', subCategory?.slug || '')
+  const { data, isLoading } = useQuery(
+    ["get-filters" + shop || "" + category || "" + "subCategory"],
+    () =>
+      api.getAllFilters(
+        shop?.slug || "",
+        category?.slug || "",
+        subCategory?.slug || "",
+      ),
   );
   const filters = data?.data;
   return (
     <Card
       sx={{
-        width: '350px',
-        boxShadow: 'unset',
-        marginTop: '25px',
-        marginBottom: '20px',
-        borderRadius: '0px !important'
+        width: "350px",
+        boxShadow: "unset",
+        marginTop: "25px",
+        marginBottom: "20px",
+        borderRadius: "0px !important",
       }}
     >
       <Box
         sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
           p: 2,
-          borderBottom: (theme) => `1px solid ${theme.palette.divider}`
+          borderBottom: (theme) => `1px solid ${theme.palette.divider}`,
         }}
       >
         <Typography variant="h5" color="text.primary">
@@ -64,8 +70,8 @@ export default function Filter({ ...props }) {
       </Box>
       <Box
         sx={{
-          height: 'calc(100vh - 56px)',
-          overflowY: 'auto'
+          height: "calc(100vh - 56px)",
+          overflowY: "auto",
         }}
       >
         {isLoading ? (

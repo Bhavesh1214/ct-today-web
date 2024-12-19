@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // mui
-import { Skeleton, Stack } from '@mui/material';
+import { Skeleton, Stack } from "@mui/material";
 
 export default function ResetPassword() {
   return (

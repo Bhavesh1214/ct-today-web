@@ -1,23 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 // ----------------------------------------------------------------------
 
 const initialState = {
   categories: [],
   newCategories: [],
-  isLoading: true
+  isLoading: true,
 };
 
 const slice = createSlice({
-  name: 'categories',
+  name: "categories",
   initialState,
   reducers: {
     setCategories(state, action) {
       state.categories = action.payload.data;
       state.newCategories = action.payload.newCategories;
       state.isLoading = false;
-    }
-  }
+    },
+  },
 });
 
 // Reducer

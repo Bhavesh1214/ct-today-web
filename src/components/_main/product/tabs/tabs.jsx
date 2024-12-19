@@ -1,17 +1,17 @@
-'use client';
-import { useState } from 'react';
-import PropTypes from 'prop-types';
+"use client";
+import { useState } from "react";
+import PropTypes from "prop-types";
 
 // mui
-import { styled } from '@mui/material/styles';
-import { Box, Tab, Card, Divider, Typography } from '@mui/material';
-import { TabContext, TabList, TabPanel } from '@mui/lab';
+import { styled } from "@mui/material/styles";
+import { Box, Tab, Card, Divider, Typography } from "@mui/material";
+import { TabContext, TabList, TabPanel } from "@mui/lab";
 // components
-import ProductDetailsReview from '../reviews';
-const RootStyles = styled('div')(() => ({
-  overflow: 'hidden',
-  position: 'relative',
-  padding: '40px 0'
+import ProductDetailsReview from "../reviews";
+const RootStyles = styled("div")(() => ({
+  overflow: "hidden",
+  position: "relative",
+  padding: "40px 0",
 }));
 
 ProductDetailsTabs.propTypes = {
@@ -19,12 +19,12 @@ ProductDetailsTabs.propTypes = {
   reviews: PropTypes.array.isRequired,
   totalRating: PropTypes.number.isRequired,
   totalReviews: PropTypes.number.isRequired,
-  reviewsSummery: PropTypes.object.isRequired
+  reviewsSummery: PropTypes.object.isRequired,
 };
 
 export default function ProductDetailsTabs({ ...props }) {
   const { product, reviews, totalRating, totalReviews, reviewsSummery } = props;
-  const [value, setValue] = useState('1');
+  const [value, setValue] = useState("1");
   const handleChangeTab = (event, newValue) => {
     setValue(newValue);
   };
@@ -33,10 +33,15 @@ export default function ProductDetailsTabs({ ...props }) {
     <RootStyles>
       <Card sx={{ mb: 3 }}>
         <TabContext value={value}>
-          <Box sx={{ px: 3, bgcolor: 'background.neutral' }}>
+          <Box sx={{ px: 3, bgcolor: "background.neutral" }}>
             <TabList onChange={handleChangeTab}>
-              <Tab disableRipple value="1" label={'Product Description'} />
-              <Tab disableRipple value="2" label={'Reviews'} sx={{ '& .MuiTab-wrapper': { whiteSpace: 'nowrap' } }} />
+              <Tab disableRipple value="1" label={"Product Description"} />
+              <Tab
+                disableRipple
+                value="2"
+                label={"Reviews"}
+                sx={{ "& .MuiTab-wrapper": { whiteSpace: "nowrap" } }}
+              />
             </TabList>
           </Box>
           <Divider />

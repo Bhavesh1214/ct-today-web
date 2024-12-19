@@ -1,23 +1,23 @@
-import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
-import { useSearchParams } from 'next/navigation';
-import { useRouter } from 'next-nprogress-bar';
+import React, { useCallback } from "react";
+import PropTypes from "prop-types";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next-nprogress-bar";
 
 // mui
-import Slider, { SliderThumb } from '@mui/material/Slider';
-import { styled } from '@mui/material/styles';
-import { Box, Stack, Zoom, Button, Typography, Tooltip } from '@mui/material';
+import Slider, { SliderThumb } from "@mui/material/Slider";
+import { styled } from "@mui/material/styles";
+import { Box, Stack, Zoom, Button, Typography, Tooltip } from "@mui/material";
 
 // icons
-import { IoPricetagOutline } from 'react-icons/io5';
+import { IoPricetagOutline } from "react-icons/io5";
 
 // custom hooks
-import { useCurrencyFormatter } from 'src/hooks/formatCurrency';
-import { useCurrencyConvert } from 'src/hooks/convertCurrency';
+import { useCurrencyFormatter } from "src/hooks/formatCurrency";
+import { useCurrencyConvert } from "src/hooks/convertCurrency";
 
 CustomizedSlider.propTypes = {
   prices: PropTypes.array.isRequired,
-  path: PropTypes.string.isRequired
+  path: PropTypes.string.isRequired,
 };
 
 function ValueLabelComponent({ ...props }) {
@@ -32,40 +32,40 @@ function ValueLabelComponent({ ...props }) {
 
 ValueLabelComponent.propTypes = {
   children: PropTypes.element.isRequired,
-  value: PropTypes.number.isRequired
+  value: PropTypes.number.isRequired,
 };
 
 const AirbnbSlider = styled(Slider)(({ theme }) => ({
   color: theme.palette.primary.main,
   marginTop: 20,
   height: 27,
-  padding: '13px 0',
-  '& .MuiSlider-thumb': {
+  padding: "13px 0",
+  "& .MuiSlider-thumb": {
     height: 27,
     width: 27,
-    borderRadius: '8px',
-    backgroundColor: '#fff',
-    border: '1px solid currentColor',
+    borderRadius: "8px",
+    backgroundColor: "#fff",
+    border: "1px solid currentColor",
 
-    '& .airbnb-bar': {
+    "& .airbnb-bar": {
       height: 9,
       width: 1,
-      backgroundColor: 'currentColor',
+      backgroundColor: "currentColor",
       marginLeft: 1,
-      marginRight: 1
-    }
+      marginRight: 1,
+    },
   },
-  '& .MuiSlider-track': {
+  "& .MuiSlider-track": {
     height: 27,
-    borderRadius: '8px',
-    backgroundColor: theme.palette.primary.main
+    borderRadius: "8px",
+    backgroundColor: theme.palette.primary.main,
   },
-  '& .MuiSlider-rail': {
-    color: theme.palette.mode === 'dark' ? '#bfbfbf' : '#d8d8d8',
-    opacity: theme.palette.mode === 'dark' ? undefined : 1,
+  "& .MuiSlider-rail": {
+    color: theme.palette.mode === "dark" ? "#bfbfbf" : "#d8d8d8",
+    opacity: theme.palette.mode === "dark" ? undefined : 1,
     height: 27,
-    borderRadius: '8px'
-  }
+    borderRadius: "8px",
+  },
 }));
 
 function AirbnbThumbComponent({ ...props }) {
@@ -80,7 +80,7 @@ function AirbnbThumbComponent({ ...props }) {
   );
 }
 AirbnbThumbComponent.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default function CustomizedSlider({ ...props }) {
@@ -89,7 +89,7 @@ export default function CustomizedSlider({ ...props }) {
   const fCurrency = useCurrencyFormatter();
   const { push } = useRouter();
   const searchParams = useSearchParams();
-  const prices = searchParams.get('prices');
+  const prices = searchParams.get("prices");
   const [state, setstate] = React.useState([0, 10000]);
 
   const createQueryString = useCallback(
@@ -99,7 +99,7 @@ export default function CustomizedSlider({ ...props }) {
 
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
 
   const deleteQueryString = useCallback(
@@ -108,11 +108,14 @@ export default function CustomizedSlider({ ...props }) {
       params.delete(name);
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
   React.useEffect(() => {
     if (Boolean(prices)) {
-      setstate([cCurrency(Number(prices.split('_')[0])), cCurrency(Number(prices.split('_')[1]))]);
+      setstate([
+        cCurrency(Number(prices.split("_")[0])),
+        cCurrency(Number(prices.split("_")[1])),
+      ]);
     } else {
       setstate([0, 100000]);
     }
@@ -126,9 +129,9 @@ export default function CustomizedSlider({ ...props }) {
           variant="body1"
           sx={{
             fontWeight: 600,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
           }}
           color="text.primary"
         >
@@ -138,12 +141,12 @@ export default function CustomizedSlider({ ...props }) {
           <Button
             onClick={() => {
               setstate([0, 10000]);
-              push(`${path}?${deleteQueryString('prices')}`);
+              push(`${path}?${deleteQueryString("prices")}`);
             }}
             variant="outlined"
             color="primary"
             size="small"
-            sx={{ float: 'right', mt: '-3px' }}
+            sx={{ float: "right", mt: "-3px" }}
           >
             Reset
           </Button>
@@ -154,8 +157,8 @@ export default function CustomizedSlider({ ...props }) {
         <AirbnbSlider
           valueLabelDisplay="on"
           onChangeCommitted={(e, value) => {
-            const prices = typeof value === 'object' && value.join('_');
-            push(`${path}?` + createQueryString('prices', prices));
+            const prices = typeof value === "object" && value.join("_");
+            push(`${path}?` + createQueryString("prices", prices));
           }}
           valueLabelFormat={(x) => fCurrency(x)}
           max={cCurrency(filterPrices[1])}

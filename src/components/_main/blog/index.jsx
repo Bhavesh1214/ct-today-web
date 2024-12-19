@@ -1,5 +1,5 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 import {
   Box,
   Grid,
@@ -11,41 +11,41 @@ import {
   List,
   ListItem,
   ListItemText,
-  Rating
-} from '@mui/material';
-import { styled } from '@mui/system';
+  Rating,
+} from "@mui/material";
+import { styled } from "@mui/system";
 
-const StyledImage = styled('img')(({ theme }) => ({
-  width: '100%',
-  height: 'auto',
-  borderRadius: '8px',
-  objectFit: 'cover',
-  [theme.breakpoints.down('sm')]: {
-    borderRadius: '4px'
-  }
+const StyledImage = styled("img")(({ theme }) => ({
+  width: "100%",
+  height: "auto",
+  borderRadius: "8px",
+  objectFit: "cover",
+  [theme.breakpoints.down("sm")]: {
+    borderRadius: "4px",
+  },
 }));
 
 const sampleReviews = [
   {
-    author: 'John Doe',
-    text: 'Great article! I really enjoyed the insights provided.',
-    rating: 5
+    author: "John Doe",
+    text: "Great article! I really enjoyed the insights provided.",
+    rating: 5,
   },
   {
-    author: 'Jane Smith',
-    text: 'Very informative post. Helped me a lot in understanding the topic.',
-    rating: 4
+    author: "Jane Smith",
+    text: "Very informative post. Helped me a lot in understanding the topic.",
+    rating: 4,
   },
   {
-    author: 'Alex Johnson',
-    text: 'The content is well-structured and easy to follow. Keep up the good work!',
-    rating: 4.5
+    author: "Alex Johnson",
+    text: "The content is well-structured and easy to follow. Keep up the good work!",
+    rating: 4.5,
   },
   {
-    author: 'Emily Davis',
-    text: 'I found some sections a bit too technical, but overall, a great read.',
-    rating: 3.5
-  }
+    author: "Emily Davis",
+    text: "I found some sections a bit too technical, but overall, a great read.",
+    rating: 3.5,
+  },
 ];
 
 export default function BlogDetail({ value }) {
@@ -54,18 +54,18 @@ export default function BlogDetail({ value }) {
   const handleSubmitReview = (e) => {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
-    const review = formData.get('review');
-    console.log('New Review:', review);
+    const review = formData.get("review");
+    console.log("New Review:", review);
     // Submit review logic here
   };
 
   return (
-    <Box sx={{ bgcolor: 'background.paper', minHeight: '100vh' }}>
+    <Box sx={{ bgcolor: "background.paper", minHeight: "100vh" }}>
       <Container>
         <Grid container spacing={4}>
           {/* Left Portion - Blog Detail */}
           <Grid item xs={12} md={8}>
-            <Box py={5} sx={{ px: { xs: 2, sm: 3, md: 5 }, maxWidth: '100%' }}>
+            <Box py={5} sx={{ px: { xs: 2, sm: 3, md: 5 }, maxWidth: "100%" }}>
               <Typography variant="h3" fontWeight="bold" gutterBottom>
                 {name}
               </Typography>
@@ -85,7 +85,11 @@ export default function BlogDetail({ value }) {
               <Box mt={3}>
                 {blog_img && (
                   <StyledImage
-                    src={process.env.IMAGE_BASE === 'LOCAL' ? `${process.env.IMAGE_URL}${blog_img.url}` : blog_img.url}
+                    src={
+                      process.env.IMAGE_BASE === "LOCAL"
+                        ? `${process.env.IMAGE_URL}${blog_img.url}`
+                        : blog_img.url
+                    }
                     alt={name}
                   />
                 )}
@@ -109,7 +113,12 @@ export default function BlogDetail({ value }) {
                       primary={review.author}
                       secondary={
                         <>
-                          <Rating value={review.rating} precision={0.5} readOnly size="small" />
+                          <Rating
+                            value={review.rating}
+                            precision={0.5}
+                            readOnly
+                            size="small"
+                          />
                           <Typography variant="body2" color="text.secondary">
                             {review.text}
                           </Typography>

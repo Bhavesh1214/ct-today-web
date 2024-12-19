@@ -1,33 +1,38 @@
-'use client';
-import React from 'react';
-import NextLink from 'next/link';
+"use client";
+import React from "react";
+import NextLink from "next/link";
 // mui
-import { Typography, Grid, Box, Stack, Paper, Button } from '@mui/material';
+import { Typography, Grid, Box, Stack, Paper, Button } from "@mui/material";
 // icons
-import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowForward } from "react-icons/io";
 // component
-import CompaginCard from 'src/components/cards/compagin';
 // api
-import * as api from 'src/services';
-import { useQuery } from 'react-query';
+import * as api from "src/services";
+import { useQuery } from "react-query";
 
 export default function CompaignsComponent({}) {
-  const { data, isLoading } = useQuery(['get-home-compaign-all'], () => api.getHomeCompaigns('?limit=4'));
+  const { data, isLoading } = useQuery(["get-home-compaign-all"], () =>
+    api.getHomeCompaigns("?limit=4"),
+  );
 
   return !isLoading && !Boolean(data?.data.length) ? null : (
     <Paper elevation={0}>
       <Stack
         direction="row"
         justifyContent="space-between"
-        textAlign={{ xs: 'center', md: 'left' }}
-        alignItems="center" 
+        textAlign={{ xs: "center", md: "left" }}
+        alignItems="center"
       >
         <Box width="100%">
-          <Typography variant="h3"  mt={{ xs: 4, md: 8 }}>
+          <Typography variant="h3" mt={{ xs: 4, md: 8 }}>
             All Offers
           </Typography>
-          <Typography variant="body1" color="text.secondary" mb={{ xs: 3, md: 5 }}>
-            All of ours offers{' '}
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            mb={{ xs: 3, md: 5 }}
+          >
+            All of ours offers{" "}
           </Typography>
         </Box>
         <Button
@@ -36,9 +41,9 @@ export default function CompaignsComponent({}) {
           size="large"
           sx={{
             borderRadius: 6,
-            display: { xs: 'none', md: 'flex' },
+            display: { xs: "none", md: "flex" },
             minWidth: 130,
-            px: 1
+            px: 1,
           }}
           endIcon={<IoIosArrowForward />}
           component={NextLink}
@@ -52,7 +57,7 @@ export default function CompaignsComponent({}) {
           {(isLoading ? Array.from(new Array(6)) : data?.data).map((inner) => (
             <React.Fragment key={Math.random()}>
               <Grid item lg={3} md={4} sm={6} xs={12}>
-                <CompaginCard compaign={inner} isLoading={isLoading} />
+                {/* <CompaginCard compaign={inner} isLoading={isLoading} /> */}
               </Grid>
             </React.Fragment>
           ))}
@@ -63,10 +68,10 @@ export default function CompaignsComponent({}) {
           size="small"
           sx={{
             borderRadius: 6,
-            mx: 'auto',
+            mx: "auto",
             mt: 3,
-            display: { md: 'none', xs: 'flex' },
-            maxWidth: '120px'
+            display: { md: "none", xs: "flex" },
+            maxWidth: "120px",
           }}
           endIcon={<IoIosArrowForward />}
           component={NextLink}

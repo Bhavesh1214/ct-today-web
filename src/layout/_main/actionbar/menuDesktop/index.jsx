@@ -1,22 +1,22 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useState, useEffect } from 'react';
-import NextLink from 'next/link';
-import { useRouter } from 'next-nprogress-bar';
+import React from "react";
+import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+import NextLink from "next/link";
+import { useRouter } from "next-nprogress-bar";
 
 // material
-import typography from 'src/theme/typography';
-import { Link, Stack, Box, IconButton, useTheme } from '@mui/material';
+import typography from "src/theme/typography";
+import { Link, Stack, Box, IconButton, useTheme } from "@mui/material";
 
 // icons
-import { RxDashboard } from 'react-icons/rx';
+import { RxDashboard } from "react-icons/rx";
 
 // components
-import MenuDesktopPopover from 'src/components/popover/menuDesktop';
+// import MenuDesktopPopover from "src/components/popover/menuDesktop";
 
 // api
-import { useQuery } from 'react-query';
-import * as api from 'src/services';
+import { useQuery } from "react-query";
+import * as api from "src/services";
 
 // ----------------------------------------------------------------------
 
@@ -29,46 +29,63 @@ MenuDesktopItem.propTypes = {
   onOpen: PropTypes.func.isRequired,
   data: PropTypes.array.isRequired,
   isOffset: PropTypes.bool.isRequired,
-  scrollPosition: PropTypes.any
+  scrollPosition: PropTypes.any,
 };
 
 function MenuDesktopItem({ ...props }) {
-  const { item, pathname, isHome, isOpen, isOffset, onOpen, scrollPosition, onClose, isLoading, data } = props;
+  const {
+    item,
+    pathname,
+    isHome,
+    isOpen,
+    isOffset,
+    onOpen,
+    scrollPosition,
+    onClose,
+    isLoading,
+    data,
+  } = props;
   const { title, path, isDropdown } = item;
   const anchorRef = React.useRef(null);
   const isActive = pathname === path;
 
   const theme = useTheme();
-  const isLight = theme.palette.mode === 'light';
+  const isLight = theme.palette.mode === "light";
 
   if (isDropdown) {
     return (
       <>
         <Box
           sx={{
-            flexGrow: 1
+            flexGrow: 1,
           }}
         >
           <IconButton
             ref={anchorRef}
-            className={` ${isOffset && isHome && 'offset'}`}
+            className={` ${isOffset && isHome && "offset"}`}
             id="composition-button"
-            aria-controls={isOpen ? 'composition-menu' : undefined}
-            aria-expanded={isOpen ? 'true' : undefined}
+            aria-controls={isOpen ? "composition-menu" : undefined}
+            aria-expanded={isOpen ? "true" : undefined}
             onClick={onOpen}
             color="primary"
             size="small"
           >
-            <RxDashboard color={isLight ? theme.palette.primary.dark : theme.palette.primary.main} />
+            <RxDashboard
+              color={
+                isLight
+                  ? theme.palette.primary.dark
+                  : theme.palette.primary.main
+              }
+            />
           </IconButton>
         </Box>
-        <MenuDesktopPopover
+        {/* <MenuDesktopPopover
           isOpen={isOpen}
           scrollPosition={scrollPosition}
           onClose={onClose}
           isLoading={isLoading}
           data={data}
-        />
+        /> */}
       </>
     );
   }
@@ -79,28 +96,32 @@ function MenuDesktopItem({ ...props }) {
       key={title}
       href={path}
       name={title}
-      className={` ${isActive && 'active'}`}
+      className={` ${isActive && "active"}`}
       sx={{
         ...typography.subtitle1,
-        color: isLight ? theme.palette.primary.dark : theme.palette.primary.main,
-        textDecoration: 'none',
+        color: isLight
+          ? theme.palette.primary.dark
+          : theme.palette.primary.main,
+        textDecoration: "none",
         fontWeight: 500,
-        transition: '.2s ease-in',
-        cursor: 'pointer',
+        transition: ".2s ease-in",
+        cursor: "pointer",
         // '&:hover': {
         //   color: 'primary.main',
         //   textDecoration: 'none'
         // },
-        '&.offset': {
-          color: isLight ? theme.palette.primary.dark : theme.palette.primary.main
+        "&.offset": {
+          color: isLight
+            ? theme.palette.primary.dark
+            : theme.palette.primary.main,
         },
-        '&.active': {
-          color: 'primary.main'
+        "&.active": {
+          color: "primary.main",
         },
-        '& .link-icon': {
+        "& .link-icon": {
           ml: 0.5,
-          fontSize: 16
-        }
+          fontSize: 16,
+        },
       }}
     >
       {title}
@@ -111,7 +132,9 @@ function MenuDesktopItem({ ...props }) {
 export default function MenuDesktop({ ...props }) {
   const { isOffset, navConfig, isLeft } = props;
 
-  const { data, isLoading } = useQuery(['get-categories-all'], () => api.getAllCategories());
+  const { data, isLoading } = useQuery(["get-categories-all"], () =>
+    api.getAllCategories(),
+  );
 
   const { pathname } = useRouter();
 
@@ -123,9 +146,9 @@ export default function MenuDesktop({ ...props }) {
     function updatePosition() {
       setPosition(window.pageYOffset);
     }
-    window.addEventListener('scroll', updatePosition);
+    window.addEventListener("scroll", updatePosition);
     updatePosition();
-    return () => window.removeEventListener('scroll', updatePosition);
+    return () => window.removeEventListener("scroll", updatePosition);
   }, []);
 
   useEffect(() => {
@@ -151,8 +174,8 @@ export default function MenuDesktop({ ...props }) {
       sx={{
         width: 1,
         ...(isLeft && {
-          ml: 0
-        })
+          ml: 0,
+        }),
       }}
     >
       {navConfig.map((links) => (
@@ -178,5 +201,5 @@ MenuDesktop.propTypes = {
   isLeft: PropTypes.bool,
   isLoading: PropTypes.bool.isRequired,
   isOffset: PropTypes.bool.isRequired,
-  navConfig: PropTypes.array.isRequired
+  navConfig: PropTypes.array.isRequired,
 };

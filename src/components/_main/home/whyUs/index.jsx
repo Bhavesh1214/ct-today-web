@@ -1,58 +1,63 @@
-'use client';
+"use client";
 // react
-import React from 'react';
+import React from "react";
 // mui
-import { Typography, Card, Stack, Divider } from '@mui/material';
+import { Typography, Card, Stack, Divider } from "@mui/material";
 
 // icons
-import { MdOutlineSupportAgent } from 'react-icons/md';
-import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { VscFeedback } from 'react-icons/vsc';
-import { MdSettingsBackupRestore } from 'react-icons/md';
-import { RiExchangeDollarLine } from 'react-icons/ri';
+import { MdOutlineSupportAgent } from "react-icons/md";
+import { AiOutlineShoppingCart } from "react-icons/ai";
+import { VscFeedback } from "react-icons/vsc";
+import { MdSettingsBackupRestore } from "react-icons/md";
+import { RiExchangeDollarLine } from "react-icons/ri";
 
 export default function WhyUs() {
   const data = [
     {
-      title: 'Free Shipping',
+      title: "Free Shipping",
       icon: <AiOutlineShoppingCart size={40} />,
-      description: ' When you spend $100+'
+      description: " When you spend $100+",
     },
     {
-      title: 'Feedbacks',
+      title: "Feedbacks",
       icon: <VscFeedback size={40} />,
-      description: '100% Customer'
+      description: "100% Customer",
     },
     {
-      title: 'Free Return',
+      title: "Free Return",
       icon: <MdSettingsBackupRestore size={40} />,
-      description: '30 Day Returns Policy'
+      description: "30 Day Returns Policy",
     },
     {
-      title: 'Secure System',
+      title: "Secure System",
       icon: <RiExchangeDollarLine size={40} />,
-      description: '100% Secure Gaurantee'
+      description: "100% Secure Gaurantee",
     },
     {
-      title: 'Online Supports',
+      title: "Online Supports",
       icon: <MdOutlineSupportAgent size={40} />,
-      description: '24/7 Dedicated Support.'
-    }
+      description: "24/7 Dedicated Support.",
+    },
   ];
   return (
     <Card
       sx={{
         p: 3,
-        borderRadius: '8px',
-        boxShadow: 'unset',
+        borderRadius: "8px",
+        boxShadow: "unset",
         display: {
-          md: 'block',
-          xs: 'none'
+          md: "block",
+          xs: "none",
         },
-        borderBottom: (theme) => `solid 1px ${theme.palette.divider}`
+        borderBottom: (theme) => `solid 1px ${theme.palette.divider}`,
       }}
     >
-      <Stack direction="row" alignItems="center" justifyContent="space-around" spacing={1}>
+      <Stack
+        direction="row"
+        alignItems="center"
+        justifyContent="space-around"
+        spacing={1}
+      >
         {data.map((v, i) => (
           <React.Fragment key={Math.random()}>
             <Stack
@@ -62,8 +67,8 @@ export default function WhyUs() {
               spacing={1}
               sx={{
                 svg: {
-                  color: 'primary.main'
-                }
+                  color: "primary.main",
+                },
               }}
             >
               {v.icon}

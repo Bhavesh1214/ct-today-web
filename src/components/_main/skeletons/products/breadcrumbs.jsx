@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // mui
-import { Card, Skeleton } from '@mui/material';
+import { Card, Skeleton } from "@mui/material";
 
 export default function Breadcrumbs() {
   return (
@@ -8,11 +8,11 @@ export default function Breadcrumbs() {
       sx={{
         mt: 5,
         height: 128,
-        display: 'flex',
-        justifyContent: 'center',
-        flexDirection: 'column',
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
         gap: 2,
-        paddingX: 2
+        paddingX: 2,
       }}
     >
       <Skeleton variant="rounded" width={200} height={35} />

@@ -1,21 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 // ----------------------------------------------------------------------
 
 const initialState = {
   brands: [],
-  isLoading: true
+  isLoading: true,
 };
 
 const slice = createSlice({
-  name: 'brands',
+  name: "brands",
   initialState,
   reducers: {
     setBrands(state, action) {
       state.brands = action.payload;
       state.isLoading = false;
-    }
-  }
+    },
+  },
 });
 
 // Reducer

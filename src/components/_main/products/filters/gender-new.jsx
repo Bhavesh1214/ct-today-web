@@ -1,23 +1,23 @@
-import React, { useCallback } from 'react';
-import { useRouter } from 'next-nprogress-bar';
-import { useSearchParams } from 'next/navigation';
-import PropTypes from 'prop-types';
+import React, { useCallback } from "react";
+import { useRouter } from "next-nprogress-bar";
+import { useSearchParams } from "next/navigation";
+import PropTypes from "prop-types";
 // mui
-import { Button, ListItemIcon, Box } from '@mui/material';
-import Popover from '@mui/material/Popover';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import Divider from '@mui/material/Divider';
-import ListItemText from '@mui/material/ListItemText';
+import { Button, ListItemIcon, Box } from "@mui/material";
+import Popover from "@mui/material/Popover";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import Divider from "@mui/material/Divider";
+import ListItemText from "@mui/material/ListItemText";
 // icons
-import { FaCheck } from 'react-icons/fa6';
-import { MdOutlineBrandingWatermark } from 'react-icons/md';
-import { IoIosArrowDown } from 'react-icons/io';
+import { FaCheck } from "react-icons/fa6";
+import { MdOutlineBrandingWatermark } from "react-icons/md";
+import { IoIosArrowDown } from "react-icons/io";
 
 GenderMain.propTypes = {
   genders: PropTypes.array.isRequired,
-  path: PropTypes.string.isRequired
+  path: PropTypes.string.isRequired,
 };
 
 export default function GenderMain({ ...props }) {
@@ -34,14 +34,14 @@ export default function GenderMain({ ...props }) {
   };
 
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popover' : undefined;
+  const id = open ? "simple-popover" : undefined;
 
-  const gender = searchParams.get('gender');
+  const gender = searchParams.get("gender");
   const { push } = useRouter();
 
   const [state, setstate] = React.useState({
     genders: [],
-    isLoaded: false
+    isLoaded: false,
   });
 
   const createQueryString = useCallback(
@@ -51,7 +51,7 @@ export default function GenderMain({ ...props }) {
 
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
   const deleteQueryString = useCallback(
     (name) => {
@@ -59,7 +59,7 @@ export default function GenderMain({ ...props }) {
       params.delete(name);
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
 
   const handleChange = (props, val) => {
@@ -67,17 +67,20 @@ export default function GenderMain({ ...props }) {
     if (val) {
       data = [...data, props];
       setstate({ ...state, genders: [...state.genders, props] });
-      push(`${path}?` + createQueryString('gender', [...state.genders, props].join('_')));
+      push(
+        `${path}?` +
+          createQueryString("gender", [...state.genders, props].join("_")),
+      );
     } else {
       const index = data.indexOf(props);
       data.splice(index, 1);
       if (data.length > 0) {
         const filtered = state.genders.filter((gen) => gen !== props);
         setstate({ ...state, genders: filtered });
-        push(`${path}?` + createQueryString('gender', filtered.join('_')));
+        push(`${path}?` + createQueryString("gender", filtered.join("_")));
       } else {
-        const deleted = deleteQueryString('gender');
-        push(path + '?' + deleted);
+        const deleted = deleteQueryString("gender");
+        push(path + "?" + deleted);
       }
     }
   };
@@ -85,33 +88,36 @@ export default function GenderMain({ ...props }) {
     if (Boolean(gender)) {
       setstate({
         ...state,
-        genders: [...gender.split('_')]
+        genders: [...gender.split("_")],
       });
     } else {
       setstate({
         ...state,
         genders: [],
-        isLoaded: true
+        isLoaded: true,
       });
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gender]);
-  const filteredWithoutEmpty = gender?.split('_').filter((v) => v !== '');
+  const filteredWithoutEmpty = gender?.split("_").filter((v) => v !== "");
   return (
     <>
       <Button
         aria-describedby={id}
         onClick={handleClick}
-        variant={'outlined'}
-        color={filteredWithoutEmpty?.length ? 'primary' : 'inherit'}
+        variant={"outlined"}
+        color={filteredWithoutEmpty?.length ? "primary" : "inherit"}
         startIcon={<MdOutlineBrandingWatermark />}
         endIcon={<IoIosArrowDown />}
         sx={{
-          borderRadius: '20px'
+          borderRadius: "20px",
         }}
       >
-        Gender {filteredWithoutEmpty?.length ? '(' + filteredWithoutEmpty.join(', ') + ')' : null}
+        Gender{" "}
+        {filteredWithoutEmpty?.length
+          ? "(" + filteredWithoutEmpty.join(", ") + ")"
+          : null}
       </Button>
       <Popover
         id={id}
@@ -119,8 +125,8 @@ export default function GenderMain({ ...props }) {
         anchorEl={anchorEl}
         onClose={handleClose}
         anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left'
+          vertical: "bottom",
+          horizontal: "left",
         }}
       >
         <Box sx={{ width: 200 }}>
@@ -131,20 +137,24 @@ export default function GenderMain({ ...props }) {
                   <ListItem disablePadding>
                     <ListItemButton
                       selected={state.genders.includes(item)}
-                      onClick={() => handleChange(item, !state.genders.includes(item))}
+                      onClick={() =>
+                        handleChange(item, !state.genders.includes(item))
+                      }
                     >
                       <ListItemText
                         primary={item}
                         sx={{
-                          color: 'text.primary',
+                          color: "text.primary",
                           ...(state.genders.includes(item) && {
-                            color: 'primary.main',
-                            fontWeight: 700
-                          })
+                            color: "primary.main",
+                            fontWeight: 700,
+                          }),
                         }}
                       />
                       {state.genders.includes(item) ? (
-                        <ListItemIcon sx={{ mr: 0, svg: { color: 'primary.main' } }}>
+                        <ListItemIcon
+                          sx={{ mr: 0, svg: { color: "primary.main" } }}
+                        >
                           <FaCheck />
                         </ListItemIcon>
                       ) : null}

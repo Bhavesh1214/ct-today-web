@@ -1,13 +1,13 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 // ----------------------------------------------------------------------
 
 const initialState = {
-  wishlist: []
+  wishlist: [],
 };
 
 const slice = createSlice({
-  name: 'notification',
+  name: "notification",
   initialState,
   reducers: {
     setWishlist(state, action) {
@@ -15,8 +15,8 @@ const slice = createSlice({
     },
     resetWishlist(state) {
       state.wishlist = [];
-    }
-  }
+    },
+  },
 });
 
 // Reducer

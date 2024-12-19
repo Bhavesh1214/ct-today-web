@@ -1,18 +1,26 @@
-import React, { useEffect, useRef } from 'react';
-import { Stack, Grid, Card, CardMedia, Typography, Box, IconButton } from '@mui/material';
-import { useQuery } from 'react-query';
-import * as api from 'src/services';
-import Link from 'next/link';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/navigation';
-import { Navigation } from 'swiper/modules';
-import WestIcon from '@mui/icons-material/West';
-import EastIcon from '@mui/icons-material/East';
+import React, { useEffect, useRef } from "react";
+import {
+  Stack,
+  Grid,
+  Card,
+  CardMedia,
+  Typography,
+  Box,
+  IconButton,
+} from "@mui/material";
+import { useQuery } from "react-query";
+import * as api from "src/services";
+import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
+import WestIcon from "@mui/icons-material/West";
+import EastIcon from "@mui/icons-material/East";
 
 export default function Gifting() {
-  const { data } = useQuery(['gifting'], () => api.getGifting());
-  const baseUrl = '/products';
+  const { data } = useQuery(["gifting"], () => api.getGifting());
+  const baseUrl = "/products";
 
   // Refs for navigation buttons
   const prevRef = useRef(null);
@@ -32,7 +40,12 @@ export default function Gifting() {
   return (
     <Stack spacing={2} sx={{ padding: 4, marginTop: 5 }}>
       {/* Navigation for Categories */}
-      <Stack direction="row" spacing={4} justifyContent="center" alignItems="center">
+      <Stack
+        direction="row"
+        spacing={4}
+        justifyContent="center"
+        alignItems="center"
+      >
         <Typography variant="h3">Gifting Made Easysxx</Typography>
       </Stack>
 
@@ -42,7 +55,7 @@ export default function Gifting() {
         <Grid item xs={1}>
           <IconButton
             ref={prevRef} // Assign reference
-            sx={{ backgroundColor: 'rgba(145, 158, 171, 0.08)' }}
+            sx={{ backgroundColor: "rgba(145, 158, 171, 0.08)" }}
           >
             <WestIcon />
           </IconButton>
@@ -58,7 +71,7 @@ export default function Gifting() {
             loop={true} // Enable infinite loop
             navigation={{
               prevEl: prevRef.current,
-              nextEl: nextRef.current
+              nextEl: nextRef.current,
             }}
             onBeforeInit={(swiper) => {
               swiper.navigation.nextEl = nextRef.current;
@@ -72,13 +85,19 @@ export default function Gifting() {
                   href={{
                     pathname: `${baseUrl}`,
                     query: {
-                      gifting: item?.slug
-                    }
+                      gifting: item?.slug,
+                    },
                   }}
                 >
-                  <Card sx={{ maxWidth: 345, position: 'relative', borderRadius: '8px' }}>
+                  <Card
+                    sx={{
+                      maxWidth: 345,
+                      position: "relative",
+                      borderRadius: "8px",
+                    }}
+                  >
                     {/* Image Section with Overlay */}
-                    <Box sx={{ position: 'relative', height: 'auto' }}>
+                    <Box sx={{ position: "relative", height: "auto" }}>
                       <CardMedia
                         component="img"
                         height="300px"
@@ -88,34 +107,39 @@ export default function Gifting() {
                       {/* Overlay Panel */}
                       <div
                         style={{
-                          position: 'absolute',
-                          top: '0px',
+                          position: "absolute",
+                          top: "0px",
                           left: 0,
-                          width: '100%',
-                          height: '100%',
-                          backgroundColor: 'rgba(0, 0, 0, 0.65)',
-                          zIndex: 0
+                          width: "100%",
+                          height: "100%",
+                          backgroundColor: "rgba(0, 0, 0, 0.65)",
+                          zIndex: 0,
                         }}
                       />
                       {/* Overlay Text */}
                       <Box
                         sx={{
-                          position: 'absolute',
+                          position: "absolute",
                           top: 0,
                           left: 0,
                           right: 0,
                           bottom: 0,
-                          display: 'flex',
-                          flexDirection: 'column',
-                          justifyContent: 'center',
-                          alignItems: 'center',
-                          color: 'white'
+                          display: "flex",
+                          flexDirection: "column",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          color: "white",
                         }}
                       >
-                        <Typography variant="h4" sx={{ fontWeight: '400' }}>
+                        <Typography variant="h4" sx={{ fontWeight: "400" }}>
                           {item.giftingFor}
                         </Typography>
-                        <Typography variant="body1" textAlign="center" paddingLeft={3} paddingRight={3}>
+                        <Typography
+                          variant="body1"
+                          textAlign="center"
+                          paddingLeft={3}
+                          paddingRight={3}
+                        >
                           {item.description}
                         </Typography>
                         <Typography variant="subtitle1" sx={{ marginTop: 2 }}>
@@ -134,7 +158,7 @@ export default function Gifting() {
         <Grid item xs={1}>
           <IconButton
             ref={nextRef} // Assign reference
-            sx={{ backgroundColor: 'rgba(145, 158, 171, 0.08)' }}
+            sx={{ backgroundColor: "rgba(145, 158, 171, 0.08)" }}
           >
             <EastIcon />
           </IconButton>

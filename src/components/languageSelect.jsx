@@ -1,24 +1,36 @@
-import * as React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { handleChangeCurrency } from 'src/redux/slices/settings';
+import * as React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { handleChangeCurrency } from "src/redux/slices/settings";
 
 // mui
-import { Grid, Button, Stack, Skeleton, Typography, IconButton, DialogContent, Dialog, useTheme } from '@mui/material';
+import {
+  Grid,
+  Button,
+  Stack,
+  Skeleton,
+  Typography,
+  IconButton,
+  DialogContent,
+  Dialog,
+  useTheme,
+} from "@mui/material";
 
 // icons
-import { MdClear } from 'react-icons/md';
-import { MdCurrencyExchange } from 'react-icons/md';
+import { MdClear } from "react-icons/md";
+import { MdCurrencyExchange } from "react-icons/md";
 
 // api
-import * as api from 'src/services';
-import { useQuery } from 'react-query';
+import * as api from "src/services";
+import { useQuery } from "react-query";
 
 export default function LanguageSelect() {
   const dispatch = useDispatch();
   const { currency } = useSelector(({ settings }) => settings);
   const theme = useTheme();
-  const isLight = theme.palette.mode === 'light';
-  const { data, isLoading } = useQuery(['get-currencies'], () => api.getCurrencies());
+  const isLight = theme.palette.mode === "light";
+  const { data, isLoading } = useQuery(["get-currencies"], () =>
+    api.getCurrencies(),
+  );
   const [open, setOpen] = React.useState(false);
   const handleClickOpen = () => {
     setOpen(true);
@@ -30,8 +42,17 @@ export default function LanguageSelect() {
 
   return (
     <React.Fragment>
-      <IconButton aria-label="lang-curr-select" onClick={handleClickOpen} color="primary">
-        <MdCurrencyExchange size={16} color={isLight ? theme.palette.primary.dark : theme.palette.primary.main} />
+      <IconButton
+        aria-label="lang-curr-select"
+        onClick={handleClickOpen}
+        color="primary"
+      >
+        <MdCurrencyExchange
+          size={16}
+          color={
+            isLight ? theme.palette.primary.dark : theme.palette.primary.main
+          }
+        />
       </IconButton>
       <Dialog
         open={open}
@@ -45,10 +66,10 @@ export default function LanguageSelect() {
           aria-label="close"
           onClick={handleClose}
           sx={{
-            position: 'absolute',
+            position: "absolute",
             right: 5,
             top: 5,
-            zIndex: 111
+            zIndex: 111,
           }}
         >
           <MdClear />
@@ -58,37 +79,47 @@ export default function LanguageSelect() {
             Choose a currency
           </Typography>
           <Grid container justifyContent="center" spacing={2}>
-            {(isLoading ? Array.from(new Array(12)) : data?.data)?.map((cur) => (
-              <Grid key={Math.random()} item xs={12} sm={6} md={4}>
-                <Button
-                  onClick={() =>
-                    dispatch(
-                      handleChangeCurrency({
-                        currency: cur.code,
-                        rate: cur.rate
-                      })
-                    )
-                  }
-                  fullWidth
-                  size="large"
-                  variant={'outlined'}
-                  color={currency === cur?.code ? 'primary' : 'inherit'}
-                  sx={{
-                    textAlign: 'left',
-                    justifyContent: 'start'
-                  }}
-                >
-                  <Stack>
-                    <Typography variant="subtitle2" noWrap>
-                      {isLoading ? <Skeleton variant="text" width={120} /> : `${cur.name}-${cur.code}`}
-                    </Typography>
-                    <Typography variant="body2" noWrap>
-                      {isLoading ? <Skeleton variant="text" width={60} /> : cur.country}
-                    </Typography>
-                  </Stack>
-                </Button>
-              </Grid>
-            ))}
+            {(isLoading ? Array.from(new Array(12)) : data?.data)?.map(
+              (cur) => (
+                <Grid key={Math.random()} item xs={12} sm={6} md={4}>
+                  <Button
+                    onClick={() =>
+                      dispatch(
+                        handleChangeCurrency({
+                          currency: cur.code,
+                          rate: cur.rate,
+                        }),
+                      )
+                    }
+                    fullWidth
+                    size="large"
+                    variant={"outlined"}
+                    color={currency === cur?.code ? "primary" : "inherit"}
+                    sx={{
+                      textAlign: "left",
+                      justifyContent: "start",
+                    }}
+                  >
+                    <Stack>
+                      <Typography variant="subtitle2" noWrap>
+                        {isLoading ? (
+                          <Skeleton variant="text" width={120} />
+                        ) : (
+                          `${cur.name}-${cur.code}`
+                        )}
+                      </Typography>
+                      <Typography variant="body2" noWrap>
+                        {isLoading ? (
+                          <Skeleton variant="text" width={60} />
+                        ) : (
+                          cur.country
+                        )}
+                      </Typography>
+                    </Stack>
+                  </Button>
+                </Grid>
+              ),
+            )}
           </Grid>
         </DialogContent>
       </Dialog>

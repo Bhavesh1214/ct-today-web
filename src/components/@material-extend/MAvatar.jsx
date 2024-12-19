@@ -1,12 +1,15 @@
-import React, { forwardRef } from 'react';
-import PropTypes from 'prop-types';
+import React, { forwardRef } from "react";
+import PropTypes from "prop-types";
 // mui
-import { Avatar, useTheme } from '@mui/material';
+import { Avatar, useTheme } from "@mui/material";
 
-const MAvatar = forwardRef(function MAvatar({ color = 'default', sx, children, ...other }, ref) {
+const MAvatar = forwardRef(function MAvatar(
+  { color = "default", sx, children, ...other },
+  ref,
+) {
   const theme = useTheme();
 
-  if (color === 'default') {
+  if (color === "default") {
     return (
       <Avatar ref={ref} sx={sx} {...other}>
         {children}
@@ -21,7 +24,7 @@ const MAvatar = forwardRef(function MAvatar({ color = 'default', sx, children, .
         fontWeight: theme.typography.fontWeightMedium,
         color: theme.palette[color].contrastText,
         backgroundColor: theme.palette[color].main,
-        ...sx
+        ...sx,
       }}
       {...other}
     >
@@ -30,12 +33,20 @@ const MAvatar = forwardRef(function MAvatar({ color = 'default', sx, children, .
   );
 });
 
-MAvatar.displayName = 'MAvatar';
+MAvatar.displayName = "MAvatar";
 
 MAvatar.propTypes = {
-  color: PropTypes.oneOf(['default', 'primary', 'secondary', 'error', 'warning', 'info', 'success']),
+  color: PropTypes.oneOf([
+    "default",
+    "primary",
+    "secondary",
+    "error",
+    "warning",
+    "info",
+    "success",
+  ]),
   sx: PropTypes.object,
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 export default MAvatar;

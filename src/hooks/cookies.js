@@ -1,6 +1,6 @@
-'use server';
+"use server";
 
-import { cookies } from 'next/headers';
+import { cookies } from "next/headers";
 
 export async function createCookies(name, token) {
   // Function to calculate the timestamp for the expiration date

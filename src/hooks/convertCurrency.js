@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 export const useCurrencyConvert = () => {
   const { rate } = useSelector((state) => state.settings); // Access currency and rate from Redux

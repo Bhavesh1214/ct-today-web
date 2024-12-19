@@ -1,11 +1,11 @@
-'use client';
-import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
-import { useSelector } from 'src/redux';
-import { useRouter } from 'next-nprogress-bar';
+"use client";
+import { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import { useSelector } from "src/redux";
+import { useRouter } from "next-nprogress-bar";
 
 // components
-import Loading from 'src/components/loading';
+import Loading from "src/components/loading";
 export default function Guest({ children }) {
   const router = useRouter();
   const { isAuthenticated } = useSelector(({ user }) => user);
@@ -13,7 +13,7 @@ export default function Guest({ children }) {
   useEffect(() => {
     if (!isAuthenticated) {
       setAuth(false);
-      router.push('/auth/login');
+      router.push("/auth/login");
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -25,5 +25,5 @@ export default function Guest({ children }) {
 }
 
 Guest.propTypes = {
-  children: PropTypes.node.isRequired
+  children: PropTypes.node.isRequired,
 };

@@ -1,5 +1,5 @@
 /* Core */
-import { createAsyncThunk } from '@reduxjs/toolkit';
+import { createAsyncThunk } from "@reduxjs/toolkit";
 
 /**
  * ? A utility function to create a typed Async Thunk Actions.

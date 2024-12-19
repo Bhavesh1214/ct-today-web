@@ -1,18 +1,20 @@
-'use client';
+"use client";
 // react
-import React from 'react';
-import NextLink from 'next/link';
+import React from "react";
+import NextLink from "next/link";
 // mui
-import { Typography, Box, Button, Stack } from '@mui/material';
+import { Typography, Box, Button, Stack } from "@mui/material";
 // api
-import * as api from 'src/services';
-import { useQuery } from 'react-query';
+import * as api from "src/services";
+import { useQuery } from "react-query";
 // components
-import ProductsCarousel from 'src/components/carousels/gridSlider';
+import ProductsCarousel from "src/components/carousels/gridSlider";
 // icons
-import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowForward } from "react-icons/io";
 export default function Index() {
-  const { data, isLoading } = useQuery(['get-top-products'], () => api.getTopRatedProducts());
+  const { data, isLoading } = useQuery(["get-top-products"], () =>
+    api.getTopRatedProducts(),
+  );
 
   return (
     <>
@@ -21,15 +23,20 @@ export default function Index() {
           <Stack
             direction="row"
             justifyContent="space-between"
-            textAlign={{ xs: 'center', md: 'left' }}
+            textAlign={{ xs: "center", md: "left" }}
             alignItems="center"
           >
             <Box width="100%">
               <Typography variant="h3" color="primary" mt={{ xs: 4, md: 8 }}>
                 Top Collection
               </Typography>
-              <Typography variant="body1" color="text.secondary" mb={{ xs: 3, md: 5 }}>
-                Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting Industry.
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                mb={{ xs: 3, md: 5 }}
+              >
+                Lorem Ipsum Is Simply Dummy Text Of The Printing And Typesetting
+                Industry.
               </Typography>
             </Box>
             <Button
@@ -38,9 +45,9 @@ export default function Index() {
               size="large"
               sx={{
                 borderRadius: 6,
-                display: { xs: 'none', md: 'flex' },
+                display: { xs: "none", md: "flex" },
                 minWidth: 130,
-                px: 1
+                px: 1,
               }}
               endIcon={<IoIosArrowForward />}
               component={NextLink}
@@ -62,9 +69,9 @@ export default function Index() {
             size="small"
             sx={{
               borderRadius: 6,
-              mx: 'auto',
-              display: { md: 'none', xs: 'flex' },
-              maxWidth: '120px'
+              mx: "auto",
+              display: { md: "none", xs: "flex" },
+              maxWidth: "120px",
             }}
             endIcon={<IoIosArrowForward />}
             component={NextLink}

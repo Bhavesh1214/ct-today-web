@@ -5,57 +5,57 @@ export default function Tabs(theme) {
     MuiTabs: {
       styleOverrides: {
         root: {
-          '& .MuiTabs-indicator': {
-            borderRadius: '3px 3px 0px 0px',
-            height: '3px'
-          }
-        }
-      }
+          "& .MuiTabs-indicator": {
+            borderRadius: "3px 3px 0px 0px",
+            height: "3px",
+          },
+        },
+      },
     },
     MuiTab: {
       styleOverrides: {
         root: {
-          padding: '0 10px',
+          padding: "0 10px",
           minWidth: 48,
           fontWeight: theme.typography.fontWeightMedium,
           borderTopLeftRadius: theme.shape.borderRadius,
           borderTopRightRadius: theme.shape.borderRadius,
-          '&:not(:last-of-type)': {
-            marginRight: theme.spacing(2)
-          }
+          "&:not(:last-of-type)": {
+            marginRight: theme.spacing(2),
+          },
         },
         labelIcon: {
           minHeight: 48,
-          flexDirection: 'row',
-          '& > *:first-of-type': {
+          flexDirection: "row",
+          "& > *:first-of-type": {
             marginBottom: 0,
-            marginRight: theme.spacing(1)
-          }
+            marginRight: theme.spacing(1),
+          },
         },
         wrapper: {
-          flexDirection: 'row',
-          whiteSpace: 'nowrap'
+          flexDirection: "row",
+          whiteSpace: "nowrap",
         },
         textColorInherit: {
           opacity: 1,
-          color: theme.palette.text.secondary
-        }
-      }
+          color: theme.palette.text.secondary,
+        },
+      },
     },
     MuiTabPanel: {
       styleOverrides: {
         root: {
-          padding: 0
-        }
-      }
+          padding: 0,
+        },
+      },
     },
     MuiTabScrollButton: {
       styleOverrides: {
         root: {
           width: 48,
-          borderRadius: '50%'
-        }
-      }
-    }
+          borderRadius: "50%",
+        },
+      },
+    },
   };
 }

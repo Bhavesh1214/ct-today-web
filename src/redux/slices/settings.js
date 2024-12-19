@@ -1,19 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 // ----------------------------------------------------------------------
 
 // initial state
 const initialState = {
-  themeMode: 'light',
+  themeMode: "light",
   openSidebar: false,
-  currency: process.env.BASE_CURRENCY || 'USD',
+  currency: process.env.BASE_CURRENCY || "USD",
   rate: 1,
-  appSetting: {}
+  appSetting: {},
 };
 
 // slice
 const slice = createSlice({
-  name: 'settings',
+  name: "settings",
   initialState,
   reducers: {
     setThemeMode(state, action) {
@@ -28,14 +28,19 @@ const slice = createSlice({
     handleChangeCurrency(state, action) {
       state.currency = action.payload.currency;
       state.rate = action.payload.rate;
-    }
-  }
+    },
+  },
 });
 
 // Reducer
 export default slice.reducer;
 
 // Actions
-export const { setThemeMode, toggleSidebar, setSettings, handleChangeCurrency } = slice.actions;
+export const {
+  setThemeMode,
+  toggleSidebar,
+  setSettings,
+  handleChangeCurrency,
+} = slice.actions;
 
 // ----------------------------------------------------------------------

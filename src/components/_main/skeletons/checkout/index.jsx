@@ -1,10 +1,10 @@
-import { Box, Grid, Skeleton } from '@mui/material';
-import React from 'react';
+import { Box, Grid, Skeleton } from "@mui/material";
+import React from "react";
 // components
-import CheckoutGuestFormSkeleton from './checkoutForm';
-import PaymentInfoSkeleton from './paymentInfo';
-import CardItemSekelton from './cartItems';
-import PaymentMethodCardSkeleton from './paymentMethod';
+import CheckoutGuestFormSkeleton from "./checkoutForm";
+import PaymentInfoSkeleton from "./paymentInfo";
+import CardItemSekelton from "./cartItems";
+import PaymentMethodCardSkeleton from "./paymentMethod";
 
 export default function CheckoutSkeleton() {
   return (

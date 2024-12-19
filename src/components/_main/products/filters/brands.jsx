@@ -1,26 +1,35 @@
-import React, { useEffect, useState, useCallback } from 'react';
-import { useSearchParams } from 'next/navigation';
-import { useRouter } from 'next-nprogress-bar';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState, useCallback } from "react";
+import { useSearchParams } from "next/navigation";
+import { useRouter } from "next-nprogress-bar";
+import PropTypes from "prop-types";
 // mui
-import { FormGroup, FormControlLabel, Radio, Grid, Typography, Button, Stack, Zoom } from '@mui/material';
+import {
+  FormGroup,
+  FormControlLabel,
+  Radio,
+  Grid,
+  Typography,
+  Button,
+  Stack,
+  Zoom,
+} from "@mui/material";
 // icons
-import { MdOutlineBrandingWatermark } from 'react-icons/md';
+import { MdOutlineBrandingWatermark } from "react-icons/md";
 
 const BrandMain = ({ brands, path }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const brand = searchParams.get('brand');
+  const brand = searchParams.get("brand");
   const { push } = router;
 
-  const [selectedBrand, setSelectedBrand] = useState('');
+  const [selectedBrand, setSelectedBrand] = useState("");
   const createQueryString = useCallback(
     (name, value) => {
       const params = new URLSearchParams(searchParams.toString());
       params.set(name, value);
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
   const deleteQueryString = useCallback(
     (name) => {
@@ -28,18 +37,18 @@ const BrandMain = ({ brands, path }) => {
       params.delete(name);
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
   const handleChange = (event) => {
     const slug = event.target.value;
     setSelectedBrand(slug);
 
-    const queryString = createQueryString('brand', slug);
+    const queryString = createQueryString("brand", slug);
     push(`${path}?${queryString}`);
   };
 
   useEffect(() => {
-    setSelectedBrand(brand || '');
+    setSelectedBrand(brand || "");
   }, [brand]);
 
   return (
@@ -50,9 +59,9 @@ const BrandMain = ({ brands, path }) => {
           sx={{
             fontWeight: 600,
             mb: 1,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 1
+            display: "flex",
+            alignItems: "center",
+            gap: 1,
           }}
           color="text.primary"
         >
@@ -61,13 +70,13 @@ const BrandMain = ({ brands, path }) => {
         <Zoom in={Boolean(selectedBrand)}>
           <Button
             onClick={() => {
-              setSelectedBrand('');
-              push(`${path}?${deleteQueryString('brand')}`);
+              setSelectedBrand("");
+              push(`${path}?${deleteQueryString("brand")}`);
             }}
             variant="outlined"
             color="primary"
             size="small"
-            sx={{ float: 'right' }}
+            sx={{ float: "right" }}
           >
             Reset
           </Button>
@@ -97,5 +106,5 @@ export default BrandMain;
 
 BrandMain.propTypes = {
   brands: PropTypes.array.isRequired,
-  path: PropTypes.string.isRequired
+  path: PropTypes.string.isRequired,
 };

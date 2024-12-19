@@ -1,11 +1,11 @@
-'use client';
-import React from 'react';
+"use client";
+import React from "react";
 // mui
-import { Box, alpha, Card, Grid, Typography, useTheme } from '@mui/material';
+import { Box, alpha, Card, Grid, Typography, useTheme } from "@mui/material";
 // icons
-import { MdVerified } from 'react-icons/md';
-import { FiClock } from 'react-icons/fi';
-import { BsShieldFillCheck } from 'react-icons/bs';
+import { MdVerified } from "react-icons/md";
+import { FiClock } from "react-icons/fi";
+import { BsShieldFillCheck } from "react-icons/bs";
 
 export default function AdditionalInfo() {
   const theme = useTheme();
@@ -14,74 +14,74 @@ export default function AdditionalInfo() {
       container
       spacing={3}
       sx={{
-        display: 'flex',
-        flexDirection: 'row', // Set the flex direction to row
-        flexWrap: 'nowrap', // Prevent wrapping to a new row
-        justifyContent: 'space-between' // Optional: Adjust the spacing between items
+        display: "flex",
+        flexDirection: "row", // Set the flex direction to row
+        flexWrap: "nowrap", // Prevent wrapping to a new row
+        justifyContent: "space-between", // Optional: Adjust the spacing between items
       }}
     >
       {PRODUCT_DESCRIPTION.map((item) => (
         <Grid item xs={12} md={4} key={item.title}>
           <Card
             sx={{
-              borderRadius: '8px',
-              boxShadow: 'unset',
-              width: '100%',
-              position: 'relative',
+              borderRadius: "8px",
+              boxShadow: "unset",
+              width: "100%",
+              position: "relative",
               py: 4,
-              position: 'relative',
+              position: "relative",
               backgroundColor: theme.palette.primary.dark,
               // backgroundColor: '#212b36',
-              overflow: 'hidden',
-              '& .fabBtn': {
-                backgroundColor: theme.palette.primary.light
+              overflow: "hidden",
+              "& .fabBtn": {
+                backgroundColor: theme.palette.primary.light,
               },
-              '&:before': {
+              "&:before": {
                 content: "''",
-                position: 'absolute',
-                top: '40%',
-                transform: 'translateY(-50%)',
-                left: '-10%',
+                position: "absolute",
+                top: "40%",
+                transform: "translateY(-50%)",
+                left: "-10%",
                 backgroundColor: alpha(theme.palette.primary.light, 0.5),
                 height: 80,
                 width: 80,
-                borderRadius: '50px',
-                zIndex: 0
+                borderRadius: "50px",
+                zIndex: 0,
               },
-              '&:after': {
+              "&:after": {
                 content: "''",
-                position: 'absolute',
-                right: '5%',
-                transform: 'translateY(-50%)',
-                bottom: '-50%',
+                position: "absolute",
+                right: "5%",
+                transform: "translateY(-50%)",
+                bottom: "-50%",
                 backgroundColor: alpha(theme.palette.primary.light, 0.5),
                 height: 80,
                 width: 80,
-                borderRadius: '50px',
-                zIndex: 0
-              }
+                borderRadius: "50px",
+                zIndex: 0,
+              },
             }}
           >
             <Box
               sx={{
                 my: 2,
-                mx: 'auto',
+                mx: "auto",
                 maxWidth: 280,
-                textAlign: 'center'
+                textAlign: "center",
               }}
             >
               <Box
                 sx={{
-                  margin: 'auto',
+                  margin: "auto",
                   marginBottom: 1,
-                  color: 'common.black',
-                  backgroundColor: 'primary.light',
+                  color: "common.black",
+                  backgroundColor: "primary.light",
                   height: 48,
                   width: 48,
-                  borderRadius: '50px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
+                  borderRadius: "50px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 {item.icon}
@@ -98,15 +98,15 @@ export default function AdditionalInfo() {
 }
 const PRODUCT_DESCRIPTION = [
   {
-    title: '100% Original',
-    icon: <MdVerified size={30} />
+    title: "100% Original",
+    icon: <MdVerified size={30} />,
   },
   {
-    title: '10 Days Replacement',
-    icon: <FiClock size={28} />
+    title: "10 Days Replacement",
+    icon: <FiClock size={28} />,
   },
   {
-    title: '1 year Warranty',
-    icon: <BsShieldFillCheck size={28} />
-  }
+    title: "1 year Warranty",
+    icon: <BsShieldFillCheck size={28} />,
+  },
 ];

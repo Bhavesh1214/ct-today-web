@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 // mui
-import { Box, Card, Grid, Skeleton, Stack, Typography } from '@mui/material';
+import { Box, Card, Grid, Skeleton, Stack, Typography } from "@mui/material";
 
 export default function index() {
   return (
     <Box
       sx={{
-        mt: 3
+        mt: 3,
       }}
     >
       <Grid container spacing={3}>
@@ -15,10 +15,10 @@ export default function index() {
             sx={{
               py: 11.8,
               px: 3,
-              textAlign: 'center',
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center'
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
             }}
           >
             <Skeleton variant="circular" height={144} width={144} />
@@ -26,10 +26,10 @@ export default function index() {
               variant="caption"
               sx={{
                 mt: 2,
-                mx: 'auto',
-                display: 'block',
-                textAlign: 'center',
-                mb: 1
+                mx: "auto",
+                display: "block",
+                textAlign: "center",
+                mb: 1,
               }}
             >
               <Skeleton variant="text" width={200} />
@@ -39,17 +39,29 @@ export default function index() {
         <Grid item xs={12} md={8}>
           <Card sx={{ p: 3 }}>
             <Stack spacing={3}>
-              <Stack direction={{ md: 'row', xs: 'column' }} justifyContent="space-between" spacing={2}>
+              <Stack
+                direction={{ md: "row", xs: "column" }}
+                justifyContent="space-between"
+                spacing={2}
+              >
                 <Skeleton variant="rounded" height={56} width="100%" />
                 <Skeleton variant="rounded" height={56} width="100%" />
               </Stack>
-              <Stack direction={{ md: 'row', xs: 'column' }} justifyContent="space-between" spacing={2}>
+              <Stack
+                direction={{ md: "row", xs: "column" }}
+                justifyContent="space-between"
+                spacing={2}
+              >
                 <Skeleton variant="rounded" height={56} width="100%" />
                 <Skeleton variant="rounded" height={56} width="100%" />
               </Stack>
               <Skeleton variant="rounded" height={56} />
               <Skeleton variant="rounded" height={56} />
-              <Stack direction={{ md: 'row', xs: 'column' }} justifyContent="space-between" spacing={2}>
+              <Stack
+                direction={{ md: "row", xs: "column" }}
+                justifyContent="space-between"
+                spacing={2}
+              >
                 <Skeleton variant="rounded" height={56} width="100%" />
                 <Skeleton variant="rounded" height={56} width="100%" />
                 <Skeleton variant="rounded" height={56} width="100%" />

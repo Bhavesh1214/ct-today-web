@@ -1,19 +1,21 @@
-'use client';
-import React from 'react';
-import NextLink from 'next/link';
+"use client";
+import React from "react";
+import NextLink from "next/link";
 
 // mui
-import { Typography, Box, Stack, Button } from '@mui/material';
+import { Typography, Box, Stack, Button } from "@mui/material";
 // api
-import * as api from 'src/services';
-import { useQuery } from 'react-query';
+import * as api from "src/services";
+import { useQuery } from "react-query";
 // components
-import ProductsCarousel from 'src/components/carousels/gridSlider';
+import ProductsCarousel from "src/components/carousels/gridSlider";
 // icons
-import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowForward } from "react-icons/io";
 
 export default function Featured() {
-  const { data, isLoading } = useQuery(['get-best-products'], () => api.getBestSellingProducts());
+  const { data, isLoading } = useQuery(["get-best-products"], () =>
+    api.getBestSellingProducts(),
+  );
 
   return (
     <>
@@ -23,17 +25,21 @@ export default function Featured() {
             direction="row"
             justifyContent="space-between"
             alignItems="center"
-            textAlign={{ xs: 'center', md: 'left' }}
+            textAlign={{ xs: "center", md: "left" }}
           >
             <Box
               sx={{
-                width: '100%'
+                width: "100%",
               }}
             >
               <Typography variant="h3" color="primary" mt={{ xs: 4, md: 8 }}>
                 Best Selling Products
               </Typography>
-              <Typography variant="body1" color="text.secondary" mb={{ xs: 3, md: 5 }}>
+              <Typography
+                variant="body1"
+                color="text.secondary"
+                mb={{ xs: 3, md: 5 }}
+              >
                 Special products in this month
               </Typography>
             </Box>
@@ -43,9 +49,9 @@ export default function Featured() {
               size="large"
               sx={{
                 borderRadius: 6,
-                display: { xs: 'none', md: 'flex' },
+                display: { xs: "none", md: "flex" },
                 minWidth: 130,
-                px: 1
+                px: 1,
               }}
               endIcon={<IoIosArrowForward />}
               component={NextLink}
@@ -68,9 +74,9 @@ export default function Featured() {
             size="small"
             sx={{
               borderRadius: 6,
-              mx: 'auto',
-              display: { md: 'none', xs: 'flex' },
-              maxWidth: '120px'
+              mx: "auto",
+              display: { md: "none", xs: "flex" },
+              maxWidth: "120px",
             }}
             endIcon={<IoIosArrowForward />}
             component={NextLink}

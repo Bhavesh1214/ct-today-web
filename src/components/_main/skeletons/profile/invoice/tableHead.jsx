@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // mui
-import { Skeleton, TableCell, TableHead, TableRow } from '@mui/material';
+import { Skeleton, TableCell, TableHead, TableRow } from "@mui/material";
 
 export default function TableHeadMain() {
   return (
@@ -20,7 +20,7 @@ export default function TableHeadMain() {
             <Skeleton variant="text" width={50} />
           </TableCell>
           <TableCell align="right">
-            <Skeleton variant="text" width={40} sx={{ ml: 'auto' }} />
+            <Skeleton variant="text" width={40} sx={{ ml: "auto" }} />
           </TableCell>
         </TableRow>
       </TableHead>

@@ -1,27 +1,27 @@
-import PropTypes from 'prop-types';
-import { useRouter } from 'next-nprogress-bar';
-import Image from 'next/image';
-import logoImage from '../../public/images/logo.png';
-import logoLigntImage from '../../public/images/logo-light.png';
+import PropTypes from "prop-types";
+import { useRouter } from "next-nprogress-bar";
+import Image from "next/image";
+import logoImage from "../../public/images/logo.png";
+import logoLigntImage from "../../public/images/logo-light.png";
 // mui
-import { Box } from '@mui/material';
-import { useTheme } from '@emotion/react';
+import { Box } from "@mui/material";
+import { useTheme } from "@emotion/react";
 
 export const Logo = ({ logo, width }) => {
   const { push } = useRouter();
   const theme = useTheme();
-  const isLight = theme.palette.mode === 'light';
+  const isLight = theme.palette.mode === "light";
   return (
     <Box
       sx={{
-        cursor: 'pointer',
+        cursor: "pointer",
 
         img: {
           width: width ? width : 100,
-          height: 'auto'
-        }
+          height: "auto",
+        },
       }}
-      onClick={() => push('/')}
+      onClick={() => push("/")}
     >
       {logo ? (
         <Image
@@ -49,6 +49,6 @@ export const Logo = ({ logo, width }) => {
 
 Logo.propTypes = {
   sx: PropTypes.object,
-  isMobile: PropTypes.bool
+  isMobile: PropTypes.bool,
 };
 export default Logo;

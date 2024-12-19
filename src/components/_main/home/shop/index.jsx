@@ -1,15 +1,15 @@
-'use client';
+"use client";
 // react
-import React from 'react';
-import NextLink from 'next/link';
-import { useSelector } from 'react-redux';
+import React from "react";
+import NextLink from "next/link";
+import { useSelector } from "react-redux";
 
 // mui
-import { Typography, Grid, Box, Stack, Paper, Button } from '@mui/material';
+import { Typography, Grid, Box, Stack, Paper, Button } from "@mui/material";
 // icons
-import { IoIosArrowForward } from 'react-icons/io';
+import { IoIosArrowForward } from "react-icons/io";
 // component
-import ShopCard from 'src/components/cards/shop';
+import ShopCard from "src/components/cards/shop";
 
 export default function ShopComponent() {
   const { shops = [], isLoading } = useSelector(({ shops }) => shops);
@@ -20,14 +20,18 @@ export default function ShopComponent() {
         direction="row"
         justifyContent="space-between"
         alignItems="center"
-        textAlign={{ xs: 'center', md: 'left' }}
+        textAlign={{ xs: "center", md: "left" }}
         mb={3}
       >
         <Box width="100%">
           <Typography variant="h2" color="text.primary" mt={{ xs: 4, md: 8 }}>
             Best Shops
           </Typography>
-          <Typography variant="body1" color="text.secondary" mb={{ xs: 3, md: 5 }}>
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            mb={{ xs: 3, md: 5 }}
+          >
             Our Highest Rated Shops Where You Can Find What You Are Looking For
           </Typography>
         </Box>
@@ -37,9 +41,9 @@ export default function ShopComponent() {
           size="large"
           sx={{
             borderRadius: 6,
-            display: { xs: 'none', md: 'flex' },
+            display: { xs: "none", md: "flex" },
             minWidth: 130,
-            px: 1
+            px: 1,
           }}
           endIcon={<IoIosArrowForward />}
           component={NextLink}
@@ -70,10 +74,10 @@ export default function ShopComponent() {
           size="small"
           sx={{
             borderRadius: 6,
-            mx: 'auto',
+            mx: "auto",
             mt: 3,
-            display: { md: 'none', xs: 'flex' },
-            maxWidth: '120px'
+            display: { md: "none", xs: "flex" },
+            maxWidth: "120px",
           }}
           endIcon={<IoIosArrowForward />}
           component={NextLink}

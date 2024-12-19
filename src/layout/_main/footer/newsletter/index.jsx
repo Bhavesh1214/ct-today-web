@@ -1,39 +1,39 @@
-'use client';
-import React from 'react';
-import { toast } from 'react-hot-toast';
+"use client";
+import React from "react";
+import { toast } from "react-hot-toast";
 
 // mui
-import { FormControl, TextField, Stack } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+import { FormControl, TextField, Stack } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
 
 // formik
-import { Form, FormikProvider, useFormik } from 'formik';
+import { Form, FormikProvider, useFormik } from "formik";
 
 // api
-import * as api from 'src/services';
-import { useMutation } from 'react-query';
+import * as api from "src/services";
+import { useMutation } from "react-query";
 
 export default function NewsLetter() {
   const [loading, setloading] = React.useState(false);
 
   const formik = useFormik({
     initialValues: {
-      email: ''
+      email: "",
     },
     onSubmit: async (values) => {
       if (
         values.email
           .toLowerCase()
           .match(
-            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
           )
       ) {
         setloading(true);
         mutate(values);
       } else {
-        toast.error('Invalid email!');
+        toast.error("Invalid email!");
       }
-    }
+    },
   });
 
   const { mutate } = useMutation(api.sendNewsletter, {
@@ -45,7 +45,7 @@ export default function NewsLetter() {
     onError: (err) => {
       setloading(false);
       toast.error(err.response.data.message);
-    }
+    },
   });
 
   const { handleSubmit, getFieldProps } = formik;
@@ -58,11 +58,11 @@ export default function NewsLetter() {
             <TextField
               size="large"
               placeholder="Enter your Email"
-              {...getFieldProps('email')}
+              {...getFieldProps("email")}
               sx={{
-                '& .MuiInputBase-root': {
-                  bgcolor: (theme) => theme.palette.background.paper
-                }
+                "& .MuiInputBase-root": {
+                  bgcolor: (theme) => theme.palette.background.paper,
+                },
               }}
             />
           </FormControl>

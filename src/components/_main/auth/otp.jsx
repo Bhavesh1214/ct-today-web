@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 // component
-import VerifyOTPForm from 'src/components/forms/otp';
-import PropTypes from 'prop-types';
+import VerifyOTPForm from "src/components/forms/otp";
+import PropTypes from "prop-types";
 
 OTPMain.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
 };
 
 export default function OTPMain({ user }) {

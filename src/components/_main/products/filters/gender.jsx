@@ -1,37 +1,46 @@
-import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
+import React, { useCallback } from "react";
+import PropTypes from "prop-types";
 // mui
-import { FormGroup, FormControlLabel, Checkbox, Grid, Typography, Button, Stack, Zoom } from '@mui/material';
+import {
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
+  Grid,
+  Typography,
+  Button,
+  Stack,
+  Zoom,
+} from "@mui/material";
 // icons
-import { IoTransgender } from 'react-icons/io5';
-import { IoMdMale, IoMdFemale, IoMdTransgender } from 'react-icons/io';
-import { FaVenusMars } from 'react-icons/fa';
+import { IoTransgender } from "react-icons/io5";
+import { IoMdMale, IoMdFemale, IoMdTransgender } from "react-icons/io";
+import { FaVenusMars } from "react-icons/fa";
 // next
-import { useRouter } from 'next-nprogress-bar';
-import { useSearchParams } from 'next/navigation';
+import { useRouter } from "next-nprogress-bar";
+import { useSearchParams } from "next/navigation";
 
 GenderMain.propTypes = {
   genders: PropTypes.array.isRequired,
-  path: PropTypes.string.isRequired
+  path: PropTypes.string.isRequired,
 };
 
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 const icons = {
   men: <IoMdMale size={20} />,
   women: <IoMdFemale size={20} />,
   kids: <FaVenusMars size={20} />,
-  others: <IoMdTransgender size={20} />
+  others: <IoMdTransgender size={20} />,
 };
 export default function GenderMain({ ...props }) {
   const { genders, path } = props;
   const searchParams = useSearchParams();
 
-  const gender = searchParams.get('gender');
+  const gender = searchParams.get("gender");
   const { push } = useRouter();
 
   const [state, setstate] = React.useState({
     genders: [],
-    isLoaded: false
+    isLoaded: false,
   });
 
   const createQueryString = useCallback(
@@ -41,7 +50,7 @@ export default function GenderMain({ ...props }) {
 
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
   const deleteQueryString = useCallback(
     (name) => {
@@ -49,7 +58,7 @@ export default function GenderMain({ ...props }) {
       params.delete(name);
       return params.toString();
     },
-    [searchParams]
+    [searchParams],
   );
 
   const handleChange = (props, e) => {
@@ -57,17 +66,20 @@ export default function GenderMain({ ...props }) {
     if (e.target.checked) {
       data = [...data, props];
       setstate({ ...state, genders: [...state.genders, props] });
-      push(`${path}?` + createQueryString('gender', [...state.genders, props].join('_')));
+      push(
+        `${path}?` +
+          createQueryString("gender", [...state.genders, props].join("_")),
+      );
     } else {
       const index = data.indexOf(props);
       data.splice(index, 1);
       if (data.length > 0) {
         const filtered = state.genders.filter((gen) => gen !== props);
         setstate({ ...state, genders: filtered });
-        push(`${path}?` + createQueryString('gender', filtered.join('_')));
+        push(`${path}?` + createQueryString("gender", filtered.join("_")));
       } else {
-        const deleted = deleteQueryString('gender');
-        push(path + '?' + deleted);
+        const deleted = deleteQueryString("gender");
+        push(path + "?" + deleted);
       }
     }
   };
@@ -75,13 +87,13 @@ export default function GenderMain({ ...props }) {
     if (Boolean(gender)) {
       setstate({
         ...state,
-        genders: [...gender.split('_')]
+        genders: [...gender.split("_")],
       });
     } else {
       setstate({
         ...state,
         genders: [],
-        isLoaded: true
+        isLoaded: true,
       });
     }
 
@@ -96,25 +108,27 @@ export default function GenderMain({ ...props }) {
           sx={{
             fontWeight: 600,
             mb: 1,
-            display: 'flex',
-            gap: 1
+            display: "flex",
+            gap: 1,
           }}
           color="text.primary"
         >
-          <IoTransgender size={20} /> Gender{' '}
-          {Boolean(state.genders.length) && gender && '(' + gender?.split('_').length + ')'}
+          <IoTransgender size={20} /> Gender{" "}
+          {Boolean(state.genders.length) &&
+            gender &&
+            "(" + gender?.split("_").length + ")"}
         </Typography>
         {
           <Zoom in={state.genders.length}>
             <Button
               onClick={() => {
                 setstate({ ...state, genders: [] });
-                push(`${path}?${deleteQueryString('gender')}`);
+                push(`${path}?${deleteQueryString("gender")}`);
               }}
               variant="outlined"
               color="primary"
               size="small"
-              sx={{ float: 'right' }}
+              sx={{ float: "right" }}
             >
               Reset
             </Button>
@@ -127,12 +141,18 @@ export default function GenderMain({ ...props }) {
           <Grid key={Math.random()} item xs={6}>
             <FormGroup>
               <FormControlLabel
-                sx={{ textTransform: 'capitalize' }}
+                sx={{ textTransform: "capitalize" }}
                 name="gender"
                 defaultChecked={state.genders.includes(v)}
                 checked={state.genders.includes(v)}
                 onChange={(e) => handleChange(v, e)}
-                control={<Checkbox {...label} icon={icons[v.toLowerCase()]} checkedIcon={icons[v.toLowerCase()]} />}
+                control={
+                  <Checkbox
+                    {...label}
+                    icon={icons[v.toLowerCase()]}
+                    checkedIcon={icons[v.toLowerCase()]}
+                  />
+                }
                 label={v.toLowerCase()}
               />
             </FormGroup>

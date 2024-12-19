@@ -1,21 +1,28 @@
-'use client';
-import React from 'react';
-import PropTypes from 'prop-types';
-import { useRouter } from 'next-nprogress-bar';
-import Image from 'next/image';
-import { useSelector } from 'react-redux';
+"use client";
+import React from "react";
+import PropTypes from "prop-types";
+import { useRouter } from "next-nprogress-bar";
+import Image from "next/image";
+import { useSelector } from "react-redux";
 // mui
-import { CardContent, Typography, Stack, Divider, Skeleton, Box } from '@mui/material';
-import { LoadingButton } from '@mui/lab';
+import {
+  CardContent,
+  Typography,
+  Stack,
+  Divider,
+  Skeleton,
+  Box,
+} from "@mui/material";
+import { LoadingButton } from "@mui/lab";
 // hooks components
-import { useCurrencyConvert } from 'src/hooks/convertCurrency';
-import { useCurrencyFormatter } from 'src/hooks/formatCurrency';
-import RootStyled from './styled';
+import { useCurrencyConvert } from "src/hooks/convertCurrency";
+import { useCurrencyFormatter } from "src/hooks/formatCurrency";
+import RootStyled from "./styled";
 // images
-import paymentImg from '../../../../../public/images/payment-method.png';
+import paymentImg from "../../../../../public/images/payment-method.png";
 
 PaymentSummary.propTypes = {
-  loading: PropTypes.bool.isRequired
+  loading: PropTypes.bool.isRequired,
 };
 
 export default function PaymentSummary({ loading, cart }) {
@@ -32,30 +39,44 @@ export default function PaymentSummary({ loading, cart }) {
   return (
     <RootStyled
       sx={{
-        borderRadius: '8px',
-        boxShadow: 'unset'
+        borderRadius: "8px",
+        boxShadow: "unset",
       }}
     >
       <CardContent
         sx={{
           py: 2,
-          borderRadius: '8px',
-          boxShadow: 'unset'
+          borderRadius: "8px",
+          boxShadow: "unset",
         }}
       >
         <Typography variant="h4" mb={1}>
           Payment Summary
         </Typography>
         <Stack spacing={0} mt={1} mb={2}>
-          <Stack direction="row" alignItem="center" justifyContent="space-between" spacing={2}>
+          <Stack
+            direction="row"
+            alignItem="center"
+            justifyContent="space-between"
+            spacing={2}
+          >
             <Typography variant="subtitle2" color="text.secondary">
               Subtotal:
             </Typography>
             <Typography variant="subtitle2">
-              {loading ? <Skeleton variant="text" width={80} /> : fCurrency(cCurrency(subtotal))}
+              {loading ? (
+                <Skeleton variant="text" width={80} />
+              ) : (
+                fCurrency(cCurrency(subtotal))
+              )}
             </Typography>
           </Stack>
-          <Stack direction="row" alignItem="center" justifyContent="space-between" spacing={2}>
+          <Stack
+            direction="row"
+            alignItem="center"
+            justifyContent="space-between"
+            spacing={2}
+          >
             <Typography variant="subtitle2" color="text.secondary">
               Shipping:
             </Typography>
@@ -63,7 +84,7 @@ export default function PaymentSummary({ loading, cart }) {
               {loading ? (
                 <Skeleton variant="text" width={80} />
               ) : !shipping ? (
-                'Free'
+                "Free"
               ) : (
                 fCurrency(cCurrency(parseInt(shipping)))
               )}
@@ -71,13 +92,23 @@ export default function PaymentSummary({ loading, cart }) {
           </Stack>
         </Stack>
         <Divider />
-        <Stack direction="row" alignItem="center" justifyContent="space-between" spacing={2} mt={2}>
+        <Stack
+          direction="row"
+          alignItem="center"
+          justifyContent="space-between"
+          spacing={2}
+          mt={2}
+        >
           <Typography variant="subtitle1">Total:</Typography>
           <Typography variant="subtitle1">
-            {loading ? <Skeleton variant="text" width={80} /> : fCurrency(cCurrency(total))}
+            {loading ? (
+              <Skeleton variant="text" width={80} />
+            ) : (
+              fCurrency(cCurrency(total))
+            )}
           </Typography>
         </Stack>
-        <Box sx={{ position: 'relative', width: '100%', height: 26, mt: 2 }}>
+        <Box sx={{ position: "relative", width: "100%", height: 26, mt: 2 }}>
           <Image src={paymentImg} alt="payment" fill objectFit="contain" />
         </Box>
         <Box mt={2}>
@@ -86,11 +117,11 @@ export default function PaymentSummary({ loading, cart }) {
             fullWidth
             size="large"
             sx={{
-              borderRadius: '8px'
+              borderRadius: "8px",
             }}
             disabled={isEmptyCart}
             loading={loading}
-            onClick={() => router.push('/checkout')}
+            onClick={() => router.push("/checkout")}
           >
             Checkout
           </LoadingButton>

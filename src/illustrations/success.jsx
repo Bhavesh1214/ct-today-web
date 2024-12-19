@@ -1,8 +1,14 @@
-import React from 'react';
+import React from "react";
 
 export default function SuccessPopupIcon() {
   return (
-    <svg width="231" height="169" viewBox="0 0 231 169" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg
+      width="231"
+      height="169"
+      viewBox="0 0 231 169"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"
@@ -23,9 +29,24 @@ export default function SuccessPopupIcon() {
       <circle cx="63" cy="103" r="2" fill="#3C39A3" />
       <circle cx="85" cy="119" r="3" fill="#26C196" />
       <circle cx="43" cy="122" r="3" fill="#F48E6A" />
-      <path d="M97 1L108 14" stroke="#4F4BCC" strokeWidth="2" strokeLinecap="round" />
-      <path d="M206 130L213.771 139.184" stroke="#007DFC" strokeWidth="2" strokeLinecap="round" />
-      <path d="M1.75586 104.041L17.2424 96.9586" stroke="#26C196" strokeWidth="2" strokeLinecap="round" />
+      <path
+        d="M97 1L108 14"
+        stroke="#4F4BCC"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M206 130L213.771 139.184"
+        stroke="#007DFC"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
+      <path
+        d="M1.75586 104.041L17.2424 96.9586"
+        stroke="#26C196"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
       <path
         d="M49.6507 12.842C49.9618 12.9299 50.0611 13.3217 49.8294 13.5472L42.3818 20.7952C42.1501 21.0206 41.7612 20.9108 41.6818 20.5973L39.1286 10.5235C39.0492 10.2101 39.3388 9.92827 39.6499 10.0162L49.6507 12.842Z"
         stroke="#625DF5"
@@ -35,7 +56,12 @@ export default function SuccessPopupIcon() {
       <circle cx="185" cy="54" r="2.5" stroke="#625DF5" />
       <defs>
         <clipPath id="clip0_1051_5795">
-          <rect width="80" height="80" fill="white" transform="translate(86 32)" />
+          <rect
+            width="80"
+            height="80"
+            fill="white"
+            transform="translate(86 32)"
+          />
         </clipPath>
       </defs>
     </svg>

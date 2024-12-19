@@ -17,11 +17,11 @@ const nextConfig = {
     JWT_SECRET: process.env.JWT_SECRET,
     PAYPAL_CLIENT_ID: process.env.PAYPAL_CLIENT_ID,
     IMAGE_BASE: process.env.IMAGE_BASE,
-    IMAGE_URL: process.env.IMAGE_URL
+    IMAGE_URL: process.env.IMAGE_URL,
   },
   images: {
-    domains: ['apiseodrra.ecobuy.site', 'res.cloudinary.com', 'localhost']
-  }
+    domains: ["apiseodrra.ecobuy.site", "res.cloudinary.com", "localhost"],
+  },
 };
 
 module.exports = nextConfig;

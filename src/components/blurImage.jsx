@@ -1,17 +1,17 @@
 //
-'use client';
-import PropTypes from 'prop-types';
-import Image from 'next/image';
-import useMediaQuery from '@mui/material/useMediaQuery';
+"use client";
+import PropTypes from "prop-types";
+import Image from "next/image";
+import useMediaQuery from "@mui/material/useMediaQuery";
 
 export default function BlurImage({ src, alt, blurDataURL, ...props }) {
-  const isDesktop = useMediaQuery('(min-width:600px)');
+  const isDesktop = useMediaQuery("(min-width:600px)");
 
   return (
     <>
       {blurDataURL ? (
         <Image
-          sizes={isDesktop ? '14vw' : '50vw'}
+          sizes={isDesktop ? "14vw" : "50vw"}
           src={src}
           alt={alt}
           placeholder="blur"
@@ -19,7 +19,12 @@ export default function BlurImage({ src, alt, blurDataURL, ...props }) {
           {...props}
         />
       ) : (
-        <Image sizes={isDesktop ? '14vw' : '50vw'} src={src} alt={alt} {...props} />
+        <Image
+          sizes={isDesktop ? "14vw" : "50vw"}
+          src={src}
+          alt={alt}
+          {...props}
+        />
       )}
     </>
   );
@@ -30,5 +35,5 @@ BlurImage.propTypes = {
   alt: PropTypes.string.isRequired,
   blurDataURL: PropTypes.string.isRequired,
   static: PropTypes.bool,
-  sizes: PropTypes.string
+  sizes: PropTypes.string,
 };

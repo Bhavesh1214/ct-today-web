@@ -1,13 +1,13 @@
-'use client';
-import React from 'react';
-import PropTypes from 'prop-types';
+"use client";
+import React from "react";
+import PropTypes from "prop-types";
 
 // mui
-import { Toolbar, AppBar, Container } from '@mui/material';
+import { Toolbar, AppBar, Container } from "@mui/material";
 
 // components
-import MenuDesktop from './menuDesktop';
-import config from 'src/layout/_main/config.json';
+import MenuDesktop from "./menuDesktop";
+import config from "src/layout/_main/config.json";
 
 // ----------------------------------------------------------------------
 export default function Navbar() {
@@ -17,18 +17,21 @@ export default function Navbar() {
     <>
       <AppBar
         sx={{
-          boxShadow: 'none',
-          position: 'sticky',
+          boxShadow: "none",
+          position: "sticky",
           top: 80,
           zIndex: 999,
           borderRadius: 0,
           bgcolor: (theme) => theme.palette.primary.main,
-          display: { md: 'flex', xs: 'none' },
-          pr: '0px !important'
+          display: { md: "flex", xs: "none" },
+          pr: "0px !important",
         }}
       >
         <Container maxWidth="xl">
-          <Toolbar className="toolbar" sx={{ minHeight: '48px!important', px: '0px!important' }}>
+          <Toolbar
+            className="toolbar"
+            sx={{ minHeight: "48px!important", px: "0px!important" }}
+          >
             <MenuDesktop navConfig={menu} />
           </Toolbar>
         </Container>
@@ -37,5 +40,5 @@ export default function Navbar() {
   );
 }
 Navbar.propTypes = {
-  isAuth: PropTypes.bool.isRequired
+  isAuth: PropTypes.bool.isRequired,
 };

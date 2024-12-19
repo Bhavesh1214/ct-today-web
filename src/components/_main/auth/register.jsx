@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 // component
-import RegisterForm from 'src/components/forms/register';
+import RegisterForm from "src/components/forms/register";
 export default function RegisterMain() {
   return <RegisterForm />;
 }

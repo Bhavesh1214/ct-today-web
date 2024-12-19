@@ -1,6 +1,13 @@
-import React from 'react';
+import React from "react";
 // mui
-import { Card, CardContent, Typography, Stack, Divider, Skeleton } from '@mui/material';
+import {
+  Card,
+  CardContent,
+  Typography,
+  Stack,
+  Divider,
+  Skeleton,
+} from "@mui/material";
 
 export default function PaymentInfoSkeleton() {
   return (
@@ -11,7 +18,12 @@ export default function PaymentInfoSkeleton() {
         </Typography>
 
         <Stack spacing={0} mt={1} mb={2} gap={1}>
-          <Stack direction="row" alignItem="center" justifyContent="space-between" spacing={2}>
+          <Stack
+            direction="row"
+            alignItem="center"
+            justifyContent="space-between"
+            spacing={2}
+          >
             <Typography variant="subtitle2" color="text.secondary">
               <Skeleton variant="text" width={80} />
             </Typography>
@@ -19,7 +31,12 @@ export default function PaymentInfoSkeleton() {
               <Skeleton variant="text" width={80} />
             </Typography>
           </Stack>
-          <Stack direction="row" alignItem="center" justifyContent="space-between" spacing={2}>
+          <Stack
+            direction="row"
+            alignItem="center"
+            justifyContent="space-between"
+            spacing={2}
+          >
             <Typography variant="subtitle2" color="text.secondary">
               <Skeleton variant="text" width={80} />
             </Typography>
@@ -27,7 +44,12 @@ export default function PaymentInfoSkeleton() {
               <Skeleton variant="text" width={80} />
             </Typography>
           </Stack>
-          <Stack direction="row" alignItem="center" justifyContent="space-between" spacing={2}>
+          <Stack
+            direction="row"
+            alignItem="center"
+            justifyContent="space-between"
+            spacing={2}
+          >
             <Typography variant="subtitle2" color="text.secondary">
               <Skeleton variant="text" width={80} />
             </Typography>
@@ -36,13 +58,19 @@ export default function PaymentInfoSkeleton() {
             </Typography>
           </Stack>
 
-          <Stack direction={'row'} gap={1}>
+          <Stack direction={"row"} gap={1}>
             <Skeleton variant="rounded" width={251} height={40} />
             <Skeleton variant="rounded" width={64} height={40} />
           </Stack>
         </Stack>
         <Divider />
-        <Stack direction="row" alignItem="center" justifyContent="space-between" spacing={2} mt={2}>
+        <Stack
+          direction="row"
+          alignItem="center"
+          justifyContent="space-between"
+          spacing={2}
+          mt={2}
+        >
           <Typography variant="subtitle1">
             <Skeleton variant="text" width={80} />
           </Typography>

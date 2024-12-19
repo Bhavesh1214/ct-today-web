@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { formatDistanceToNow } from 'date-fns';
-import { useRef, useState } from 'react';
-import { useRouter } from 'next-nprogress-bar';
-import { enUS } from 'date-fns/locale';
+import React from "react";
+import PropTypes from "prop-types";
+import { formatDistanceToNow } from "date-fns";
+import { useRef, useState } from "react";
+import { useRouter } from "next-nprogress-bar";
+import { enUS } from "date-fns/locale";
 
 // mui
 import {
@@ -20,28 +20,28 @@ import {
   ListItemText,
   ListItemAvatar,
   ListItemButton,
-  IconButton
-} from '@mui/material';
+  IconButton,
+} from "@mui/material";
 
 // icons
-import { GoClock } from 'react-icons/go';
-import { IoNotificationsOutline } from 'react-icons/io5';
-import { TbCheck } from 'react-icons/tb';
-import { TbChecks } from 'react-icons/tb';
+import { GoClock } from "react-icons/go";
+import { IoNotificationsOutline } from "react-icons/io5";
+import { TbCheck } from "react-icons/tb";
+import { TbChecks } from "react-icons/tb";
 
 // components
-import { Popover as MenuPopover } from 'src/components/popover';
-import NoDataFoundIllustration from 'src/illustrations/dataNotFound';
+import { Popover as MenuPopover } from "src/components/popover";
+import NoDataFoundIllustration from "src/illustrations/dataNotFound";
 
 // api
-import { useQuery } from 'react-query';
-import * as api from 'src/services';
+import { useQuery } from "react-query";
+import * as api from "src/services";
 
 // ----------------------------------------------------------------------
 
 const NotificationPopover = ({ item, onClose }) => {
   const router = useRouter();
-  console.log(item, 'order id ');
+  console.log(item, "order id ");
   return (
     <>
       <ListItemButton
@@ -51,11 +51,14 @@ const NotificationPopover = ({ item, onClose }) => {
           onClose();
         }}
         sx={{
-          bgcolor: (theme) => (item?.opened ? theme.palette.background.paper : 'rgba(145, 158, 171, 0.08)')
+          bgcolor: (theme) =>
+            item?.opened
+              ? theme.palette.background.paper
+              : "rgba(145, 158, 171, 0.08)",
         }}
       >
         <ListItemAvatar>
-          <Avatar alt={item?.title.slice(3, 4) || ''} src={item?.avatar} />
+          <Avatar alt={item?.title.slice(3, 4) || ""} src={item?.avatar} />
         </ListItemAvatar>
         <ListItemText
           secondary={
@@ -64,11 +67,15 @@ const NotificationPopover = ({ item, onClose }) => {
                 variant="body2"
                 color="text.primary"
                 dangerouslySetInnerHTML={{
-                  __html: `${item?.title}`
+                  __html: `${item?.title}`,
                 }}
               />
 
-              <Stack direction="row" alignItems="center" justifyContent="space-between">
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="space-between"
+              >
                 <Stack direction="row" alignItems="center" spacing={1}>
                   <GoClock size={14} />
                   <Typography variant="body2" color="text.secondary">
@@ -77,10 +84,14 @@ const NotificationPopover = ({ item, onClose }) => {
                 </Stack>
                 <Box
                   sx={{
-                    color: item?.opened ? 'primary.main' : 'text.secondary'
+                    color: item?.opened ? "primary.main" : "text.secondary",
                   }}
                 >
-                  {item?.opened ? <TbChecks size={16} /> : <TbCheck size={16} />}
+                  {item?.opened ? (
+                    <TbChecks size={16} />
+                  ) : (
+                    <TbCheck size={16} />
+                  )}
                 </Box>
               </Stack>
             </React.Fragment>
@@ -105,9 +116,18 @@ const SkeletonComponent = () => {
               <Typography variant="body2" color="text.primary">
                 <Skeleton variant="text" />
               </Typography>
-              <Stack direction="row" alignItems="center" justifyContent="space-between">
+              <Stack
+                direction="row"
+                alignItems="center"
+                justifyContent="space-between"
+              >
                 <Stack direction="row" alignItems="center">
-                  <Skeleton variant="circular" height={14} width={14} sx={{ mr: 0.5 }} />
+                  <Skeleton
+                    variant="circular"
+                    height={14}
+                    width={14}
+                    sx={{ mr: 0.5 }}
+                  />
                   <Typography variant="body2" color="text.secondary">
                     <Skeleton variant="text" width={140} />
                   </Typography>
@@ -124,7 +144,7 @@ const SkeletonComponent = () => {
 };
 NotificationPopover.propTypes = {
   item: PropTypes.object.isRequired,
-  onClose: PropTypes.func.isRequired
+  onClose: PropTypes.func.isRequired,
 };
 
 export default function NotificationsPopover() {
@@ -133,12 +153,16 @@ export default function NotificationsPopover() {
   const [open, setOpen] = useState(false);
   const [page, setPage] = useState(1);
   const [notifications, setNotifications] = useState([]);
-  const { data, isLoading } = useQuery(['notification', page], () => api.getNotifications(page * 10), {
-    refetchInterval: 10000,
-    onSuccess: (newData) => {
-      setNotifications([...newData.data]);
-    }
-  });
+  const { data, isLoading } = useQuery(
+    ["notification", page],
+    () => api.getNotifications(page * 10),
+    {
+      refetchInterval: 10000,
+      onSuccess: (newData) => {
+        setNotifications([...newData.data]);
+      },
+    },
+  );
   const handleOpen = () => {
     setOpen(true);
   };
@@ -151,7 +175,7 @@ export default function NotificationsPopover() {
       <IconButton
         ref={anchorRef}
         size="large"
-        color={open ? 'primary' : 'default'}
+        color={open ? "primary" : "default"}
         onClick={handleOpen}
         sx={{ width: 40, height: 40 }}
       >
@@ -160,9 +184,14 @@ export default function NotificationsPopover() {
         </Badge>
       </IconButton>
 
-      <MenuPopover open={open} onClose={handleClose} anchorEl={anchorRef.current} sx={{ width: 360 }}>
+      <MenuPopover
+        open={open}
+        onClose={handleClose}
+        anchorEl={anchorRef.current}
+        sx={{ width: 360 }}
+      >
         <>
-          <Box sx={{ display: 'flex', alignItems: 'center', py: 2, px: 2.5 }}>
+          <Box sx={{ display: "flex", alignItems: "center", py: 2, px: 2.5 }}>
             <Box sx={{ flexGrow: 1 }}>
               <Typography variant="subtitle1">Notifications</Typography>
             </Box>
@@ -172,8 +201,13 @@ export default function NotificationsPopover() {
           {notifications?.length < 1 ? (
             <NoDataFoundIllustration />
           ) : (
-            <Box sx={{ height: { xs: 340, sm: 400, md: 460 }, overflow: 'auto' }}>
-              <List disablePadding sx={{ '& .MuiListItemAvatar-root': { mt: 0 } }}>
+            <Box
+              sx={{ height: { xs: 340, sm: 400, md: 460 }, overflow: "auto" }}
+            >
+              <List
+                disablePadding
+                sx={{ "& .MuiListItemAvatar-root": { mt: 0 } }}
+              >
                 {notifications?.map((item) => (
                   <NotificationPopover
                     key={Math.random()}
@@ -187,17 +221,19 @@ export default function NotificationsPopover() {
                 ))}
               </List>
               <Box textAlign="center">
-                {!isLoading && data.totalNotifications > 1 && data.totalNotifications !== page && (
-                  <Button
-                    variant="outlined"
-                    color="primary"
-                    sx={{ my: 2 }}
-                    size="small"
-                    onClick={() => setPage(page + 1)}
-                  >
-                    View more
-                  </Button>
-                )}
+                {!isLoading &&
+                  data.totalNotifications > 1 &&
+                  data.totalNotifications !== page && (
+                    <Button
+                      variant="outlined"
+                      color="primary"
+                      sx={{ my: 2 }}
+                      size="small"
+                      onClick={() => setPage(page + 1)}
+                    >
+                      View more
+                    </Button>
+                  )}
               </Box>
             </Box>
           )}
