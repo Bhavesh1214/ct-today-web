@@ -10,17 +10,17 @@ import Topbar from "src/layout/_main/topbar";
 
 // Meta information
 export const metadata = {
-  title: "Seodrra E-commerce",
+  title: "ct-today",
   description:
-    "Log in to Seodrra for secure access to your account. Enjoy seamless shopping, personalized experiences, and hassle-free transactions. Your trusted portal to a world of convenience awaits. Login now!",
-  applicationName: "Seodrra",
-  authors: "Seodrra",
-  keywords: "ecommerce, Seodrra, Commerce, Login Seodrra, LoginFrom Seodrra",
+    "Log in to cttoday for secure access to your account. Enjoy seamless shopping, personalized experiences, and hassle-free transactions. Your trusted portal to a world of convenience awaits. Login now!",
+  applicationName: "cttoday",
+  authors: "cttoday",
+  keywords: "ecommerce, cttoday, Commerce, Login cttoday, LoginFrom cttoday",
   icons: {
     icon: "/favicon.png",
   },
   openGraph: {
-    images: "https://seodrra.vercel.app/opengraph-image.png?1c6a1fa20db2840f",
+    images: "https://cttoday.vercel.app/opengraph-image.png?1c6a1fa20db2840f",
   },
 };
 
