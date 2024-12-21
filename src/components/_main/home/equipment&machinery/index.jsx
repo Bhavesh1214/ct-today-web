@@ -14,7 +14,7 @@ const EquipmentMachinery = () => {
   return (
     <Box sx={{ padding: 2, backgroundColor: "#ffff" }}>
       {/* Title Section */}
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom  sx={{color: "purple",}}>
         Equipment & Machinery
       </Typography>
 
@@ -24,13 +24,15 @@ const EquipmentMachinery = () => {
           <Grid item xs={12} sm={6} md={3} key={index}>
             <Paper elevation={3} sx={{ padding: 2 }}>
               {/* Image Placeholder */}
-              <Box
+              <img src="BM-m.webp" style={{ width: '100%' }} />
+
+              {/* <Box
                 sx={{
                   height: 150,
                   backgroundColor: "#f0f0f0",
                   mb: 1,
                 }}
-              ></Box>
+              ></Box> */}
               <Typography variant="subtitle1" noWrap>
                 Building Resilient and Long...
               </Typography>
@@ -48,7 +50,9 @@ const EquipmentMachinery = () => {
 
       <Grid container spacing={4}>
         <Grid item xs={12} sm={6}>
-          <Box
+        <img src="BCEE-2025.webp" style={{ width: '100%' }} />
+
+          {/* <Box
             sx={{
               width: "100%",
               height: 150,
@@ -60,10 +64,13 @@ const EquipmentMachinery = () => {
             }}
           >
             Banner 1 (700x150 px)
-          </Box>
+          </Box> */}
         </Grid>
+
         <Grid item xs={12} sm={6}>
-          <Box
+        <img src="CICEE-2025.webp" style={{ width: '100%' }} />
+
+          {/* <Box
             sx={{
               width: "100%",
               height: 150,
@@ -74,7 +81,7 @@ const EquipmentMachinery = () => {
             }}
           >
             Banner 2 (700x150 px)
-          </Box>
+          </Box> */}
         </Grid>
       </Grid>
     </Box>

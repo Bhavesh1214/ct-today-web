@@ -50,15 +50,17 @@ export default function Footer() {
                 Location
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                ONSTRUCTION MAGAZINE INDIA 704, First Floor, Vatva GIDC,
-                Ahmedabad-382445, Gujarat, INDIA.
+                Ahmedabad-382445, 
               </Typography>
               <Typography variant="body2" color="text.secondary">
+                 Gujarat, INDIA.
+              </Typography>
+              {/* <Typography variant="body2" color="text.secondary">
                 Mobile: +91 0000000000
               </Typography>
               <Typography variant="body2" color="text.secondary">
                 Email: constructionmagazineindia@gmail.com
-              </Typography>
+              </Typography> */}
             </Stack>
           </Grid>
 

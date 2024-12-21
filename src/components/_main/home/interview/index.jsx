@@ -1,11 +1,12 @@
 import React from "react";
 import { Grid, Box, Typography, Paper } from "@mui/material";
+import { color } from "framer-motion";
 
 const Interview = () => {
   return (
     <Box sx={{ padding: 2, backgroundColor: "#ffff" }}>
       {/* Title Section */}
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom  sx={{color: "purple",}}>
         Interview
       </Typography>
 
@@ -17,8 +18,11 @@ const Interview = () => {
               elevation={3}
               sx={{ padding: 2, borderRadius: "0 !important" }}
             >
+              <img src="2-m.webp" style={{ width: '100%' }} />
+
+
               {/* Image Placeholder */}
-              <Box
+              {/* <Box
                 component="img"
                 src="https://via.placeholder.com/150" // Replace with actual image URLs
                 alt={`Placeholder ${index + 1}`}
@@ -31,7 +35,7 @@ const Interview = () => {
                   // border:' 1px',
                   border: "1px solid black", // Added border
                 }}
-              />
+              /> */}
               <Typography variant="subtitle1" noWrap>
                 Building Resilient and Long...
               </Typography>
@@ -50,8 +54,11 @@ const Interview = () => {
       {/* Banner Section */}
       <Grid container spacing={2}>
         {/* Left Placeholder (400x300 px) */}
+
         <Grid item xs={12} sm={3}>
-          <Box
+        <img src="Demolition.webp" style={{ width: '100%' }} />
+
+          {/* <Box
             component="img"
             src="https://via.placeholder.com/400x300" // Replace with actual image URLs
             alt="Left Placeholder"
@@ -61,12 +68,14 @@ const Interview = () => {
               objectFit: "cover",
               borderRadius: 0,
             }}
-          />
+          /> */}
         </Grid>
 
         {/* Center Banners (700x150 px stacked) */}
         <Grid item xs={12} sm={6}>
-          <Box
+        <img src="hpv1.webp" style={{ width: '100%' }} />
+
+          {/* <Box
             component="img"
             src="https://via.placeholder.com/700x150" // Replace with actual image URLs
             alt="Banner 1"
@@ -77,8 +86,10 @@ const Interview = () => {
               mb: 1,
               borderRadius: 0,
             }}
-          />
-          <Box
+          /> */}
+        <img src="hpv1.webp" style={{ width: '100%' }} />
+
+          {/* <Box
             component="img"
             src="https://via.placeholder.com/700x150" // Replace with actual image URLs
             alt="Banner 2"
@@ -88,12 +99,14 @@ const Interview = () => {
               objectFit: "cover",
               borderRadius: 0,
             }}
-          />
+          /> */}
         </Grid>
 
         {/* Right Placeholder (400x300 px) */}
         <Grid item xs={12} sm={3}>
-          <Box
+        <img src="3-m.webp" style={{ width: '100%' }} />
+
+          {/* <Box
             component="img"
             src="https://via.placeholder.com/400x300" // Replace with actual image URLs
             alt="Right Placeholder"
@@ -103,7 +116,7 @@ const Interview = () => {
               objectFit: "cover",
               borderRadius: 0,
             }}
-          />
+          /> */}
         </Grid>
       </Grid>
     </Box>

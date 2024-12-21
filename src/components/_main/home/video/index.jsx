@@ -5,7 +5,7 @@ const Video = () => {
   return (
     <Box sx={{ padding: 2, backgroundColor: "#ffff" }}>
       {/* Title Section */}
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom sx={{color: "purple",}}>
         Video
       </Typography>
 
@@ -22,6 +22,7 @@ const Video = () => {
                 border: "1px solid #ccc", // Add border
               }}
             >
+              
               {/* Video Display */}
               <Box
                 sx={{

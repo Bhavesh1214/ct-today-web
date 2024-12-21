@@ -17,7 +17,7 @@ import {
 } from "@mui/material";
 import * as api from "src/services";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
-// import FacebookIcon from "@mui/icons-material/Facebook";
+import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -224,16 +224,16 @@ export default function Navbar() {
             </Box>
 
             {/* Advertisement Banners */}
-            {/* <Grid container spacing={4}>
+            <Grid container spacing={4}>
               <Grid item xs={12} md={6} >
-                <img src="Chaina_bauma 2024.jpg"  style={{width: '100%'}} />
+                <img src="banner1.webp"  style={{width: '100%'}} />
               </Grid>
               <Grid item xs={12} md={6}>
-                <img src="India_bauma 2024.jpg" style={{width: '100%'}}/>
+                <img src="banner2.webp" style={{width: '100%'}}/>
 
               </Grid>
-            </Grid> */}
-            <Grid container spacing={4}>
+            </Grid>
+            {/* <Grid container spacing={4}>
               <Grid item xs={12} sm={6}>
                 <Box
                   sx={{
@@ -248,6 +248,7 @@ export default function Navbar() {
                 >
                   Banner 1 (700x150 px)
                 </Box>
+                
               </Grid>
               <Grid item xs={12} sm={6}>
                 <Box
@@ -263,12 +264,12 @@ export default function Navbar() {
                   Banner 2 (700x150 px)
                 </Box>
               </Grid>
-            </Grid>
+            </Grid> */}
           </Box>
           <Box sx={{ flexGrow: 1 }}>
             <AppBar
               sx={{
-                backgroundColor: "#665394",
+                backgroundColor: "#sdsdsdsd",
               }}
             >
               <Toolbar sx={{ minHeight: "46px !important" }}>

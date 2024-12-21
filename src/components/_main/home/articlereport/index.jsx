@@ -14,7 +14,7 @@ const ArticleReport = () => {
   return (
     <Box sx={{ padding: 2, backgroundColor: "#ffff" }}>
       {/* Title Section */}
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom sx={{color: "purple",}}>
         Article & Report
       </Typography>
 
@@ -23,14 +23,16 @@ const ArticleReport = () => {
         {Array.from({ length: 4 }).map((_, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
             <Paper elevation={3} sx={{ padding: 2 }}>
+        <img src="cranes-m.webp" style={{ width: '100%' }} />
+
               {/* Image Placeholder */}
-              <Box
+              {/* <Box
                 sx={{
                   height: 150,
                   backgroundColor: "#f0f0f0",
                   mb: 1,
                 }}
-              ></Box>
+              ></Box> */}
               <Typography variant="subtitle1" noWrap>
                 Building Resilient and Long...
               </Typography>
@@ -48,7 +50,9 @@ const ArticleReport = () => {
 
       <Grid container spacing={4}>
         <Grid item xs={12} sm={6}>
-          <Box
+        <img src="Terex-db.gif" style={{ width: '100%' , height:'100%'}} />
+
+          {/* <Box
             sx={{
               width: "100%",
               height: 150,
@@ -60,10 +64,12 @@ const ArticleReport = () => {
             }}
           >
             Banner 1 (700x150 px)
-          </Box>
+          </Box> */}
         </Grid>
         <Grid item xs={12} sm={6}>
-          <Box
+        <img src="Terex-db.gif" style={{ width: '100%' , height:'100%'}} />
+          
+          {/* <Box
             sx={{
               width: "100%",
               height: 150,
@@ -74,7 +80,7 @@ const ArticleReport = () => {
             }}
           >
             Banner 2 (700x150 px)
-          </Box>
+          </Box> */}
         </Grid>
       </Grid>
     </Box>

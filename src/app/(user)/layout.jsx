@@ -16,9 +16,9 @@ export const metadata = {
   // applicationName: "cttoday",
   // authors: "cttoday",
   // keywords: "ecommerce, cttoday, Commerce, Login cttoday, LoginFrom cttoday",
-  // icons: {
-  //   icon: "/favicon.png",
-  // },
+  icons: {
+    icon: "/logo1.png",
+  },
   openGraph: {
     images: "https://cttoday.vercel.app/opengraph-image.png?1c6a1fa20db2840f",
   },

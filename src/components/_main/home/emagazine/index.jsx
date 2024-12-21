@@ -22,7 +22,7 @@ const Emagazine = () => {
   return (
     <Box sx={{ padding: "20px", backgroundColor: "#ffff" }}>
       {/* Title */}
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h4" gutterBottom sx={{color: "purple",}}>
         E-Magazine
       </Typography>
 
@@ -37,15 +37,19 @@ const Emagazine = () => {
               </Typography>
 
               {/* Placeholder for Content (Box to replicate the blank rectangle) */}
-              <Box
+              <img src="NBMCW-December-2024.webp" style={{ width: '100%',height:'300px',border:'2px solid #ccc',marginBottom:'10px' }} />
+
+              {/* <Box
                 sx={{
                   height: "250px",
                   border: "1px solid #ccc",
                   marginBottom: "10px",
                 }}
-              ></Box>
+                
+              ></Box> */}
 
               {/* Action Buttons */}
+
               <Box
                 sx={{
                   display: "flex",

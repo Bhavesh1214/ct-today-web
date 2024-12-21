@@ -17,7 +17,7 @@ export default function UserTopbar() {
         position: "fixed",
         top: 0,
         zIndex: 999999999999,
-        background: "#665394",
+       backgroundColor: "#FF6600",
         padding: "0px 0px",
         width: "100%",
       }}
