@@ -14,6 +14,8 @@ import ProductTechnology from "src/components/_main/home/producttechnology";
 import UpcomingEvent from "src/components/_main/home/upcomingevent";
 import Video from "src/components/_main/home/video";
 import Emagazine from "src/components/_main/home/emagazine";
+import Testimonials from "src/components/_main/home/testimonials";
+import AdvertismentsLogo from "src/components/_main/home/advertismentslogo";
 
 export default function IndexPage() {
   return (
@@ -41,6 +43,16 @@ export default function IndexPage() {
       <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
         <UpcomingEvent />
       </Container>
+
+
+      <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
+        <AdvertismentsLogo />
+      </Container>
+      
+      <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
+        <Testimonials />
+      </Container>
+      
 
       <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
         <Video />

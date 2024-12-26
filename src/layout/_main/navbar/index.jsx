@@ -122,115 +122,18 @@ export default function Navbar() {
               justifyContent="space-between"
               py={1}
             >
-              {/* Section: Construction */}
-              <Image
-                src={"/images/Consruction-logo.png"}
-                width={100}
-                height={100}
-                alt="Logo"
-                style={{ width: "auto", height: "auto", objectFit: "cover" }}
-              />
-
+              
               {/* Section: Input Fields */}
-              <Box>
-                <Typography
-                  variant="body2"
-                  color={"#665394"}
-                  textAlign={"center"}
-                  fontSize={20}
-                  mb={1}
-                >
-                  SUBSCRIBE NEWSLETTER
-                </Typography>
-                <Box display="flex" justifyContent={"space-between"} gap="10px">
-                  <TextField
-                    placeholder="Your Name"
-                    variant="outlined"
-                    size="small"
-                    sx={{
-                      background: "#fff",
-                      "& .MuiOutlinedInput-root": {
-                        "& fieldset": {
-                          borderColor: "black",
-                        },
-                        "&:hover fieldset": {
-                          borderColor: "black",
-                        },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "black",
-                        },
-                      },
-                    }}
-                  />
-                  <TextField
-                    placeholder="Your Whatsapp No"
-                    variant="outlined"
-                    size="small"
-                    sx={{
-                      background: "#fff",
-                      "& .MuiOutlinedInput-root": {
-                        "& fieldset": {
-                          borderColor: "black",
-                        },
-                        "&:hover fieldset": {
-                          borderColor: "black",
-                        },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "black",
-                        },
-                      },
-                    }}
-                  />
-                  <TextField
-                    placeholder="Your e-mail id"
-                    variant="outlined"
-                    size="small"
-                    sx={{
-                      background: "#fff",
-                      "& .MuiOutlinedInput-root": {
-                        "& fieldset": {
-                          borderColor: "black",
-                        },
-                        "&:hover fieldset": {
-                          borderColor: "black",
-                        },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "black",
-                        },
-                      },
-                    }}
-                  />
-                  <TextField
-                    placeholder="Captcha code"
-                    variant="outlined"
-                    size="small"
-                    sx={{
-                      background: "#fff",
-                      "& .MuiOutlinedInput-root": {
-                        "& fieldset": {
-                          borderColor: "black", // Ensure the outline is black
-                        },
-                        "&:hover fieldset": {
-                          borderColor: "black", // Black border on hover
-                        },
-                        "&.Mui-focused fieldset": {
-                          borderColor: "black", // Black border when focused
-                        },
-                      },
-                    }}
-                  />
-                </Box>
-              </Box>
+              
             </Box>
 
             {/* Advertisement Banners */}
             <Grid container spacing={4}>
-              <Grid item xs={12} md={6} >
-                <img src="banner1.webp"  style={{width: '100%'}} />
+              <Grid item xs={12} md={6}>
+                <img src="banner1.webp" style={{ width: "100%" }} />
               </Grid>
               <Grid item xs={12} md={6}>
-                <img src="banner2.webp" style={{width: '100%'}}/>
-
+                <img src="banner2.webp" style={{ width: "100%" }} />
               </Grid>
             </Grid>
             {/* <Grid container spacing={4}>

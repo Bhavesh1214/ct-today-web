@@ -13,6 +13,8 @@ import {
   Link,
   Fab,
   Divider,
+  TextField,
+  Button,
 } from "@mui/material";
 
 // icons
@@ -36,7 +38,7 @@ export default function Footer() {
       sx={{
         backgroundColor: "background.default",
         py: 4,
-        mt: 7,
+        
         overflow: "hidden",
         width: "100%",
       }}
@@ -44,16 +46,16 @@ export default function Footer() {
       <Container maxWidth="xl">
         <Grid container spacing={4}>
           {/* Location Section */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={2}>
             <Stack spacing={2}>
               <Typography variant="h6" color="text.primary">
                 Location
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Ahmedabad-382445, 
+                Ahmedabad-382445,
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                 Gujarat, INDIA.
+                Gujarat, INDIA.
               </Typography>
               {/* <Typography variant="body2" color="text.secondary">
                 Mobile: +91 0000000000
@@ -65,7 +67,7 @@ export default function Footer() {
           </Grid>
 
           {/* Popular Tags Section */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={2}>
             <Stack spacing={2}>
               <Typography variant="h6" color="text.primary">
                 Popular Tags
@@ -86,7 +88,7 @@ export default function Footer() {
           </Grid>
 
           {/* Quick Links Section */}
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={3}>
             <Stack spacing={2}>
               <Typography variant="h6" color="text.primary">
                 Quick Links
@@ -136,6 +138,122 @@ export default function Footer() {
               </Stack>
             </Stack>
           </Grid>
+          <Grid item xs={12} md={5}>
+            <Stack spacing={2}>
+              <Typography variant="h6" color="text.primary">
+                SUBSCRIBE NEWSLETTER
+              </Typography>
+              <Box sx={{
+                  display: 'flex',
+                  flexDirection: 'row', 
+                  gap: 2, 
+                  px: 0 
+                }}>
+                <TextField
+                  placeholder="Your Name"
+                  variant="outlined"
+                  size="small"
+                  sx={{
+                    background: "#fff",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: 0,
+                      "& fieldset": {
+                        borderColor: "black",
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "black",
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "black",
+                      },
+                    },
+                  }}
+                />
+                <TextField
+                  placeholder="Your Whatsapp No"
+                  variant="outlined"
+                  size="small"
+                  sx={{
+                    background: "#fff",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: 0,
+                      "& fieldset": {
+                        borderColor: "black",
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "black",
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "black",
+                      },
+                    },
+                  }}
+                />
+              </Box>
+              <Box
+                sx={{
+                  display: 'flex',
+                  flexDirection: 'row', 
+                  gap: 2, 
+                  px: 0 
+                }}
+              >
+                <TextField
+                  placeholder="Your e-mail id"
+                  variant="outlined"
+                  size="small"
+                  sx={{
+                    background: "#fff",
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: 0, // Remove border radius
+                      "& fieldset": {
+                        borderColor: "black",
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "black",
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "black",
+                      },
+                    },
+                  }}
+                />
+                <TextField
+                  placeholder="Captcha code"
+                  variant="outlined"
+                  size="small"
+                 
+                  sx={{
+                    background: "#fff",
+                   
+                    "& .MuiOutlinedInput-root": {
+                      borderRadius: 0, // Remove border radius
+                      "& fieldset": {
+                        borderColor: "black",
+                      },
+                      "&:hover fieldset": {
+                        borderColor: "black",
+                      },
+                      "&.Mui-focused fieldset": {
+                        borderColor: "black",
+                      },
+                    },
+                  }}
+                />
+              </Box>
+
+              <Button
+                variant="contained"
+             
+                sx={{ padding: "0.75rem", width: "68%", fontWeight: "bold", borderRadius: 0, color:'#fff', backgroundColor:'#14265E'}}
+              // fullWidth
+              >
+                SUBSCRIBE
+              </Button>
+
+            </Stack>
+          </Grid>
+
         </Grid>
 
         <Divider sx={{ my: 3 }} />

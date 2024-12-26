@@ -22,7 +22,7 @@ const Emagazine = () => {
   return (
     <Box sx={{ padding: "20px", backgroundColor: "#ffff" }}>
       {/* Title */}
-      <Typography variant="h4" gutterBottom sx={{color: "purple",}}>
+      <Typography variant="h4" gutterBottom sx={{ color: "#14265E" }}>
         E-Magazine
       </Typography>
 
@@ -37,7 +37,15 @@ const Emagazine = () => {
               </Typography>
 
               {/* Placeholder for Content (Box to replicate the blank rectangle) */}
-              <img src="NBMCW-December-2024.webp" style={{ width: '100%',height:'300px',border:'2px solid #ccc',marginBottom:'10px' }} />
+              <img
+                src="NBMCW-December-2024.webp"
+                style={{
+                  width: "100%",
+                  height: "300px",
+                  border: "2px solid #ccc",
+                  marginBottom: "10px",
+                }}
+              />
 
               {/* <Box
                 sx={{
@@ -60,14 +68,14 @@ const Emagazine = () => {
                 <Button
                   variant="contained"
                   color="primary"
-                  sx={{ flex: 1, backgroundColor: "#FF6600", color: "white" }}
+                  sx={{ flex: 1, backgroundColor: "#14265E", color: "white" }}
                 >
                   View Online
                 </Button>
                 <Button
                   variant="contained"
                   color="primary"
-                  sx={{ flex: 1, backgroundColor: "#FF6600", color: "white" }}
+                  sx={{ flex: 1, backgroundColor: "#14265E", color: "white" }}
                 >
                   Download PDF
                 </Button>
