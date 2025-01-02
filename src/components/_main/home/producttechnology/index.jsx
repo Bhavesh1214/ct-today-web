@@ -14,7 +14,7 @@ const ProductTechnology = () => {
   return (
     <Box sx={{ padding: 2, backgroundColor: "#ffff" }}>
       {/* Title Section */}
-      <Typography variant="h4" gutterBottom sx={{color: "purple",}}>
+      <Typography variant="h4" gutterBottom sx={{ color: "purple" }}>
         Product & Technology
       </Typography>
 
@@ -23,7 +23,7 @@ const ProductTechnology = () => {
         {Array.from({ length: 4 }).map((_, index) => (
           <Grid item xs={12} sm={6} md={3} key={index}>
             <Paper elevation={3} sx={{ padding: 2 }}>
-              <img src="49911-Kobelco-m.webp" style={{ width: '100%' }} />
+              <img src="49911-Kobelco-m.webp" style={{ width: "100%" }} />
 
               {/* Image Placeholder */}
               {/* <Box

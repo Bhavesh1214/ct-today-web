@@ -14,7 +14,7 @@ const UpcomingEvent = () => {
   return (
     <Box sx={{ padding: 2, backgroundColor: "#ffff" }}>
       {/* Title Section */}
-      <Typography variant="h4" gutterBottom sx={{color: "purple",}}>
+      <Typography variant="h4" gutterBottom sx={{ color: "purple" }}>
         Upcoming Event
       </Typography>
 
@@ -22,7 +22,7 @@ const UpcomingEvent = () => {
 
       <Grid container spacing={4}>
         <Grid item xs={12} sm={4}>
-        <img src="ICA-2025.webp" style={{ width: '100%' }} />
+          <img src="ICA-2025.webp" style={{ width: "100%" }} />
 
           {/* <Box
             sx={{
@@ -39,7 +39,7 @@ const UpcomingEvent = () => {
           </Box> */}
         </Grid>
         <Grid item xs={12} sm={4}>
-        <img src="CICEE-2025 (1).webp" style={{ width: '100%' }} />
+          <img src="CICEE-2025 (1).webp" style={{ width: "100%" }} />
 
           {/* <Box
             sx={{
@@ -55,7 +55,7 @@ const UpcomingEvent = () => {
           </Box> */}
         </Grid>
         <Grid item xs={12} sm={4}>
-        <img src="BCEE-2025 (1).webp" style={{ width: '100%' }} />
+          <img src="BCEE-2025 (1).webp" style={{ width: "100%" }} />
 
           {/* <Box
             sx={{

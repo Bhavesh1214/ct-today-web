@@ -6,7 +6,7 @@ const Interview = () => {
   return (
     <Box sx={{ padding: 2, backgroundColor: "#ffff" }}>
       {/* Title Section */}
-      <Typography variant="h4" gutterBottom  sx={{color: "purple",}}>
+      <Typography variant="h4" gutterBottom sx={{ color: "purple" }}>
         Interview
       </Typography>
 
@@ -18,8 +18,7 @@ const Interview = () => {
               elevation={3}
               sx={{ padding: 2, borderRadius: "0 !important" }}
             >
-              <img src="2-m.webp" style={{ width: '100%' }} />
-
+              <img src="2-m.webp" style={{ width: "100%" }} />
 
               {/* Image Placeholder */}
               {/* <Box
@@ -56,7 +55,7 @@ const Interview = () => {
         {/* Left Placeholder (400x300 px) */}
 
         <Grid item xs={12} sm={3}>
-        <img src="Demolition.webp" style={{ width: '100%' }} />
+          <img src="Demolition.webp" style={{ width: "100%" }} />
 
           {/* <Box
             component="img"
@@ -73,7 +72,7 @@ const Interview = () => {
 
         {/* Center Banners (700x150 px stacked) */}
         <Grid item xs={12} sm={6}>
-        <img src="hpv1.webp" style={{ width: '100%' }} />
+          <img src="hpv1.webp" style={{ width: "100%" }} />
 
           {/* <Box
             component="img"
@@ -87,7 +86,7 @@ const Interview = () => {
               borderRadius: 0,
             }}
           /> */}
-        <img src="hpv1.webp" style={{ width: '100%' }} />
+          <img src="hpv1.webp" style={{ width: "100%" }} />
 
           {/* <Box
             component="img"
@@ -104,7 +103,7 @@ const Interview = () => {
 
         {/* Right Placeholder (400x300 px) */}
         <Grid item xs={12} sm={3}>
-        <img src="3-m.webp" style={{ width: '100%' }} />
+          <img src="3-m.webp" style={{ width: "100%" }} />
 
           {/* <Box
             component="img"

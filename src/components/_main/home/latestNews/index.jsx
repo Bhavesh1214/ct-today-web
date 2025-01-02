@@ -143,7 +143,7 @@ export default function LatestNews({}) {
         <Grid item xs={12} md={3}>
           <Grid container spacing={2}>
             <Grid item xs={12}>
-            <img src="b4.webp"  style={{width: '100%'}} />
+              <img src="b4.webp" style={{ width: "100%" }} />
 
               {/* <Box
               
@@ -162,7 +162,7 @@ export default function LatestNews({}) {
               </Box> */}
             </Grid>
             <Grid item xs={12}>
-            <img src="pai-machines.webp"  style={{width: '100%'}} />
+              <img src="pai-machines.webp" style={{ width: "100%" }} />
               {/* <Box
                 sx={{
                   backgroundColor: "grey.300",
@@ -291,7 +291,7 @@ export default function LatestNews({}) {
       </Grid>
 
       {/* Bottom Banner */}
-      <img src="Infrawise.webp"  style={{width: '100%'}} />
+      <img src="Infrawise.webp" style={{ width: "100%" }} />
       {/* <Box
         sx={{
           backgroundColor: "grey.300",

@@ -50,10 +50,10 @@ export default function Footer() {
                 Location
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                Ahmedabad-382445, 
+                Ahmedabad-382445,
               </Typography>
               <Typography variant="body2" color="text.secondary">
-                 Gujarat, INDIA.
+                Gujarat, INDIA.
               </Typography>
               {/* <Typography variant="body2" color="text.secondary">
                 Mobile: +91 0000000000

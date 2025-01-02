@@ -225,12 +225,11 @@ export default function Navbar() {
 
             {/* Advertisement Banners */}
             <Grid container spacing={4}>
-              <Grid item xs={12} md={6} >
-                <img src="banner1.webp"  style={{width: '100%'}} />
+              <Grid item xs={12} md={6}>
+                <img src="banner1.webp" style={{ width: "100%" }} />
               </Grid>
               <Grid item xs={12} md={6}>
-                <img src="banner2.webp" style={{width: '100%'}}/>
-
+                <img src="banner2.webp" style={{ width: "100%" }} />
               </Grid>
             </Grid>
             {/* <Grid container spacing={4}>
