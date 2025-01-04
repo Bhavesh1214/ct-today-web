@@ -49,25 +49,6 @@ import MobileBar from "../mobileBar";
 
 // ----------------------------------------------------------------------
 export default function Navbar() {
-  const { menu } = config;
-  const { checkout } = useSelector(({ product }) => product);
-  // const isMobile = useMediaQuery('(max-width:768px)');
-  const { appSetting } = useSelector(({ settings }) => settings);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    getSettingDetail();
-  }, []);
-
-  const getSettingDetail = async () => {
-    try {
-      const response = await api.getSetting();
-      if (response.data.length != 0) {
-        dispatch(setSettings(response.data[0]));
-      }
-    } catch (error) {
-      console.error("Error fetching advertise images:", error);
-    }
-  };
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenuOpen = (event) => {
@@ -136,6 +117,7 @@ export default function Navbar() {
                 <img src="banner2.webp" style={{ width: "100%" }} />
               </Grid>
             </Grid>
+            
             {/* <Grid container spacing={4}>
               <Grid item xs={12} sm={6}>
                 <Box

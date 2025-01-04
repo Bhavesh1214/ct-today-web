@@ -38,7 +38,7 @@ export default function Footer() {
       sx={{
         backgroundColor: "background.default",
         py: 4,
-        
+        padding: 2, backgroundColor: "#ffff",
         overflow: "hidden",
         width: "100%",
       }}

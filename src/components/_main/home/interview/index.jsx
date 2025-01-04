@@ -58,6 +58,7 @@ const Interview = () => {
                 // display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                cursor: "pointer"
               }}
             >
               <img
@@ -84,7 +85,7 @@ const Interview = () => {
       <Grid container spacing={2} mt={5}>
         {/* Left Placeholder (400x300 px) */}
 
-        <Grid item xs={12} sm={3} >
+        <Grid item xs={12} sm={3} sx={{cursor: "pointer"}}>
           <img src="Demolition.webp" style={{ width: "100%" }} />
 
           {/* <Box
@@ -101,7 +102,7 @@ const Interview = () => {
         </Grid>
 
         {/* Center Banners (700x150 px stacked) */}
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={6} sx={{cursor: "pointer"}}>
           <img src="hpv1.webp" style={{ width: "100%" }} />
 
           {/* <Box

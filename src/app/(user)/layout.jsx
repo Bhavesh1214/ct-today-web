@@ -27,8 +27,8 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <>
-      <Topbar  maxWidth="xl" sx={{ padding: "0 !important" }}/>
-      <Navbar  maxWidth="xl" sx={{ padding: "0 !important" }}/>
+      <Topbar  sx={{ padding: "0 !important" }}/>
+      {/* <Navbar   sx={{ padding: "0 !important" }}/> */}
       {children}
       <Toolbar sx={{ display: { xs: "block", md: "none" } }} />
       <Footer  maxWidth="xl" sx={{ padding: "0 !important" }}/>

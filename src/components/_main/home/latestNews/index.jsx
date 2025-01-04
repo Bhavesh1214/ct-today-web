@@ -33,10 +33,10 @@ export default function LatestNews({}) {
   
 
   return (
-    <Box sx={{ padding: 2, backgroundColor: "#ffff" }}>
+    <Box sx={{ padding: 2, backgroundColor: "#ffff", }}>
       <Grid container spacing={2}>
         <Grid item xs={12} md={3}>
-          <Grid container spacing={2}>
+          <Grid container spacing={2} sx={{cursor: "pointer"}}>
             <Grid item xs={12}>
               <img src="b4.webp" style={{ width: "100%" }} />
             </Grid>
@@ -52,7 +52,7 @@ export default function LatestNews({}) {
           >
             Latest News
           </Typography>
-          <Grid container spacing={4} top={"10px"}>
+          <Grid container spacing={4} top={"10px"} sx={{cursor: "pointer"}}>
             {[
               {
                 category: "Real Estate",

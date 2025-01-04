@@ -16,10 +16,14 @@ import Video from "src/components/_main/home/video";
 import Emagazine from "src/components/_main/home/emagazine";
 import Testimonials from "src/components/_main/home/testimonials";
 import AdvertismentsLogo from "src/components/_main/home/advertismentslogo";
+import TopBanners from "src/components/_main/home/topBanners";
 
 export default function IndexPage() {
   return (
     <>
+      <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
+        <TopBanners />
+      </Container>
       <Container maxWidth="xl" sx={{ padding: "0 !important" }}>
         <LatestNews />
       </Container>
