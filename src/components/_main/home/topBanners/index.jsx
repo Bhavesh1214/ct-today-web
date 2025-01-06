@@ -33,7 +33,7 @@ export default function TopBanners({ }) {
 
 
   return (
-    <Box sx={{ padding: 2, backgroundColor: "#ffff",mt:8,cursor: "pointer"}}>
+    <Box sx={{ padding: 2, backgroundColor: "#ffff",cursor: "pointer"}}>
       <Grid container spacing={4}>
         <Grid item xs={12} md={6}>
           <img src="banner1.webp" style={{ width: "100%" }} />

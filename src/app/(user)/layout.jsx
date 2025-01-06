@@ -1,7 +1,7 @@
 import React from "react";
 
 // mui
-import { Toolbar } from "@mui/material";
+import { Container, Toolbar } from "@mui/material";
 
 // components
 import Navbar from "src/layout/_main/navbar";
@@ -27,11 +27,19 @@ export const metadata = {
 export default async function RootLayout({ children }) {
   return (
     <>
-      <Topbar  sx={{ padding: "0 !important" }}/>
+      <Container maxWidth="xl" sx={{
+        padding: '0 !important', position: "sticky",
+        top: 0,
+        zIndex: 999999,
+      }}>
+        <Topbar sx={{
+          // padding: "0 !important",
+        }} />
+      </Container>
       {/* <Navbar   sx={{ padding: "0 !important" }}/> */}
       {children}
       <Toolbar sx={{ display: { xs: "block", md: "none" } }} />
-      <Footer  maxWidth="xl" sx={{ padding: "0 !important" }}/>
+      <Footer maxWidth="xl" sx={{ padding: "0 !important" }} />
     </>
   );
 }

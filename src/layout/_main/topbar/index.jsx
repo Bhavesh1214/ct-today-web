@@ -1,7 +1,7 @@
 "use client";
 import { Box, Link, Stack, Toolbar, TextField, useTheme } from "@mui/material";
 import { useSelector } from "react-redux";
-// import React from 'react';
+import React from 'react';
 
 import FacebookIcon from "src/components/Icons/FacebookIcon";
 import InstagramIcon from "src/components/Icons/InstagramIcon";
@@ -16,33 +16,24 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import IconButton from '@mui/material/IconButton';
 import AccountCircle from '@mui/icons-material/AccountCircle';
-import React, { useState } from "react";
 export default function UserTopbar() {
   const theme = useTheme();
   const { appSetting } = useSelector(({ settings }) => settings);
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [dropdownMenu, setDropdownMenu] = useState(null);
 
-
-  const handleDropdownOpen = (event, menuName) => {
+  const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
-    setDropdownMenu(menuName);
   };
 
-  const handleDropdownClose = () => {
+  const handleMenuClose = () => {
     setAnchorEl(null);
-    setDropdownMenu(null);
   };
   return (
     <Box
       sx={{
-        position: "fixed",
-        top: 0,
-        zIndex: 999999999999,
+        
         backgroundColor: "#14265E",
-        padding: "0px 0px",
         width: "100%",
-        cursor: "pointer"
       }}
     >
       <Toolbar
@@ -91,7 +82,6 @@ export default function UserTopbar() {
             "& .MuiOutlinedInput-root": {
               "& fieldset": {
                 borderColor: "#ccc",
-              },
               "&:hover fieldset": {
                 borderColor: theme.palette.primary.main,
               },
@@ -101,74 +91,35 @@ export default function UserTopbar() {
             },
           }}
         /> */}
-          
-           <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          <Button
-            onClick={(e) => handleDropdownOpen(e, "equipmentMachinery")}
-          >
-            Equipment & Machinery
-          </Button>
-          <Menu
-            anchorEl={anchorEl}
-            open={dropdownMenu === "equipmentMachinery"}
-            onClose={handleDropdownClose}
-          >
-            <MenuItem onClick={handleDropdownClose}>Cranes</MenuItem>
-            <MenuItem onClick={handleDropdownClose}>Excavators</MenuItem>
-            <MenuItem onClick={handleDropdownClose}>Bulldozers</MenuItem>
-          </Menu>
-
-          <Button onClick={(e) => handleDropdownOpen(e, "productTechnology")}>
-            Product & Technology
-          </Button>
-          <Menu
-            anchorEl={anchorEl}
-            open={dropdownMenu === "productTechnology"}
-            onClose={handleDropdownClose}
-          >
-            <MenuItem onClick={handleDropdownClose}>AI Innovations</MenuItem>
-            <MenuItem onClick={handleDropdownClose}>Software</MenuItem>
-            <MenuItem onClick={handleDropdownClose}>Hardware</MenuItem>
-          </Menu>
-
-          <Button onClick={(e) => handleDropdownOpen(e, "articleReport")}>
-            Article & Report
-          </Button>
-          <Menu
-            anchorEl={anchorEl}
-            open={dropdownMenu === "articleReport"}
-            onClose={handleDropdownClose}
-          >
-            <MenuItem onClick={handleDropdownClose}>Market Reports</MenuItem>
-            <MenuItem onClick={handleDropdownClose}>Industry Articles</MenuItem>
-          </Menu>
-
-          <Button>Interview</Button>
-          <Button>News</Button>
-          <Button>Event</Button>
-          <Button>Contact</Button>
-          <Button>Advertise</Button>
-          <Button>Subscribe</Button>
-        </Typography>
-
-        <IconButton
-          size="large"
-          edge="end"
-          color="inherit"
-          onClick={(e) => handleDropdownOpen(e, "account")}
-        >
-          <AccountCircle />
-        </IconButton>
-        <Menu
-          anchorEl={anchorEl}
-          open={dropdownMenu === "account"}
-          onClose={handleDropdownClose}
-        >
-          <MenuItem onClick={handleDropdownClose}>Profile</MenuItem>
-          <MenuItem onClick={handleDropdownClose}>Logout</MenuItem>
-        </Menu>
-      </Toolbar>
+          <Toolbar>
+            <Typography variant="h6" sx={{ flexGrow: 1 ,}}>
+              <Button>Equipment & Machinery</Button>
+              <Button>Product & Technology</Button>
+              <Button>Article & Report</Button>
+              <Button>Interview</Button>
+              <Button>News</Button>
+              <Button>Event</Button>
+              <Button>Contact</Button>
+              <Button>Advertise</Button>
+              <Button>Subscribe</Button>
+            </Typography>
+            <IconButton
+              size="large"
+              edge="end"
+              color="inherit"
+              onClick={handleMenuOpen}
+            >
+              <AccountCircle />
+            </IconButton>
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+            >
+              <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+              <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+            </Menu>
+          </Toolbar>
         {/* Right Section */}
         <Stack
           direction="row"
