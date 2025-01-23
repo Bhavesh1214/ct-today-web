@@ -11,6 +11,9 @@ import {
 } from "@mui/material";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { Autoplay } from "swiper/modules";
+import "swiper/css/navigation";
+
 
 const AdvertismentsLogo = () => {
     return (
@@ -19,10 +22,14 @@ const AdvertismentsLogo = () => {
                 Advertisments
             </Typography>
             <Swiper
-                autoplay
                 spaceBetween={40}
                 speed={1500}
                 slidesPerView={1}
+                autoplay={{
+                    delay: 1000,
+                    disableOnInteraction: false, 
+                  }}
+                  modules={[Autoplay]}
                 breakpoints={{
                     600: { slidesPerView: 2 },
                     960: { slidesPerView: 3 },
