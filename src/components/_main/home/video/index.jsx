@@ -1,6 +1,9 @@
 import React from "react";
 import { Grid, Box, Typography, Paper } from "@mui/material";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
+import "swiper/css/navigation";
 const Video = () => {
   return (
     <Box sx={{ padding: 2, backgroundColor: "#ffff" }}>
@@ -9,20 +12,34 @@ const Video = () => {
         Video
       </Typography>
 
-      {/* Four Cards Section */}
-      <Grid container spacing={2} sx={{ mb: 4 }}>
-        {Array.from({ length: 4 }).map((_, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
+
+      <Swiper
+        spaceBetween={40}
+        speed={1500}
+        slidesPerView={1}
+        autoplay={{
+          delay: 1000,
+          disableOnInteraction: false,
+        }}
+        modules={[Autoplay]}
+        breakpoints={{
+          600: { slidesPerView: 2 },
+          960: { slidesPerView: 3 },
+          1280: { slidesPerView: 4 },
+        }}
+        navigation={true}
+      >
+        {Array.from({ length: 10 }).map((_, index) => (
+          <SwiperSlide key={index}>
             <Paper
               elevation={3}
               sx={{
-                padding: 0,
-                borderRadius: 0, // No border radius
-                overflow: "hidden", // Ensure the content stays inside the border
-                border: "1px solid #ccc", // Add border
+                borderRadius: "0 !important",
+                flexDirection: "column",
+                alignItems: "center",
               }}
             >
-              {/* Video Display */}
+              {/* Wrap the image in an <a> tag */}
               <Box
                 sx={{
                   // border: "4px solid #ccc", // Border around video
@@ -41,7 +58,7 @@ const Video = () => {
                   frameBorder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
-                  // style={{ height: "100%", width: "100%" }}
+                // style={{ height: "100%", width: "100%" }}
                 ></iframe>
               </Box>
 
@@ -58,9 +75,13 @@ const Video = () => {
                 </Typography>
               </Box>
             </Paper>
-          </Grid>
+          </SwiperSlide>
         ))}
-      </Grid>
+      </Swiper>
+
+      {/* Four Cards Section */}
+    
+
     </Box>
   );
 };

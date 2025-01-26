@@ -2,7 +2,9 @@ import React from "react";
 import { Grid, Box, Typography, Paper, Avatar } from "@mui/material";
 import { color } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css"; // Import Swiper core styles
+import "swiper/css";
+import { Autoplay } from "swiper/modules";
+import "swiper/css/navigation";
 
 const Testimonials = () => {
   return (
@@ -14,89 +16,60 @@ const Testimonials = () => {
 
       {/* Four Cards Section */}
 
-      {/* <Swiper
-        spaceBetween={16} // Space between slides
-        slidesPerView={1} // Default slides per view for small screens
+      <Swiper
+        spaceBetween={40}
+        speed={1500}
+        slidesPerView={1}
+        autoplay={{
+            delay: 1000,
+            disableOnInteraction: false, 
+        }}
+        modules={[Autoplay]}
         breakpoints={{
-          600: { slidesPerView: 2 }, // 2 slides for screens >= 600px
-          960: { slidesPerView: 3 }, // 3 slides for screens >= 960px
-          1280: { slidesPerView: 4 }, // 4 slides for screens >= 1280px
+            600: { slidesPerView: 2 },
+            960: { slidesPerView: 3 },
+            1280: { slidesPerView: 4 },
         }}
         navigation={true}
 
       >
-        {Array.from({ length: 5 }).map((_, index) => (
-          <SwiperSlide key={index}>
-            <Paper
-              elevation={3}
-              sx={{
-                padding: 2,
-                borderRadius: "0 !important",
-                // display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-            >
-              <img
-                src="2-m.webp"
-                style={{ width: "100%" }}
-                alt={`Slide ${index + 1}`}
-              />
-              <Typography variant="subtitle1" noWrap>
-                Building Resilient and Long...
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                Brick & Block | 03 Dec 2024
-              </Typography>
-              <Typography variant="body2" sx={{ mt: 1 }}>
-                YEIDA Unveils 20 Plots in New Housing Scheme Across Three Sectors
-                in Noida
-              </Typography>
-            </Paper>
-          </SwiperSlide>
-        ))}
-      </Swiper> */}
-      <Box sx={{
-        display: 'flex',
-        flexDirection: 'row', // Arrange boxes in a row
-        // Center the boxes horizontally
-        gap: 2, // Add spacing between the boxes
-        padding: 3,
-      }}>
-
-        <Box
-          sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            textAlign: 'center',
-            padding: 3,
-            border: '1px solid #ddd',
-            borderRadius: '8px',
-            width: '300px',
-            backgroundColor: '#f9f9f9',
-            boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
-          }}
-        >
-          <Avatar
-            src="/EezUIL10cp.jpg"
-            alt="Mr. V. G. Sakthikumar"
-            sx={{ width: 80, height: 80, marginBottom: 2 }}
-          />
-          <Typography variant="h6" fontWeight="400" sx={{ marginBottom: 2 }}>
-            “Uganda is strategically important in our business in Africa. We are
-            happy to be a part of African..”
-          </Typography>
-          <Typography
-            variant="subtitle1"
-            fontWeight="700"
-            sx={{ color: '#555', marginTop: 1 }}
+        {/* {Array.from({ length: 5 }).map((_, index) => ( */}
+        <SwiperSlide >
+          <Box
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
+              padding: 3,
+              border: '1px solid #ddd',
+              borderRadius: '8px',
+              width: '300px',
+              backgroundColor: '#f9f9f9',
+              boxShadow: '0px 4px 6px rgba(0, 0, 0, 0.1)',
+            }}
           >
-            Mr. V. G. Sakthikumar, Managing Director
-            <br />
-            Schwing Stetter India Pvt. Ltd.
-          </Typography>
-        </Box>
+            <Avatar
+              src="/EezUIL10cp.jpg"
+              alt="Mr. V. G. Sakthikumar"
+              sx={{ width: 80, height: 80, marginBottom: 2 }}
+            />
+            <Typography variant="h6" fontWeight="400" sx={{ marginBottom: 2 }}>
+              “Uganda is strategically important in our business in Africa. We are
+              happy to be a part of African..”
+            </Typography>
+            <Typography
+              variant="subtitle1"
+              fontWeight="700"
+              sx={{ color: '#555', marginTop: 1 }}
+            >
+              Mr. V. G. Sakthikumar, Managing Director
+              <br />
+              Schwing Stetter India Pvt. Ltd.
+            </Typography>
+          </Box>
+        </SwiperSlide>
+        <SwiperSlide>
         <Box
           sx={{
             display: 'flex',
@@ -130,6 +103,8 @@ const Testimonials = () => {
 
           </Typography>
         </Box>
+        </SwiperSlide>
+        <SwiperSlide>
         <Box
           sx={{
             display: 'flex',
@@ -164,6 +139,8 @@ const Testimonials = () => {
             Vibrant Construction Equipments Pvt. Ltd
           </Typography>
         </Box>
+        </SwiperSlide>
+        <SwiperSlide>
         <Box
           sx={{
             display: 'flex',
@@ -198,6 +175,9 @@ const Testimonials = () => {
             Coninfra Machinery Pvt. Ltd.
           </Typography>
         </Box>
+        </SwiperSlide>
+        <SwiperSlide>
+ 
         <Box
           sx={{
             display: 'flex',
@@ -233,8 +213,10 @@ const Testimonials = () => {
 
           </Typography>
         </Box>
-        {/* Banner Section */}
-      </Box>
+        </SwiperSlide>
+        {/* ))} */}
+      </Swiper>
+      
     </Box>
 
   );
