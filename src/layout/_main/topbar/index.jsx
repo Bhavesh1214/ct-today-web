@@ -62,12 +62,18 @@ export default function UserTopbar() {
             Saturday, 30th November 2024
           </Link>
         </Stack> */}
-        <Image
+        {/* <Image
           src={"/images/ImportedPhoto_1735036522261.jpg"}
           width={190}
           height={200}
           alt="Logo"
           style={{ width: "auto", height: "auto", objectFit: "cover" }}
+        /> */}
+         <Image
+          src={"/images/images.png"}
+          width={170}
+          height={50}
+          alt="Logo"
         />
         {/* Center Input */}
         {/* <TextField
