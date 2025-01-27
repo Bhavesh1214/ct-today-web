@@ -69,12 +69,12 @@ export default function UserTopbar() {
           alt="Logo"
           style={{ width: "auto", height: "auto", objectFit: "cover" }}
         /> */}
-         {/* <Image
+         <Image
           src={"/images/images.png"}
           width={170}
           height={50}
           alt="Logo"
-        /> */}
+        />
         {/* Center Input */}
         {/* <TextField
           placeholder="SEARCH HERE"
